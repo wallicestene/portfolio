@@ -4,10 +4,9 @@ import { DarkMode, LightMode } from '@mui/icons-material'
 
 const NavbarMobile = () => {
     const {theme, toggleTheme} = UseThemeContext()
-    console.log(theme);
   return (
     <div>
-         <nav className={`flex flex-col items-center gap-10`}>
+         <nav className=' flex flex-col items-center gap-10'>
         <ul className="flex flex-col gap-10 items-center font-SpaceGrotesk tracking-wide">
           <li>
             <a href="/">Home</a>
