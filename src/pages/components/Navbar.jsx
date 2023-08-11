@@ -4,13 +4,13 @@ import { Close, DarkMode, LightMode, Menu } from "@mui/icons-material";
 import { UseThemeContext } from "../../context/ThemeContext";
 import { Link } from "react-scroll";
 
-const Navbar = ({scrollToSkills, scrollToAbout}) => {
+const Navbar = ({scrollToSkills, scrollToAbout, scrollToProjects}) => {
   const [showNavbarMobile, setShowNavbarMobile] = useState(false);
   const { theme, toggleTheme } = UseThemeContext();
 
   return (
     <header className=" w-11/12 mx-auto relative">
-      <nav className=" flex justify-between items-center h-14 mb-5">
+      <nav className=" flex justify-between">
         <div
           className={`font-SpaceGrotesk font-extrabold tracking-wider text-2xl delay-100 duration-100 transition ${
             theme === "light" ? " text-primary" : "text-secondary "
@@ -30,7 +30,7 @@ const Navbar = ({scrollToSkills, scrollToAbout}) => {
             <Link to="skills" smooth={true} onClick={scrollToSkills} > Skills</Link>
           </li>
           <li>
-            <Link to="projects"> Projects</Link>
+            <Link to="projects" smooth={true} onClick={scrollToProjects} > Projects</Link>
           </li>
           <li>
             <Link to="contact"> Contact </Link>
@@ -60,7 +60,7 @@ const Navbar = ({scrollToSkills, scrollToAbout}) => {
           >
             <Close fontSize="large" />
           </div>
-          <NavbarMobile scrollToSkills={scrollToSkills} scrollToAbout={scrollToAbout} />
+          <NavbarMobile scrollToSkills={scrollToSkills} scrollToAbout={scrollToAbout} scrollToProjects={scrollToProjects}/>
         </div>
       )}
       <div

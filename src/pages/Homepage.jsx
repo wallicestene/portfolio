@@ -4,6 +4,7 @@ import { UseThemeContext } from "../context/ThemeContext";
 import wallace from "../assets/wallicestene.png";
 import { Element, scroller } from "react-scroll";
 import Skills from "./Skills";
+import ProjectsPage from "./ProjectsPage";
 const Homepage = () => {
   const { theme, toggleTheme } = UseThemeContext();
   const handleDownload = () => {
@@ -23,6 +24,13 @@ const Homepage = () => {
       });
   };
   const scrollToAbout = () => {
+    scroller.scrollTo('about', {
+      duration: 800,
+      delay: 0,
+      smooth: 'easeInOutQuart'
+    });
+  };
+  const scrollToProjects = () => {
     scroller.scrollTo('about', {
       duration: 800,
       delay: 0,
@@ -52,8 +60,10 @@ const Homepage = () => {
         theme === "light" ? " text-primary bg-secondary" : " text-secondary"
       }`}
     >
-      <div>
-        <Navbar scrollToAbout={scrollToAbout} scrollToSkills={scrollToSkills} scrollToContact={scrollToContact}/>
+      <div className={`fixed top-0 w-full flex z-40 items-center h-12 delay-100 duration-100 transition ${
+            theme === "light" ? " bg-secondary" : " bg-primary "
+          }`}>
+        <Navbar scrollToAbout={scrollToAbout} scrollToProjects={scrollToProjects} scrollToSkills={scrollToSkills} scrollToContact={scrollToContact}/>
       </div>
       <div className=" grid lg:grid-cols-2 grid-cols-1 relative text-center lg:text-start mt-5">
         <Element name="about" className="left flex flex-col justify-center bg-slate-10 h-screen font-SpaceGrotesk px-2">
@@ -105,6 +115,7 @@ const Homepage = () => {
       
     </div>
     <Skills handleDownload={handleDownload}/>
+    <ProjectsPage/>
     </>
   );
 };
