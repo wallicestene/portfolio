@@ -2,8 +2,8 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import { UseThemeContext } from "../context/ThemeContext";
 import wallace from "../assets/wallicestene.png";
-import Aboutpage from "./Aboutpage";
-import { scroller } from "react-scroll";
+import SkillsPage from "./Skillspage";
+import { Element, scroller } from "react-scroll";
 const Homepage = () => {
   const { theme, toggleTheme } = UseThemeContext();
   const handleDownload = () => {
@@ -21,6 +21,13 @@ const Homepage = () => {
       .catch((error) => {
         console.error("Error downloading the file:", error);
       });
+  };
+  const scrollToAbout = () => {
+    scroller.scrollTo('about', {
+      duration: 800,
+      delay: 0,
+      smooth: 'easeInOutQuart',
+    });
   };
   const scrollToSkills = () => {
     scroller.scrollTo('about', {
@@ -46,10 +53,10 @@ const Homepage = () => {
       }`}
     >
       <div>
-        <Navbar scrollToSkills={scrollToSkills} scrollToContact={scrollToContact}/>
+        <Navbar scrollToAbout={scrollToAbout} scrollToSkills={scrollToSkills} scrollToContact={scrollToContact}/>
       </div>
       <div className=" grid lg:grid-cols-2 grid-cols-1 relative text-center lg:text-start mt-5">
-        <div className="left flex flex-col justify-center bg-slate-10 h-screen font-SpaceGrotesk px-2">
+        <Element name="about" className="left flex flex-col justify-center bg-slate-10 h-screen font-SpaceGrotesk px-2">
           <h1 className=" text-2xl lg:text-5xl font-bold my-2 tracking-wide">
             Hello!
           </h1>
@@ -90,14 +97,14 @@ const Homepage = () => {
           </button>
           </div>
           
-        </div>
+        </Element>
         <div className="right hidden bg-slate-10 lg:grid place-items-center">
           <img src={wallace} className="h-96 object-contain" />
         </div>
       </div>
       
     </div>
-    <Aboutpage handleDownload={handleDownload}/>
+    <SkillsPage handleDownload={handleDownload}/>
     </>
   );
 };

@@ -4,7 +4,7 @@ import { Close, DarkMode, LightMode, Menu } from "@mui/icons-material";
 import { UseThemeContext } from "../../context/ThemeContext";
 import { Link } from "react-scroll";
 
-const Navbar = ({scrollToSkills}) => {
+const Navbar = ({scrollToSkills, scrollToAbout}) => {
   const [showNavbarMobile, setShowNavbarMobile] = useState(false);
   const { theme, toggleTheme } = UseThemeContext();
 
@@ -24,7 +24,7 @@ const Navbar = ({scrollToSkills}) => {
           }`}
         >
           <li>
-            <Link to="/"> Home</Link>
+            <Link to="about" onAbort={scrollToAbout}>About</Link>
           </li>
           <li>
             <Link to="skills" smooth={true} onClick={scrollToSkills} > Skills</Link>
@@ -60,7 +60,7 @@ const Navbar = ({scrollToSkills}) => {
           >
             <Close fontSize="large" />
           </div>
-          <NavbarMobile />
+          <NavbarMobile scrollToSkills={scrollToSkills} scrollToAbout={scrollToAbout} />
         </div>
       )}
       <div
