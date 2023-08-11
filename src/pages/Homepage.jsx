@@ -2,8 +2,8 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import { UseThemeContext } from "../context/ThemeContext";
 import wallace from "../assets/wallicestene.png";
-import SkillsPage from "./Skillspage";
 import { Element, scroller } from "react-scroll";
+import SkillsPage from "./SkillsPage";
 const Homepage = () => {
   const { theme, toggleTheme } = UseThemeContext();
   const handleDownload = () => {
@@ -26,7 +26,7 @@ const Homepage = () => {
     scroller.scrollTo('about', {
       duration: 800,
       delay: 0,
-      smooth: 'easeInOutQuart',
+      smooth: 'easeInOutQuart'
     });
   };
   const scrollToSkills = () => {
