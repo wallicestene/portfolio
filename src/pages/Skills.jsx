@@ -1,7 +1,6 @@
 import React from 'react'
 import { Element } from 'react-scroll'
-import { UseThemeContext } from '../context/ThemeContext';
-import SkillsOptions from './components/skillsOptions';
+
 import reactIcon from "../assets/physics.png"
 import htmlIcon from "../assets/html-5.png"
 import JavascriptIcon from "../assets/js.png"
@@ -12,6 +11,8 @@ import nodeIcon from "../assets/node-js.png"
 import expressIcon from "../assets/express.png"
 import mongoDBIcon from "../assets/mongodb.png"
 import firebaseIcon from "../assets/firebase.png"
+import SkillsOptions from './components/skillsOptions';
+import { UseThemeContext } from '../context/ThemeContext'
 
 function Skills({handleDownload}) {
     const { theme, toggleTheme } = UseThemeContext();
