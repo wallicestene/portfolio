@@ -13,7 +13,7 @@ import expressIcon from "../assets/express.png"
 import mongoDBIcon from "../assets/mongodb.png"
 import firebaseIcon from "../assets/firebase.png"
 
-export default function Skillspage({handleDownload}) {
+ function Skillspage({handleDownload}) {
     const { theme, toggleTheme } = UseThemeContext();
   return (
 
@@ -72,3 +72,4 @@ export default function Skillspage({handleDownload}) {
     </Element>
   )
 }
+export default Skillspage
