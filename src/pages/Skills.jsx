@@ -11,8 +11,8 @@ import nodeIcon from "../assets/node-js.png"
 import expressIcon from "../assets/express.png"
 import mongoDBIcon from "../assets/mongodb.png"
 import firebaseIcon from "../assets/firebase.png"
-import SkillsOptions from './components/skillsOptions';
 import { UseThemeContext } from '../context/ThemeContext'
+import SkillsCards from './SkillsCards'
 
 function Skills({handleDownload}) {
     const { theme, toggleTheme } = UseThemeContext();
@@ -58,16 +58,16 @@ function Skills({handleDownload}) {
           </div>
           <div className= "right grid place-items-center">
               <div className=' grid  grid-cols-2 gap-5'>
-              <SkillsOptions title="React" icon={reactIcon}/>
-              <SkillsOptions title="Javascript" icon={JavascriptIcon}/>
-              <SkillsOptions title="Tailwind-CSS" icon={tailwindIcon}/>
-              <SkillsOptions title="HTML" icon={htmlIcon}/>
-              <SkillsOptions title="css" icon={cssIcon}/>
-              <SkillsOptions title="Git" icon={gitIcon}/>
-              <SkillsOptions title="Node.js" icon={nodeIcon}/>
-              <SkillsOptions title="Express" icon={expressIcon}/>
-              <SkillsOptions title="MongoDB" icon={mongoDBIcon}/>
-              <SkillsOptions title="Firebase" icon={firebaseIcon}/>
+              <SkillsCards title="React" icon={reactIcon}/>
+              <SkillsCards title="Javascript" icon={JavascriptIcon}/>
+              <SkillsCards title="Tailwind-CSS" icon={tailwindIcon}/>
+              <SkillsCards title="HTML" icon={htmlIcon}/>
+              <SkillsCards title="css" icon={cssIcon}/>
+              <SkillsCards title="Git" icon={gitIcon}/>
+              <SkillsCards title="Node.js" icon={nodeIcon}/>
+              <SkillsCards title="Express" icon={expressIcon}/>
+              <SkillsCards title="MongoDB" icon={mongoDBIcon}/>
+              <SkillsCards title="Firebase" icon={firebaseIcon}/>
               </div>
           </div>
       </Element>
