@@ -18,7 +18,7 @@ function Skills({handleDownload}) {
     const { theme, toggleTheme } = UseThemeContext();
     return (
   
-      <Element name="skills" className={` grid overflow-hidden lg:grid-cols-2 grid-cols-1 h-screen bg-primary delay-100 duration-100 transition ${
+      <Element name="skills" className={` grid overflow-hidden lg:grid-cols-2 grid-cols-1 h-screen bg-primary delay-100 duration-500 transition ${
           theme === "light" ? " text-primary bg-secondary" : " text-secondary"
         }`}>
           <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">

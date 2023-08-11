@@ -12,7 +12,7 @@ const Navbar = ({scrollToSkills, scrollToAbout, scrollToProjects}) => {
     <header className=" w-11/12 mx-auto relative">
       <nav className=" flex justify-between">
         <div
-          className={`font-SpaceGrotesk font-extrabold tracking-wider text-2xl delay-100 duration-100 transition ${
+          className={`font-SpaceGrotesk font-extrabold tracking-wider text-2xl delay-100 duration-500 transition ${
             theme === "light" ? " text-primary" : "text-secondary "
           }`}
         >
@@ -50,7 +50,7 @@ const Navbar = ({scrollToSkills, scrollToAbout, scrollToProjects}) => {
 
       {showNavbarMobile && (
         <div
-          className={` lg:hidden fixed z-40 h-screen w-1/2 bg-primary text top-0 right-0  delay-100 duration-100 transition ${
+          className={` lg:hidden fixed z-40 h-screen w-1/2 bg-primary text top-0 right-0  delay-100 duration-500 transition ${
             theme === "light" ? " text-primary bg-white" : " text-secondary"
           }`}
         >

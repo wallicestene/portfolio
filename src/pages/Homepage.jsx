@@ -56,11 +56,11 @@ const Homepage = () => {
   return (
     <>
     <div
-      className={` lg:h-screen bg-primary delay-100 duration-100 transition ${
+      className={` lg:h-screen bg-primary delay-100 duration-500 transition ${
         theme === "light" ? " text-primary bg-secondary" : " text-secondary"
       }`}
     >
-      <div className={`fixed top-0 w-full flex z-40 items-center h-12 delay-100 duration-100 transition ${
+      <div className={`fixed top-0 w-full flex z-40 items-center h-12 delay-100 duration-500 transition ${
             theme === "light" ? " bg-secondary" : " bg-primary "
           }`}>
         <Navbar scrollToAbout={scrollToAbout} scrollToProjects={scrollToProjects} scrollToSkills={scrollToSkills} scrollToContact={scrollToContact}/>

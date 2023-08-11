@@ -2,11 +2,14 @@ import React from 'react'
 import { Element } from 'react-scroll'
 import { UseThemeContext } from '../context/ThemeContext';
 import ProjectsCards from './ProjectsCards';
-
+import EShop from "../assets/projectImages/E-shop.png"
+import Recipe from "../assets/projectImages/Recipe.png"
+import Space from "../assets/projectImages/Space.png"
+import Password from "../assets/projectImages/Password.png"
 function ProjectsPage() {
     const { theme, toggleTheme } = UseThemeContext();
   return (
-    <Element name='projects' className={` grid overflow-hidden lg:grid-cols-2 grid-cols-1 h-screen bg-primary delay-100 duration-100 transition ${
+    <Element name='projects' className={` grid overflow-hidden lg:grid-cols-2 grid-cols-1 h-screen bg-primary delay-100 duration-500 transition ${
         theme === "light" ? " text-primary bg-secondary" : " text-secondary"
       }`}>
         <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
@@ -42,11 +45,12 @@ function ProjectsPage() {
             </a>
             </div>
         </div>
-        <div className="right lg:mt-10 grid grid-cols-1 gap-5 place-items-center h-11/12 overflow-auto py-2">
-            <ProjectsCards image="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" title="E-shop" stack="Next.js + Tailwind + pexels API" description="Get all clothing in one place" link="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" live="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" />
-            <ProjectsCards image="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" title="E-shop" stack="Next.js + Tailwind + pexels API" description="Get all clothing in one place" link="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" live="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" />
-            <ProjectsCards image="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" title="E-shop" stack="Next.js + Tailwind + pexels API" description="Get all clothing in one place" link="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" live="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" />
-            <ProjectsCards image="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" title="E-shop" stack="Next.js + Tailwind + pexels API" description="Get all clothing in one place" link="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" live="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" />
+        <div className="right lg:mt-10 grid grid-cols-1 gap-7 place-items-center h-11/12 overflow-auto py-2">
+            <ProjectsCards image={EShop} title="E-shop" stack="React + Node.js + Express.js + MongoDB + Tailwind" description="Fashon, Accesories and clothing E-commerce Store." link="https://github.com/wallicestene/Ecommerce-shop.git" live="https://my-e-commerce-shop.netlify.app/?#/"/>
+            <ProjectsCards image={Recipe} title="Recipe Realm" stack="Vite+React + Tailwind + Firebase" description="Advance Recipe finder app with hundreds of recipes to choose from." link="https://github.com/wallicestene/Recipe-app.git" live="https://wallicestene.github.io/Recipe-app/#/" />
+            <ProjectsCards image={Space} title="Space Tourism" stack="Vite+React + CSS + API" description="Space Tourism multi-page website" link="https://github.com/wallicestene/Space-Tourism.git" live="https://wallicestene.github.io/Space-Tourism/#/" />
+            <ProjectsCards image={Space} title="Space Tourism" stack="Vite+React + CSS + API" description="Space Tourism multi-page website" link="https://github.com/wallicestene/Space-Tourism.git" live="https://wallicestene.github.io/Space-Tourism/#/" />
+            <ProjectsCards image={Password} title="TO-DO list" stack="React + CSS " description="A simple TO-DO list app." link="https://github.com/wallicestene/To-do-App.git" live="https://wallicestene.github.io/To-do-App/" />
         </div>
     </Element>
   )
