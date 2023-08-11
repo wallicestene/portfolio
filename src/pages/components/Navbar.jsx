@@ -65,7 +65,7 @@ const Navbar = ({scrollToSkills}) => {
       )}
       <div
         onClick={toggleTheme}
-        className=" lg:absolute hidden right-0 bg-white z-10 text-primary h-10 w-10 lg:grid place-items-center rounded-full cursor-pointer shadow-lg"
+        className=" lg:fixed hidden right-10 bg-white z-10 text-primary h-10 w-10 lg:grid place-items-center rounded-full cursor-pointer shadow-lg"
       >
         {theme === "light" ? (
           <DarkMode fontSize="small" />

@@ -41,15 +41,15 @@ const Homepage = () => {
   return (
     <>
     <div
-      className={` h-screen bg-primary delay-100 duration-100 transition ${
+      className={` lg:h-screen bg-primary delay-100 duration-100 transition ${
         theme === "light" ? " text-primary bg-secondary" : " text-secondary"
       }`}
     >
       <div>
         <Navbar scrollToSkills={scrollToSkills} scrollToContact={scrollToContact}/>
       </div>
-      <div className=" grid lg:grid-cols-2 relative text-center lg:text-start mt-5">
-        <div className="left flex flex-col justify-center font-SpaceGrotesk px-2">
+      <div className=" grid lg:grid-cols-2 grid-cols-1 relative text-center lg:text-start mt-5">
+        <div className="left flex flex-col justify-center bg-slate-10 h-screen font-SpaceGrotesk px-2">
           <h1 className=" text-2xl lg:text-5xl font-bold my-2 tracking-wide">
             Hello!
           </h1>

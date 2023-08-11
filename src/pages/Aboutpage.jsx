@@ -1,12 +1,23 @@
 import React from 'react'
 import { Element } from 'react-scroll'
 import { UseThemeContext } from '../context/ThemeContext';
+import SkillsOptions from './components/skillsOptions';
+import reactIcon from "../assets/physics.png"
+import htmlIcon from "../assets/html-5.png"
+import JavascriptIcon from "../assets/js.png"
+import gitIcon from "../assets/git.png"
+import cssIcon from "../assets/css3.png"
+import tailwindIcon from "../assets/tailwind-css.png"
+import nodeIcon from "../assets/node-js.png"
+import expressIcon from "../assets/express.png"
+import mongoDBIcon from "../assets/mongodb.png"
+import firebaseIcon from "../assets/firebase.png"
 
 export default function Aboutpage({handleDownload}) {
     const { theme, toggleTheme } = UseThemeContext();
   return (
 
-    <Element name="skills" className={` grid lg:grid-cols-2 grid-cols-1 h-screen bg-primary delay-100 duration-100 transition ${
+    <Element name="skills" className={` grid overflow-auto lg:grid-cols-2 grid-cols-1 h-screen bg-primary delay-100 duration-100 transition ${
         theme === "light" ? " text-primary bg-secondary" : " text-secondary"
       }`}>
         <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
@@ -44,8 +55,19 @@ export default function Aboutpage({handleDownload}) {
           </div>
           
         </div>
-        <div className= "right">
-
+        <div className= "right grid place-items-center">
+            <div className=' grid  grid-cols-2 gap-5'>
+            <SkillsOptions title="React" icon={reactIcon}/>
+            <SkillsOptions title="Javascript" icon={JavascriptIcon}/>
+            <SkillsOptions title="Tailwind-CSS" icon={tailwindIcon}/>
+            <SkillsOptions title="HTML" icon={htmlIcon}/>
+            <SkillsOptions title="css" icon={cssIcon}/>
+            <SkillsOptions title="Git" icon={gitIcon}/>
+            <SkillsOptions title="Node.js" icon={nodeIcon}/>
+            <SkillsOptions title="Express" icon={expressIcon}/>
+            <SkillsOptions title="MongoDB" icon={mongoDBIcon}/>
+            <SkillsOptions title="Firebase" icon={firebaseIcon}/>
+            </div>
         </div>
     </Element>
   )
