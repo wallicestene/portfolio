@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import { UseThemeContext } from "../context/ThemeContext";
 import wallace from "../assets/wallicestene.png";
 import { Element, scroller } from "react-scroll";
-import SkillsPage from "./SkillsPage";
+import Skills from "./Skills";
 const Homepage = () => {
   const { theme, toggleTheme } = UseThemeContext();
   const handleDownload = () => {
@@ -104,7 +104,7 @@ const Homepage = () => {
       </div>
       
     </div>
-    <SkillsPage handleDownload={handleDownload}/>
+    <Skills handleDownload={handleDownload}/>
     </>
   );
 };

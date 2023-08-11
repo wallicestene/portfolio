@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Element } from 'react-scroll'
 import { UseThemeContext } from '../context/ThemeContext';
@@ -14,7 +13,7 @@ import expressIcon from "../assets/express.png"
 import mongoDBIcon from "../assets/mongodb.png"
 import firebaseIcon from "../assets/firebase.png"
 
-function SkillsPage({handleDownload}) {
+function Skills({handleDownload}) {
     const { theme, toggleTheme } = UseThemeContext();
     return (
   
@@ -74,4 +73,4 @@ function SkillsPage({handleDownload}) {
     )
 }
 
-export default SkillsPage
+export default Skills
