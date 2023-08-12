@@ -3,7 +3,7 @@ import { UseThemeContext } from '../../context/ThemeContext'
 import { DarkMode, LightMode } from '@mui/icons-material'
 import { Link } from 'react-scroll'
 
-const NavbarMobile = ({scrollToSkills, scrollToAbout, scrollToProjects}) => {
+const NavbarMobile = ({scrollToSkills, scrollToAbout, scrollToProjects, scrollToContact}) => {
     const {theme, toggleTheme} = UseThemeContext()
   return (
     <div>
@@ -19,7 +19,7 @@ const NavbarMobile = ({scrollToSkills, scrollToAbout, scrollToProjects}) => {
           <Link to="projects" smooth={true} onClick={scrollToProjects} > Projects</Link>
           </li>
           <li>
-            <Link to="contact">Contact</Link>
+            <Link to="contact" smooth={true} onClick={scrollToContact}>Contact</Link>
           </li>
         </ul>
         <div onClick={toggleTheme} className=' bg-white text-primary h-10 w-10 grid place-items-center rounded-full cursor-pointer shadow-md'>

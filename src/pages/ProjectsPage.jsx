@@ -24,7 +24,7 @@ function ProjectsPage() {
             </p>
             <div className="my-4  grid place-items-center lg:flex lg:justify-start">
               <a href='https://github.com/wallicestene'
-              className={`relative px-7 py-3  group w-fit delay-100 duration-100 transition`}
+              className={`relative px-7 py-2  group w-fit delay-100 duration-100 transition`}
             >
               <span
                 className={`absolute inset-0 w-full h-full bg-transparent border-2 transition duration-200 ease-out transform translate-x-1 translate-y-1 group-hover:-translate-x-0 group-hover:-translate-y-0  ${
