@@ -19,19 +19,19 @@ function Skills({handleDownload}) {
     return (
   
       <Element name="skills" className={` grid overflow-hidden lg:grid-cols-2 grid-cols-1 h-screen bg-primary delay-100 duration-500 transition ${
-          theme === "light" ? " text-primary bg-secondary" : " text-secondary"
-        }`}>
+        theme === "light" ? " text-neutral-600 bg-secondary" : " text-neutral-400"
+      }`}>
           <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
             <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
-            I mostly use front-end technologies.
+            My Development <span  className={`  delay-100 duration-500 transition  ${theme === "light" ? " text-primary"  : "text-white"}`}>Tech Stack</span>
             </h2>
             <p>
-            I have worked with a variety of tools over the course of my career on personal, commercial, and open-source projects. A key part of advancing my professional development and talents has also been played by my well-honed soft skills.
+            Throughout <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> my journey</span>, I've engaged with a diverse array of <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> tools and technologies</span>, both in personal and open-source projects. My journey has been enriched by cultivating a range of <span className={`  delay-100 duration-500 transition  ${theme === "light" ? " text-primary"  : "text-white"}`}>soft skills, complementing my professional growth.</span>
             </p>
             <div className="my-4  grid place-items-center lg:flex lg:justify-start">
               <button
               onClick={handleDownload}
-              className={`relative px-5 py-2 font-medium group w-fit delay-100 duration-100 transition`}
+              className={`relative px-7 py-3 group w-fit delay-100 duration-100 transition`}
             >
               <span
                 className={`absolute inset-0 w-full h-full bg-transparent border-2 transition duration-200 ease-out transform translate-x-1 translate-y-1 group-hover:-translate-x-0 group-hover:-translate-y-0  ${

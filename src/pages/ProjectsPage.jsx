@@ -13,18 +13,18 @@ function ProjectsPage() {
     const { theme, toggleTheme } = UseThemeContext();
   return (
     <Element name='projects' className={` grid overflow-hidden lg:grid-cols-2 grid-cols-1 h-screen bg-primary delay-100 duration-500 transition ${
-        theme === "light" ? " text-primary bg-secondary" : " text-secondary"
-      }`}>
+      theme === "light" ? " text-neutral-600 bg-secondary" : " text-neutral-400"
+    }`}>
         <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
         <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
-        I enjoy working on fun projects.
+        I enjoy working on fun <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> projects.</span>
             </h2>
             <p>
-            During my free moments, I take pleasure in both exploring and constructing endeavors that personally captivate me or hold practical value. You can discover a selection of these undertakings on my GitHub profile, alongside a variety of other miscellaneous creations that I've dedicated my efforts to.
+            During my free moments, I take pleasure in both <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}>exploring and constructing </span> endeavors that personally captivate me or hold practical value. You can discover a selection of these undertakings on my <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}>GitHub profile,</span> alongside a variety of other miscellaneous creations that <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}>I've dedicated my efforts to.</span>
             </p>
             <div className="my-4  grid place-items-center lg:flex lg:justify-start">
               <a href='https://github.com/wallicestene'
-              className={`relative px-5 py-2 font-medium group w-fit delay-100 duration-100 transition`}
+              className={`relative px-7 py-3  group w-fit delay-100 duration-100 transition`}
             >
               <span
                 className={`absolute inset-0 w-full h-full bg-transparent border-2 transition duration-200 ease-out transform translate-x-1 translate-y-1 group-hover:-translate-x-0 group-hover:-translate-y-0  ${
@@ -32,7 +32,7 @@ function ProjectsPage() {
                 }`}
               ></span>
               <span
-                className={`absolute inset-0 w-full h-full bg-primary ${
+                className={`absolute  delay-100 duration-500 transition  inset-0 w-full h-full bg-primary ${
                   theme === "light"
                     ? " text-secondary bg-primary"
                     : " text-primary bg-secondary"
