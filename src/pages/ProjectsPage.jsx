@@ -6,6 +6,9 @@ import EShop from "../assets/projectImages/E-shop.png"
 import Recipe from "../assets/projectImages/Recipe.png"
 import Space from "../assets/projectImages/Space.png"
 import Password from "../assets/projectImages/Password.png"
+import Countries from "../assets/projectImages/Countries.png"
+import Todo from "../assets/projectImages/TO-DO.png"
+import SLack from "../assets/projectImages/Slack.png"
 function ProjectsPage() {
     const { theme, toggleTheme } = UseThemeContext();
   return (
@@ -29,7 +32,7 @@ function ProjectsPage() {
                 }`}
               ></span>
               <span
-                class={`absolute inset-0 w-full h-full bg-primary ${
+                className={`absolute inset-0 w-full h-full bg-primary ${
                   theme === "light"
                     ? " text-secondary bg-primary"
                     : " text-primary bg-secondary"
@@ -45,12 +48,13 @@ function ProjectsPage() {
             </a>
             </div>
         </div>
-        <div className="right lg:mt-10 grid grid-cols-1 gap-7 place-items-center h-11/12 overflow-auto py-2">
+        <div className="projectRight lg:mt-10 grid grid-cols-1 gap-7 place-items-center h-11/12 overflow-auto py-2">
             <ProjectsCards image={EShop} title="E-shop" stack="React + Node.js + Express.js + MongoDB + Tailwind" description="Fashon, Accesories and clothing E-commerce Store." link="https://github.com/wallicestene/Ecommerce-shop.git" live="https://my-e-commerce-shop.netlify.app/?#/"/>
             <ProjectsCards image={Recipe} title="Recipe Realm" stack="Vite+React + Tailwind + Firebase" description="Advance Recipe finder app with hundreds of recipes to choose from." link="https://github.com/wallicestene/Recipe-app.git" live="https://wallicestene.github.io/Recipe-app/#/" />
-            <ProjectsCards image={Space} title="Space Tourism" stack="Vite+React + CSS + API" description="Space Tourism multi-page website" link="https://github.com/wallicestene/Space-Tourism.git" live="https://wallicestene.github.io/Space-Tourism/#/" />
-            <ProjectsCards image={Space} title="Space Tourism" stack="Vite+React + CSS + API" description="Space Tourism multi-page website" link="https://github.com/wallicestene/Space-Tourism.git" live="https://wallicestene.github.io/Space-Tourism/#/" />
+            <ProjectsCards image={Space} title="Space Tourism" stack="Vite+React + CSS + API" description="Space Tourism multi-page website." link="https://github.com/wallicestene/Space-Tourism.git" live="https://wallicestene.github.io/Space-Tourism/#/" />
+            <ProjectsCards image={Countries} title="REST Countries" stack="React + CSS + REST API" description="REST Countries API with color theme switcher." link="https://github.com/wallicestene/the-countries.git" live="https://wallicestene.github.io/the-countries/#/" />
             <ProjectsCards image={Password} title="TO-DO list" stack="React + CSS " description="A simple TO-DO list app." link="https://github.com/wallicestene/To-do-App.git" live="https://wallicestene.github.io/To-do-App/" />
+            <ProjectsCards image={SLack} title="My-Slack" stack="React + CSS + Firebase + Redux " description="A simple Slack Clone App." link="https://github.com/wallicestene/Slack-clone.git" live="https://slack-clone-a1504.web.app/" />
         </div>
     </Element>
   )

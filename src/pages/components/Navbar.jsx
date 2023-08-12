@@ -23,16 +23,16 @@ const Navbar = ({scrollToSkills, scrollToAbout, scrollToProjects}) => {
             theme === "light" ? " text-primary" : "text-secondary "
           }`}
         >
-          <li>
+          <li className=" cursor-pointer">
             <Link to="about" onAbort={scrollToAbout}>About</Link>
           </li>
-          <li>
+          <li className=" cursor-pointer">
             <Link to="skills" smooth={true} onClick={scrollToSkills} > Skills</Link>
           </li>
-          <li>
+          <li className=" cursor-pointer">
             <Link to="projects" smooth={true} onClick={scrollToProjects} > Projects</Link>
           </li>
-          <li>
+          <li className=" cursor-pointer">
             <Link to="contact"> Contact </Link>
           </li>
         </ul>

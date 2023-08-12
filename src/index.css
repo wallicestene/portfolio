@@ -7,3 +7,12 @@
 .MuiSvgIcon-root{
   @apply cursor-pointer
 }
+.projectRight::-webkit-scrollbar{
+  @apply w-2 bg-white  rounded-lg
+}
+.projectRight::-webkit-scrollbar-thumb{
+  @apply bg-neutral-950 rounded-lg
+}
+body::-webkit-scrollbar{
+  display: none;
+}

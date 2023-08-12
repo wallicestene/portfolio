@@ -91,7 +91,7 @@ const Homepage = () => {
               }`}
             ></span>
             <span
-              class={`absolute inset-0 w-full h-full bg-primary ${
+              className={`absolute inset-0 w-full h-full bg-primary ${
                 theme === "light"
                   ? " text-secondary bg-primary"
                   : " text-primary bg-secondary"
