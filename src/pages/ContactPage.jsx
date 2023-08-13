@@ -110,7 +110,7 @@ function ContactPage() {
           <a href="https://twitter.com/wallicestene?t=_BQ3dIazwHV481hk8EFILg&s=09" className={` grid place-items-center h-10 w-10 hover:cursor-pointer shadow-xl rounded-full text-primary ${theme === "light" ? " bg-primary text-secondary" : "  bg-white text-primary"} `}><Twitter/></a>
         </Slide>
         }
-        <div className=" bg-white grid place-items-center h-10 w-10 hover:cursor-pointer shadow-xl rounded-full text-primary" onClick={() => setShowSocials(!showSocials)}>
+        <div  className={` grid place-items-center h-10 w-10 hover:cursor-pointer shadow-xl rounded-full text-primary ${theme === "light" ? " bg-primary text-secondary" : "  bg-white text-primary"} `} onClick={() => setShowSocials(!showSocials)}>
           {
             !showSocials ? <Share/> : <Close/>
           }
