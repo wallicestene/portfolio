@@ -2,12 +2,14 @@ import React from "react";
 import { UseThemeContext } from "../context/ThemeContext";
 import { Element } from "react-scroll";
 import { useState } from "react";
+import { Close, GitHub, LinkedIn, Share, Twitter } from "@mui/icons-material";
+import { Slide } from "react-awesome-reveal";
 
 function ContactPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
+  const [showSocials, setShowSocials] = useState(false);
   const { theme, toggleTheme } = UseThemeContext();
 
   const handleNameChange = (event) => {
@@ -32,7 +34,7 @@ function ContactPage() {
   };
 
   return (
-    <Element name="contact" className={` grid overflow-hidden lg:grid-cols-2 grid-cols-1 h-screen bg-primary delay-100 duration-500 transition ${
+    <Element name="contact" className={`relative grid overflow-hidden lg:grid-cols-2 grid-cols-1 h-screen bg-primary delay-100 duration-500 transition ${
         theme === "light" ? " text-neutral-600 bg-secondary" : " text-neutral-400"
       }`}>
       <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
@@ -99,6 +101,20 @@ function ContactPage() {
             </span>
           </button>
         </form>
+      </div>
+      <div className=" fixed z-10 bottom-10 right-10 ">
+        {
+          showSocials && <Slide direction="left" damping={1} duration={500} className=" flex flex-col gap-3 mb-3">
+          <a href="https://www.linkedin.com/in/wallicestene-waweru-a26744249" className={` grid place-items-center h-10 w-10 hover:cursor-pointer shadow-xl rounded-full text-primary ${theme === "light" ? " bg-primary text-secondary" : "  bg-white text-primary"} `}><LinkedIn/></a>
+          <a href="http://github.com/wallicestene" className={` grid place-items-center h-10 w-10 hover:cursor-pointer shadow-xl rounded-full text-primary ${theme === "light" ? " bg-primary text-secondary" : "  bg-white text-primary"} `}><GitHub/></a>
+          <a href="https://twitter.com/wallicestene?t=_BQ3dIazwHV481hk8EFILg&s=09" className={` grid place-items-center h-10 w-10 hover:cursor-pointer shadow-xl rounded-full text-primary ${theme === "light" ? " bg-primary text-secondary" : "  bg-white text-primary"} `}><Twitter/></a>
+        </Slide>
+        }
+        <div className=" bg-white grid place-items-center h-10 w-10 hover:cursor-pointer shadow-xl rounded-full text-primary" onClick={() => setShowSocials(!showSocials)}>
+          {
+            !showSocials ? <Share/> : <Close/>
+          }
+        </div>
       </div>
     </Element>
   );
