@@ -7,18 +7,18 @@ const NavbarMobile = ({scrollToSkills, scrollToAbout, scrollToProjects, scrollTo
     const {theme, toggleTheme} = UseThemeContext()
   return (
     <div>
-         <nav className=' flex flex-col items-center gap-10'>
-        <ul className="flex flex-col gap-10 items-center font-SpaceGrotesk tracking-wide">
-          <li>
+         <nav className=' flex flex-col items-center gap-20'>
+        <ul className="flex flex-col gap-10 items-center font-SpaceGrotesk tracking-wide text-lg">
+          <li className=' cursor-pointer'>
           <Link to="about" onClick={scrollToAbout} >About</Link>
           </li>
-          <li>
+          <li className=' cursor-pointer'>
           <Link to="skills" smooth={true} onClick={scrollToSkills} > Skills</Link>
           </li>
-          <li>
+          <li className=' cursor-pointer'>
           <Link to="projects" smooth={true} onClick={scrollToProjects} > Projects</Link>
           </li>
-          <li>
+          <li className=' cursor-pointer'>
             <Link to="contact" smooth={true} onClick={scrollToContact}>Contact</Link>
           </li>
         </ul>
