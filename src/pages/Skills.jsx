@@ -23,7 +23,7 @@ function Skills({handleDownload}) {
         theme === "light" ? " text-neutral-600 bg-secondary" : " text-neutral-400"
       }`}>
           <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
-            <Slide duration={1500} direction='left' cascade triggerOnce>
+            <Slide duration={1200} direction='left' triggerOnce>
             <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
             My Development <span  className={`  delay-100 duration-500 transition  ${theme === "light" ? " text-primary"  : "text-white"}`}>Tech Stack</span>
             </h2>
