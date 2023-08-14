@@ -43,7 +43,7 @@ function ContactPage() {
       Want to work with me?<span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> let's Connect</span>
             </h2>
             <p>
-            I am open to <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> remote, </span> full-time, part-time roles. If you've got anything you think I'd be interested in then <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> fill the form.</span> 
+            I am open to <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> part-time, full-time, and remote</span> positions. <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> fill out the form</span> if you have anything you think I'd be interested in.
             </p></Slide>
       </div>
       <Slide triggerOnce duration={1200}  direction="right" className="right grid place-items-center ">
