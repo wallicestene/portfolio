@@ -1,11 +1,12 @@
 import { GitHub, Visibility } from '@mui/icons-material'
 import React from 'react'
 import { UseThemeContext } from '../context/ThemeContext';
+import { Fade } from 'react-awesome-reveal';
 
 function ProjectsCards({image, title, stack, description, link, live}) {
     const { theme, toggleTheme } = UseThemeContext();
   return (
-    <div className=''>
+    < Fade triggerOnce cascade duration={1500}  direction="top" delay={200}>
         <div className={` shadow-lg rounded-t overflow-hidden transform  duration-500 hover:scale-105 w-80 delay-100 transition font-SpaceGrotesk ${
           theme === "light" ? " text-primary bg-white" : " text-white bg-neutral-950"
         }`}>
@@ -26,7 +27,7 @@ function ProjectsCards({image, title, stack, description, link, live}) {
         }`}>View Site</span></a>
             </div>
         </div>
-    </div>
+    </Fade>
   )
 }
 

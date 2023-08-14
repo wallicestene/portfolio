@@ -38,14 +38,15 @@ function ContactPage() {
         theme === "light" ? " text-neutral-600 bg-secondary" : " text-neutral-400"
       }`}>
       <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
+        <Slide triggerOnce duration={1500} direction="left" >
       <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
       Want to work with me?<span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> let's Connect</span>
             </h2>
             <p>
             I am open to <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> remote, </span> full-time, part-time roles. If you've got anything you think I'd be interested in then <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> fill the form.</span> 
-            </p>
+            </p></Slide>
       </div>
-      <div className="right grid place-items-center ">
+      <Slide triggerOnce duration={1500}  direction="right" className="right grid place-items-center ">
         <form onSubmit={handleSubmit} className=" flex flex-col w-full p-5">
           <input
             placeholder="Enter You Name"
@@ -101,7 +102,7 @@ function ContactPage() {
             </span>
           </button>
         </form>
-      </div>
+      </Slide>
       <div className=" fixed z-10 bottom-10 right-10 ">
         {
           showSocials && <Slide direction="left" damping={1} duration={500} className=" flex flex-col gap-3 mb-3">
