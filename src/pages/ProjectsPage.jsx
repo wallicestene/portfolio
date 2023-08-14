@@ -9,6 +9,7 @@ import Password from "../assets/projectImages/Password.png"
 import Countries from "../assets/projectImages/Countries.png"
 import Todo from "../assets/projectImages/TO-DO.png"
 import SLack from "../assets/projectImages/Slack.png"
+import Saving from "../assets/projectImages/Saving.png"
 import { Slide } from 'react-awesome-reveal';
 function ProjectsPage() {
     const { theme, toggleTheme } = UseThemeContext();
@@ -17,7 +18,7 @@ function ProjectsPage() {
       theme === "light" ? " text-neutral-600 bg-secondary" : " text-neutral-400"
     }`}>
         <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
-          <Slide  duration={1500}  direction="left" triggerOnce>
+          <Slide  duration={1200}  direction="left" triggerOnce>
         <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
         I enjoy working on fun <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> projects.</span>
             </h2>
@@ -52,6 +53,7 @@ function ProjectsPage() {
         </div>
         <div className="projectRight lg:mt-10 grid grid-cols-1 gap-7 place-items-center h-11/12 overflow-auto py-2">
             <ProjectsCards image={EShop} title="E-shop" stack="React + Node.js + Express.js + MongoDB + Tailwind" description="Fashon, Accesories and clothing E-commerce Store." link="https://github.com/wallicestene/Ecommerce-shop.git" live="https://my-e-commerce-shop.netlify.app/?#/"/>
+            <ProjectsCards image={Saving} title="SAFESAVER" stack="Vite+React + Node.js + Express.js + MongoDB + Tailwind" description=" A basic saving system built using the MERN stack on the administrative side." link="https://github.com/wallicestene/the-saving-system.git" live="https://phenomenal-kitsune-a8db2f.netlify.app/#/" />
             <ProjectsCards image={Recipe} title="Recipe Realm" stack="Vite+React + Tailwind + Firebase" description="Advance Recipe finder app with hundreds of recipes to choose from." link="https://github.com/wallicestene/Recipe-app.git" live="https://wallicestene.github.io/Recipe-app/#/" />
             <ProjectsCards image={Space} title="Space Tourism" stack="Vite+React + CSS + API" description="Space Tourism multi-page website." link="https://github.com/wallicestene/Space-Tourism.git" live="https://wallicestene.github.io/Space-Tourism/#/" />
             <ProjectsCards image={Countries} title="REST Countries" stack="React + CSS + REST API" description="REST Countries API with color theme switcher." link="https://github.com/wallicestene/the-countries.git" live="https://wallicestene.github.io/the-countries/#/" />
