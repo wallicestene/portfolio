@@ -3,8 +3,14 @@ import NavbarMobile from "./NavbarMobile";
 import { Close, DarkMode, LightMode, Menu } from "@mui/icons-material";
 import { UseThemeContext } from "../../context/ThemeContext";
 import { Link } from "react-scroll";
+import { Slide } from "react-awesome-reveal";
 
-const Navbar = ({scrollToSkills, scrollToAbout, scrollToProjects, scrollToContact}) => {
+const Navbar = ({
+  scrollToSkills,
+  scrollToAbout,
+  scrollToProjects,
+  scrollToContact,
+}) => {
   const [showNavbarMobile, setShowNavbarMobile] = useState(false);
   const { theme, toggleTheme } = UseThemeContext();
 
@@ -24,16 +30,27 @@ const Navbar = ({scrollToSkills, scrollToAbout, scrollToProjects, scrollToContac
           }`}
         >
           <li className=" cursor-pointer hover:opacity-70">
-            <Link to="about" onAbort={scrollToAbout}>About</Link>
+            <Link to="about" onAbort={scrollToAbout}>
+              About
+            </Link>
           </li>
           <li className=" cursor-pointer hover:opacity-70">
-            <Link to="skills" smooth={true} onClick={scrollToSkills} > Skills</Link>
+            <Link to="skills" smooth={true} onClick={scrollToSkills}>
+              {" "}
+              Skills
+            </Link>
           </li>
           <li className=" cursor-pointer hover:opacity-70">
-            <Link to="projects" smooth={true} onClick={scrollToProjects} > Projects</Link>
+            <Link to="projects" smooth={true} onClick={scrollToProjects}>
+              {" "}
+              Projects
+            </Link>
           </li>
           <li className=" cursor-pointer hover:opacity-70">
-            <Link to="contact" smooth={true} onClick={scrollToContact}> Contact </Link>
+            <Link to="contact" smooth={true} onClick={scrollToContact}>
+              {" "}
+              Contact{" "}
+            </Link>
           </li>
         </ul>
         <div
@@ -49,19 +66,26 @@ const Navbar = ({scrollToSkills, scrollToAbout, scrollToProjects, scrollToContac
       {/* Mobile menu */}
 
       {showNavbarMobile && (
-        <div
+        <Slide direction="right" delay={100} duration={1200}
           className={` lg:hidden fixed z-40 h-screen w-1/2 bg-primary text top-0 right-0  delay-100 duration-500 transition ${
             theme === "light" ? " text-primary bg-white" : " text-secondary"
           }`}
         >
-          <div
-            onClick={() => setShowNavbarMobile(false)}
-            className=" flex justify-end mr-4 my-1"
-          >
-            <Close fontSize="large" />
-          </div>
-          <NavbarMobile scrollToSkills={scrollToSkills} scrollToAbout={scrollToAbout} scrollToProjects={scrollToProjects}/>
-        </div>
+          <div>
+            <div
+              onClick={() => setShowNavbarMobile(false)}
+              className=" flex justify-end mr-4 my-1"
+            >
+              <Close fontSize="large" />
+            </div>
+            <NavbarMobile
+              scrollToSkills={scrollToSkills}
+              scrollToAbout={scrollToAbout}
+              scrollToProjects={scrollToProjects}
+              setShowNavbarMobile={setShowNavbarMobile}
+            />
+          </div>{" "}
+        </Slide>
       )}
       <div
         onClick={toggleTheme}
