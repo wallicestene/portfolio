@@ -77,8 +77,8 @@ const Homepage = () => {
             I am <span className={`  delay-100 duration-500 transition  ${theme === "light" ? " text-primary"  : "text-white"}`}>Wallicestene</span>
           </h2>
           <p className=" ">
-            I am a <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}>front-end/Full-Stack developer. </span>I have a solid background in developing
-            visually appealing and<span className={`  delay-100 duration-500 transition  ${theme === "light" ? " text-primary"  : "text-white"}`}> user-friendly web experiences as well as the Server side and Back-end logic.</span> I'm looking
+            I am a <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}>front-end/Full-Stack developer</span> with a strong background in crafting visually appealing and user-friendly web experiences, along with expertise in 
+            <span className={`  delay-100 duration-500 transition  ${theme === "light" ? " text-primary"  : "text-white"}`}> server-side and back-end logic.</span> I'm looking
             for a position where I can stretch myself while also <span className={`  delay-100 duration-500 transition  ${theme === "light" ? " text-primary"  : "text-white"}`}> adding value to
             website visitors.</span> I am delighted to apply <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}>my skills and experience </span> 
             to a team and contribute to the <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> growth of a company.</span>
