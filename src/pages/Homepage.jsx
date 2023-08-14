@@ -69,7 +69,7 @@ const Homepage = () => {
       </div>
       <div className=" grid lg:grid-cols-2 grid-cols-1 relative text-center lg:text-start mt-5">
         <div className="left flex flex-col justify-center bg-slate-10 h-screen font-SpaceGrotesk px-2">
-        <Slide duration={1200} direction='left' cascade >
+        <Slide duration={1200} direction='left' cascade triggerOnce>
           <h1 className=" text-2xl lg:text-5xl font-bold my-2 tracking-wide">
             Hello!
           </h1>
@@ -113,7 +113,7 @@ const Homepage = () => {
         </div>
        
         <div className="right hidden bg-slate-10 lg:grid place-items-center">
-           <Fade  duration={1200} delay={200} cascade>
+           <Fade  duration={1200} delay={200} cascade triggerOnce>
           <img src={wallace} className="h-96 object-contain" />
           </Fade>
         </div>

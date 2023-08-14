@@ -3,7 +3,7 @@ import { UseThemeContext } from "../context/ThemeContext";
 import { Element } from "react-scroll";
 import { useState } from "react";
 import { Close, GitHub, LinkedIn, Share, Twitter } from "@mui/icons-material";
-import { Slide } from "react-awesome-reveal";
+import { Fade, Slide } from "react-awesome-reveal";
 
 function ContactPage() {
   const [name, setName] = useState("");
@@ -38,7 +38,7 @@ function ContactPage() {
         theme === "light" ? " text-neutral-600 bg-secondary" : " text-neutral-400"
       }`}>
       <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
-        <Slide triggerOnce duration={1500} direction="left" >
+        <Slide triggerOnce duration={1200} direction="left" >
       <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
       Want to work with me?<span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> let's Connect</span>
             </h2>
@@ -46,7 +46,7 @@ function ContactPage() {
             I am open to <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> remote, </span> full-time, part-time roles. If you've got anything you think I'd be interested in then <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}> fill the form.</span> 
             </p></Slide>
       </div>
-      <Slide triggerOnce duration={1500}  direction="right" className="right grid place-items-center ">
+      <Slide triggerOnce duration={1200}  direction="right" className="right grid place-items-center ">
         <form onSubmit={handleSubmit} className=" flex flex-col w-full p-5">
           <input
             placeholder="Enter You Name"
@@ -105,11 +105,11 @@ function ContactPage() {
       </Slide>
       <div className=" fixed z-10 bottom-10 right-10 ">
         {
-          showSocials && <Slide direction="left" damping={1} duration={500} className=" flex flex-col gap-3 mb-3">
+          showSocials && <Fade direction="left" duration={500} cascade className=" flex flex-col gap-3 mb-3">
           <a href="https://www.linkedin.com/in/wallicestene-waweru-a26744249" className={` grid place-items-center h-10 w-10 hover:cursor-pointer shadow-xl rounded-full text-primary ${theme === "light" ? " bg-primary text-secondary" : "  bg-white text-primary"} `}><LinkedIn/></a>
           <a href="http://github.com/wallicestene" className={` grid place-items-center h-10 w-10 hover:cursor-pointer shadow-xl rounded-full text-primary ${theme === "light" ? " bg-primary text-secondary" : "  bg-white text-primary"} `}><GitHub/></a>
           <a href="https://twitter.com/wallicestene?t=_BQ3dIazwHV481hk8EFILg&s=09" className={` grid place-items-center h-10 w-10 hover:cursor-pointer shadow-xl rounded-full text-primary ${theme === "light" ? " bg-primary text-secondary" : "  bg-white text-primary"} `}><Twitter/></a>
-        </Slide>
+        </Fade>
         }
         <div  className={` grid place-items-center h-10 w-10 hover:cursor-pointer shadow-xl rounded-full text-primary ${theme === "light" ? " bg-primary text-secondary" : "  bg-white text-primary"} `} onClick={() => setShowSocials(!showSocials)}>
           {
