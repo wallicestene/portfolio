@@ -13,6 +13,7 @@ import mongoDBIcon from "../assets/mongodb.png"
 import firebaseIcon from "../assets/firebase.png"
 import { UseThemeContext } from '../context/ThemeContext'
 import SkillsCards from './SkillsCards'
+import { Slide } from 'react-awesome-reveal'
 
 function Skills({handleDownload}) {
     const { theme, toggleTheme } = UseThemeContext();
@@ -22,6 +23,7 @@ function Skills({handleDownload}) {
         theme === "light" ? " text-neutral-600 bg-secondary" : " text-neutral-400"
       }`}>
           <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
+            <Slide duration={1500} direction='left' cascade triggerOnce>
             <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
             My Development <span  className={`  delay-100 duration-500 transition  ${theme === "light" ? " text-primary"  : "text-white"}`}>Tech Stack</span>
             </h2>
@@ -54,7 +56,7 @@ function Skills({handleDownload}) {
               </span>
             </button>
             </div>
-            
+            </Slide>
           </div>
           <div className= "right grid place-items-center">
               <div className=' grid  grid-cols-2 gap-5'>
