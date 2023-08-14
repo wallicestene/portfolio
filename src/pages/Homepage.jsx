@@ -6,6 +6,7 @@ import { Element, scroller } from "react-scroll";
 import Skills from "./Skills";
 import ProjectsPage from "./ProjectsPage";
 import ContactPage from "./ContactPage";
+import { Fade, Slide } from "react-awesome-reveal";
 const Homepage = () => {
   const { theme, toggleTheme } = UseThemeContext();
   const handleDownload = () => {
@@ -56,7 +57,7 @@ const Homepage = () => {
 
   return (
     <>
-    <div
+    <Element name="about" 
       className={` lg:h-screen bg-primary delay-100 duration-500 transition ${
         theme === "light" ? " text-neutral-600 bg-secondary" : " text-neutral-400"
       }`}
@@ -67,7 +68,8 @@ const Homepage = () => {
         <Navbar scrollToAbout={scrollToAbout} scrollToProjects={scrollToProjects} scrollToSkills={scrollToSkills} scrollToContact={scrollToContact}/>
       </div>
       <div className=" grid lg:grid-cols-2 grid-cols-1 relative text-center lg:text-start mt-5">
-        <Element name="about" className="left flex flex-col justify-center bg-slate-10 h-screen font-SpaceGrotesk px-2">
+        <div className="left flex flex-col justify-center bg-slate-10 h-screen font-SpaceGrotesk px-2">
+        <Slide duration={1200} direction='left' cascade >
           <h1 className=" text-2xl lg:text-5xl font-bold my-2 tracking-wide">
             Hello!
           </h1>
@@ -107,14 +109,17 @@ const Homepage = () => {
             </span>
           </button>
           </div>
-          
-        </Element>
+          </Slide>
+        </div>
+       
         <div className="right hidden bg-slate-10 lg:grid place-items-center">
+           <Fade  duration={1200} delay={200} cascade>
           <img src={wallace} className="h-96 object-contain" />
+          </Fade>
         </div>
       </div>
       
-    </div>
+    </Element>
     <Skills handleDownload={handleDownload}/>
     <ProjectsPage/>
     <ContactPage/>
