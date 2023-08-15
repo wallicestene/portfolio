@@ -7,6 +7,7 @@ import Skills from "./Skills";
 import ProjectsPage from "./ProjectsPage";
 import ContactPage from "./ContactPage";
 import { Fade, Slide } from "react-awesome-reveal";
+import Footer from "./components/Footer";
 const Homepage = () => {
   const { theme, toggleTheme } = UseThemeContext();
   const handleDownload = () => {
@@ -123,6 +124,7 @@ const Homepage = () => {
     <Skills handleDownload={handleDownload}/>
     <ProjectsPage/>
     <ContactPage/>
+    <Footer/>
     </>
   );
 };
