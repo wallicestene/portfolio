@@ -11,14 +11,14 @@ import Footer from "./components/Footer";
 const Homepage = () => {
   const { theme, toggleTheme } = UseThemeContext();
   const handleDownload = () => {
-    const fileUrl = "/wallicestene'sResume.pdf";
+    const fileUrl = "/My Resume.pdf";
     fetch(fileUrl)
       .then((res) => res.blob())
       .then((blob) => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = "wallicestene'sResume.pdf";
+        a.download = "My Resume.pdf";
         a.click();
         URL.revokeObjectURL(url);
       })
