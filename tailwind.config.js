@@ -12,6 +12,8 @@ export default {
       colors:{
         secondary:'#F2F2F2',
         primary:'#1A1A1A'
+      },animation:{
+        "spin-slow":"spin 20s linear infinite",
       }
     },
   },
