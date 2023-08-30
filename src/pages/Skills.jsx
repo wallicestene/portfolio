@@ -60,14 +60,14 @@ function Skills({handleDownload}) {
           </div>
           <div className= "right grid place-items-center">
               <div className=' grid  grid-cols-2 gap-5'>
-              <SkillsCards title="React" icon={reactIcon}/>
+              <SkillsCards title="React.js" icon={reactIcon}/>
               <SkillsCards title="Javascript" icon={JavascriptIcon}/>
               <SkillsCards title="Tailwind-CSS" icon={tailwindIcon}/>
               <SkillsCards title="HTML" icon={htmlIcon}/>
               <SkillsCards title="CSS" icon={cssIcon}/>
               <SkillsCards title="Git" icon={gitIcon}/>
               <SkillsCards title="Node.js" icon={nodeIcon}/>
-              <SkillsCards title="Express" icon={expressIcon}/>
+              <SkillsCards title="Express.js" icon={expressIcon}/>
               <SkillsCards title="MongoDB" icon={mongoDBIcon}/>
               <SkillsCards title="Firebase" icon={firebaseIcon}/>
               </div>

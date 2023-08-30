@@ -74,9 +74,11 @@ const Homepage = () => {
           <h1 className=" text-2xl lg:text-5xl font-bold my-2 tracking-wide">
             Hello!
           </h1>
-          <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
+          <div class="w-max bg-slate-400">
+          <h2 className=" animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-2xl lg:text-5xl font-bold my-5 tracking-wide">
             I am <span className={`  delay-100 duration-500 transition  ${theme === "light" ? " text-primary"  : "text-white"}`}>Wallicestene</span>
           </h2>
+  </div>
           <p className=" ">
             I am a <span className={` delay-100 duration-500 transition   ${theme === "light" ? " text-primary"  : "text-white"}`}>front-end/Full-Stack developer</span> with a strong background in crafting visually appealing and user-friendly web experiences, along with expertise in 
             <span className={`  delay-100 duration-500 transition  ${theme === "light" ? " text-primary"  : "text-white"}`}> server-side and back-end logic.</span> I'm looking
