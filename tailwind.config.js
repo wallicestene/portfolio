@@ -12,7 +12,7 @@ export default {
       },
       animation: {
         "spin-slow": "spin 5s linear infinite",
-        typing: "typing 2s steps(20) infinite alternate, blink .7s infinite",
+        typing: "typing 3s steps(20) infinite alternate, blink .7s infinite",
       },
       keyframes: {
         typing: {

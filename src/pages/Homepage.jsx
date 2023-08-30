@@ -84,7 +84,7 @@ const Homepage = () => {
               <h1 className=" text-2xl lg:text-5xl font-bold my-2 tracking-wide">
                 Hello!
               </h1>
-              <div class=" w-max">
+              <div className=" w-max">
                 <h2 className=" animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-2xl lg:text-5xl font-bold my-5 tracking-wide">
                   I am{" "}
                   <span
