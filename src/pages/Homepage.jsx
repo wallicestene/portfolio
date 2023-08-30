@@ -96,7 +96,7 @@ const Homepage = () => {
                   </span>
                 </h2>
               </div>
-              <p className=" ">
+              <p>
                 I am a{" "}
                 <span
                   className={` delay-100 duration-500 transition   ${
