@@ -171,7 +171,7 @@ const Homepage = () => {
             </Slide>
           </div>
 
-          <div className="right hidden bg-slate-10 lg:grid place-items-center">
+          <div className="right hidden  bg-slate-10 lg:grid place-items-center">
             <Fade duration={1200} delay={200} cascade triggerOnce>
               <img src={wallace} className="h-96 object-contain" />
             </Fade>
