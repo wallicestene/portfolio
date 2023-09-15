@@ -18,11 +18,13 @@ const Navbar = ({
     <header className=" w-11/12 mx-auto relative">
       <nav className=" flex justify-between">
         <div
-          className={`font-SpaceGrotesk font-extrabold tracking-wider text-2xl delay-100 duration-500 transition ${
+          className={`font-SpaceGrotesk font-extrabold tracking-wider text-2xl delay-100 duration-500 transition hover:cursor-pointer ${
             theme === "light" ? " text-primary" : "text-secondary "
           }`}
         >
+          <Link to="about" onAbort={scrollToAbout}>
           Wallicestene
+            </Link>
         </div>
         <ul
           className={`hidden lg:flex gap-10 font-SpaceGrotesk tracking-wide  ${
