@@ -141,6 +141,8 @@ const Homepage = () => {
                   growth of a company.
                 </span>
               </p>
+            </Slide>
+            <Fade duration={1200} delay={200} cascade triggerOnce>
               <div className="mt-4  grid place-items-center lg:flex lg:justify-start">
                 <button
                   onClick={handleDownload}
@@ -152,14 +154,14 @@ const Homepage = () => {
                     }`}
                   ></span>
                   <span
-                    className={`absolute inset-0 w-full h-full bg-primary ${
+                    className={`absolute inset-0 w-full h-full bg-primary delay-100 duration-500 transition  ${
                       theme === "light"
                         ? " text-secondary bg-primary"
                         : " text-primary bg-secondary"
                     }`}
                   ></span>
                   <span
-                    className={`relative  ${
+                    className={`relative delay-100 duration-500 transition  ${
                       theme === "light" ? " text-secondary" : " text-primary"
                     }`}
                   >
@@ -167,7 +169,7 @@ const Homepage = () => {
                   </span>
                 </button>
               </div>
-            </Slide>
+            </Fade>
           </div>
 
           <div className="right bg-slate-10 grid place-items-center">
@@ -177,9 +179,7 @@ const Homepage = () => {
               cascade
               triggerOnce
               className={` border border-black rounded-full overflow-hidden delay-100 duration-500 transition ${
-                theme === "light"
-                  ? "border-primary"
-                  : "border-white "
+                theme === "light" ? "border-primary" : "border-white "
               } `}
             >
               <img
