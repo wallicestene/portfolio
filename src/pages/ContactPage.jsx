@@ -50,7 +50,7 @@ function ContactPage() {
             </p></Slide>
       </div>
       <Slide triggerOnce duration={1200}  direction="right" className="right grid place-items-center ">
-        <form onSubmit={handleSubmit} className=" flex flex-col w-full p-5">
+        <form onSubmit={handleSubmit} className=" flex flex-col w-full p-5 font-SpaceGrotesk">
           <input
             placeholder="Enter You Name"
             id="name"
@@ -58,7 +58,7 @@ function ContactPage() {
             value={name}
             onChange={handleNameChange}
             required
-            className={`border-2 bg-transparent outline-none border-primary py-2 px-2  h-14 w-full delay-100 duration-500 transition ${theme === "light" ? " border-primary text-primary" : "border-secondary text-secondary"}`}
+            className={`border bg-transparent outline-none border-primary py-2 px-2  h-14 w-full delay-100 duration-500 transition ${theme === "light" ? " border-primary text-primary" : "border-secondary text-secondary"}`}
           />
 
           <br />
@@ -69,7 +69,7 @@ function ContactPage() {
             value={email}
             onChange={handleEmailChange}
             required
-            className={`border-2 bg-transparent outline-none border-primary py-2 px-2  h-14 w-full delay-100 duration-500 transition ${theme === "light" ? " border-primary text-primary" : "border-secondary text-secondary"}`}
+            className={`border bg-transparent outline-none border-primary py-2 px-2  h-14 w-full delay-100 duration-500 transition ${theme === "light" ? " border-primary text-primary" : "border-secondary text-secondary"}`}
           />
           <br />
           <textarea
@@ -78,7 +78,7 @@ function ContactPage() {
             value={message}
             required
             onChange={handleMessageChange}
-            className={`border-2 bg-transparent outline-none border-primary py-2 px-2  h-28 w-full delay-100 duration-500 transition ${theme === "light" ? " border-primary text-primary"  : "border-secondary text-secondary"}`}
+            className={`border bg-transparent outline-none border-primary py-2 px-2  h-28 w-full delay-100 duration-500 transition ${theme === "light" ? " border-primary text-primary"  : "border-secondary text-secondary"}`}
           />
           <br />
           <button
