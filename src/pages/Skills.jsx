@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Element } from 'react-scroll'
 
 import reactIcon from "../assets/physics.png"
@@ -15,14 +15,16 @@ import { UseThemeContext } from '../context/ThemeContext'
 import SkillsCards from './SkillsCards'
 import { Slide } from 'react-awesome-reveal'
 
+// eslint-disable-next-line react/prop-types
 function Skills({handleDownload}) {
-    const { theme, toggleTheme } = UseThemeContext();
+    const { theme } = UseThemeContext();
     return (
   
-      <Element name="skills" className={` grid overflow-hidden lg:grid-cols-2 grid-cols-1 h-screen bg-primary delay-100 duration-500 transition ${
+      <Element name="skills" className={` h-screen w-scren bg-primary delay-100 duration-500 transition ${
         theme === "light" ? " text-neutral-600 bg-secondary" : " text-neutral-400"
       }`}>
-          <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
+        <div className='grid overflow-hidden lg:grid-cols-2 grid-cols-1  w-11/12 mx-auto'>
+          <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk">
             <Slide duration={1200} direction='left' triggerOnce>
             <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
             My Development <span  className={`  delay-100 duration-500 transition  ${theme === "light" ? " text-primary"  : "text-white"}`}>Tech Stack</span>
@@ -71,7 +73,7 @@ function Skills({handleDownload}) {
               <SkillsCards title="MongoDB" icon={mongoDBIcon}/>
               <SkillsCards title="Firebase" icon={firebaseIcon}/>
               </div>
-          </div>
+          </div></div>
       </Element>
     )
 }

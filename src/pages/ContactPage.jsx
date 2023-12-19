@@ -34,9 +34,12 @@ function ContactPage() {
   };
 
   return (
-    <Element name="contact" className={`relative grid overflow-hidden lg:grid-cols-2 grid-cols-1 h-screen bg-primary delay-100 duration-500 transition ${
+    <Element name="contact" className={`relative  bg-primary delay-100 duration-500 transition ${
         theme === "light" ? " text-neutral-600 bg-secondary" : " text-neutral-400"
       }`}>
+        <div className=" grid overflow-hidden lg:grid-cols-2 grid-cols-1 h-screen w-11/12 mx-auto">
+
+       
       <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
         <Slide triggerOnce duration={1200} direction="left" >
       <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
@@ -116,7 +119,7 @@ function ContactPage() {
             !showSocials ? <Share/> : <Close/>
           }
         </div>
-      </div>
+      </div> </div>
     </Element>
   );
 }

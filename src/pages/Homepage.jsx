@@ -77,8 +77,8 @@ const Homepage = () => {
             scrollToContact={scrollToContact}
           />
         </div>
-        <div className=" grid lg:grid-cols-2 grid-cols-1 relative text-center lg:text-start mt-5 h-screen overflow-hidden">
-          <div className="left flex flex-col justify-center items-center lg:items-start bg-slate-10 h-scree font-SpaceGrotesk w-11/12 mx-auto">
+        <div className=" grid lg:grid-cols-2 grid-cols-1 relative text-center lg:text-start mt-5 h-screen overflow-hidden w-11/12 mx-auto">
+          <div className="left flex flex-col justify-center items-center lg:items-start bg-slate-10 h-scree font-SpaceGrotesk ">
             <Slide duration={1200} direction="left" cascade triggerOnce>
               <h1 className=" text-2xl lg:text-5xl font-bold my-2 tracking-wide">
                 Hello!

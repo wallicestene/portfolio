@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Element } from 'react-scroll'
 import { UseThemeContext } from '../context/ThemeContext';
 import ProjectsCards from './ProjectsCards';
@@ -13,11 +13,12 @@ import Saving from "../assets/projectImages/Saving.png"
 import Url from "../assets/projectImages/url.png"
 import { Slide } from 'react-awesome-reveal';
 function ProjectsPage() {
-    const { theme, toggleTheme } = UseThemeContext();
+    const { theme } = UseThemeContext();
   return (
-    <Element name='projects' className={` grid overflow-hidden lg:grid-cols-2 grid-cols-1 h-screen bg-primary delay-100 duration-500 transition ${
+    <Element name='projects' className={`   bg-primary delay-100 duration-500 transition ${
       theme === "light" ? " text-neutral-600 bg-secondary" : " text-neutral-400"
     }`}>
+      <div className="h-screen grid overflow-hidden lg:grid-cols-2 grid-cols-1 w-11/12 mx-auto">
         <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
           <Slide  duration={1200}  direction="left" triggerOnce>
         <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
@@ -52,7 +53,7 @@ function ProjectsPage() {
             </a>
             </div></Slide>
         </div>
-        <div className="projectRight lg:mt-10 grid grid-cols-1 gap-7 place-items-center h-11/12 overflow-auto py-2">
+        <div className="projectRight lg:mt-10 grid grid-cols-1 gap-7 place-items-center h-screen overflow-x-scroll py-5 ">
             <ProjectsCards image={EShop} title="E-shop" stack="React + Node.js + Express.js + MongoDB + Tailwind" description="Fashon, Accesories and clothing E-commerce Store." link="https://github.com/wallicestene/Ecommerce-shop.git" live="https://my-e-commerce-shop.netlify.app/?#/"/>
             <ProjectsCards image={Saving} title="SAFESAVER" stack="Vite+React + Node.js + Express.js + MongoDB + Tailwind" description=" A basic saving system built using the MERN stack on the administrative side." link="https://github.com/wallicestene/the-saving-system.git" live="https://phenomenal-kitsune-a8db2f.netlify.app/#/" />
             <ProjectsCards image={Url} title="TinyUrl" stack="React + Node.js + Express.js + MongoDB + Tailwind" description="A simple URL Shortener app" link="https://github.com/wallicestene/Url-shortener-app.git" live="https://tinyurls.netlify.app/" />
@@ -61,7 +62,7 @@ function ProjectsPage() {
             <ProjectsCards image={Countries} title="REST Countries" stack="React + CSS + REST API" description="REST Countries API with color theme switcher." link="https://github.com/wallicestene/the-countries.git" live="https://wallicestene.github.io/the-countries/#/" />
             <ProjectsCards image={Password} title="TO-DO list" stack="React + CSS " description="A simple TO-DO list app." link="https://github.com/wallicestene/To-do-App.git" live="https://wallicestene.github.io/To-do-App/" />
             <ProjectsCards image={SLack} title="My-Slack" stack="React + CSS + Firebase + Redux " description="A simple Slack Clone App." link="https://github.com/wallicestene/Slack-clone.git" live="https://slack-clone-a1504.web.app/" />
-        </div>
+        </div></div>
     </Element>
   )
 }
