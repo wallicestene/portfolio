@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "./components/Navbar";
 import { UseThemeContext } from "../context/ThemeContext";
 import wallace from "../assets/wallicestene.png";
@@ -9,7 +8,7 @@ import ContactPage from "./ContactPage";
 import { Fade, Slide } from "react-awesome-reveal";
 import Footer from "./components/Footer";
 const Homepage = () => {
-  const { theme, toggleTheme } = UseThemeContext();
+  const { theme } = UseThemeContext();
   const handleDownload = () => {
     const fileUrl = "/My Resume.pdf";
     fetch(fileUrl)
@@ -78,14 +77,14 @@ const Homepage = () => {
             scrollToContact={scrollToContact}
           />
         </div>
-        <div className=" grid lg:grid-cols-2 grid-cols-1 relative text-center lg:text-start mt-5">
-          <div className="left flex flex-col justify-center items-center lg:items-start bg-slate-10 h-screen font-SpaceGrotesk px-2">
+        <div className=" grid lg:grid-cols-2 grid-cols-1 relative text-center lg:text-start mt-5 h-screen overflow-hidden">
+          <div className="left flex flex-col justify-center items-center lg:items-start bg-slate-10 h-scree font-SpaceGrotesk w-11/12 mx-auto">
             <Slide duration={1200} direction="left" cascade triggerOnce>
               <h1 className=" text-2xl lg:text-5xl font-bold my-2 tracking-wide">
                 Hello!
               </h1>
               <div className=" w-max">
-                <h2 className=" animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-2xl lg:text-5xl font-bold my-5 tracking-wide">
+                <h2 className="text-2xl lg:text-5xl font-bold my-5 tracking-wide">
                   I am{" "}
                   <span
                     className={`  delay-100 duration-500 transition  ${
@@ -142,7 +141,7 @@ const Homepage = () => {
                   growth of a company.
                 </span>
               </p>
-              <div className="my-4  grid place-items-center lg:flex lg:justify-start">
+              <div className="mt-4  grid place-items-center lg:flex lg:justify-start">
                 <button
                   onClick={handleDownload}
                   className={`relative px-7 py-2 group w-fit delay-100 duration-100 transition`}
@@ -171,9 +170,22 @@ const Homepage = () => {
             </Slide>
           </div>
 
-          <div className="right hidden  bg-slate-10 lg:grid place-items-center">
-            <Fade duration={1200} delay={200} cascade triggerOnce>
-              <img src={wallace} className="h-96 object-contain" />
+          <div className="right bg-slate-10 grid place-items-center">
+            <Fade
+              duration={1200}
+              delay={200}
+              cascade
+              triggerOnce
+              className={` border border-black rounded-full overflow-hidden delay-100 duration-500 transition ${
+                theme === "light"
+                  ? "border-primary"
+                  : "border-white "
+              } `}
+            >
+              <img
+                src={wallace}
+                className={`h-96 rounded-full object-contain`}
+              />
             </Fade>
           </div>
         </div>
