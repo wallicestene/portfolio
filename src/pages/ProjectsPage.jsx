@@ -93,7 +93,7 @@ function ProjectsPage() {
             </div>
           </Fade>
         </div>
-        <div className="projectRight lg:mt-10 grid grid-cols-1 gap-7 place-items-center h-screen overflow-x-scroll py-5 ">
+        <div className="projectRight lg:mt-10 grid grid-cols-1 gap-7 place-items-center h-full  overflow-y-scroll py-5  ">
           <ProjectsCards
             image={EShop}
             title="E-shop"

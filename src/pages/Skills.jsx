@@ -20,13 +20,13 @@ function Skills({ handleDownload }) {
   return (
     <Element
       name="skills"
-      className={` h-screen w-scren bg-primary delay-100 duration-500 transition ${
+      className={` bg-primary delay-100 duration-500 transition ${
         theme === "light"
           ? " text-neutral-600 bg-secondary"
           : " text-neutral-400"
       }`}
     >
-      <div className="grid overflow-hidden lg:grid-cols-2 grid-cols-1  w-11/12 mx-auto">
+      <div className="h-screen  grid overflow-hidden lg:grid-cols-2 grid-cols-1  w-11/12 mx-auto">
         <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk">
           <Slide duration={1200} direction="left" triggerOnce>
             <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
