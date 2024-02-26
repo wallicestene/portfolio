@@ -1,4 +1,4 @@
-import React from "react";
+
 import { UseThemeContext } from "../context/ThemeContext";
 import { Element } from "react-scroll";
 import { useState } from "react";
@@ -10,7 +10,7 @@ function ContactPage() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [showSocials, setShowSocials] = useState(false);
-  const { theme, toggleTheme } = UseThemeContext();
+  const { theme } = UseThemeContext();
 
   const handleNameChange = (event) => {
     setName(event.target.value);

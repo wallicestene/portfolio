@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { GitHub, Visibility } from '@mui/icons-material'
 import React from 'react'
 import { UseThemeContext } from '../context/ThemeContext';
@@ -10,7 +12,7 @@ function ProjectsCards({image, title, stack, description, link, live}) {
         <div className={` shadow-lg rounded-t overflow-hidden transform  duration-500 hover:scale-105 w-80 delay-100 transition font-SpaceGrotesk ${
           theme === "light" ? " text-primary bg-white" : " text-white bg-neutral-950"
         }`}>
-            <img src={image} alt="" className='h-52 w-full object-cover' />
+            <img src={image} alt="" className='h-52 w-full object-center object-cover' />
            <div className='px-2 pt-5'>
            <h2 className='  text-lg font-semibold tracking-wide'>{title}</h2>
             <p className={`text-sm transition duration-500 delay-100 ${

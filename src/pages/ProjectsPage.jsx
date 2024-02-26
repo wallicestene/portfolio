@@ -6,7 +6,8 @@ import Recipe from "../assets/projectImages/Recipe.png";
 import Space from "../assets/projectImages/Space.png";
 import Password from "../assets/projectImages/Password.png";
 import Countries from "../assets/projectImages/Countries.png";
-import Todo from "../assets/projectImages/TO-DO.png";
+import Bookify from "../assets/projectImages/Bookify.png";
+// import Todo from "../assets/projectImages/TO-DO.png";
 import SLack from "../assets/projectImages/Slack.png";
 import Saving from "../assets/projectImages/Saving.png";
 import Url from "../assets/projectImages/url.png";
@@ -94,6 +95,15 @@ function ProjectsPage() {
           </Fade>
         </div>
         <div className="projectRight lg:mt-10 grid grid-cols-1 gap-7 place-items-center h-full  overflow-y-scroll py-5  ">
+          <ProjectsCards
+            image={Bookify}
+            title="Bookify"
+            stack="React + Node.js + Express.js + MongoDB + Tailwind"
+            description="This is a MERN stack booking app where users can browse and book accommodations. Features include search, book
+            accommodations, and list places for booking"
+            link="https://github.com/wallicestene/Restaurant-system.git"
+            live="https://appbookify.netlify.app/"
+          />
           <ProjectsCards
             image={EShop}
             title="E-shop"
