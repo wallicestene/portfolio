@@ -184,7 +184,7 @@ const Homepage = () => {
             >
               <img
                 src={wallace}
-                className={`h-96 rounded-full object-contain`}
+                className={`h-96 rounded-full object-cover`}
               />
             </Fade>
           </div>
