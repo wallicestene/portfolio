@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 
 import { UseThemeContext } from "../context/ThemeContext";
 import { Element } from "react-scroll";

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Navbar from "./components/Navbar";
 import { UseThemeContext } from "../context/ThemeContext";
 import wallace from "../assets/wallicestene.png";
