@@ -11,6 +11,7 @@ import Bookify from "../assets/projectImages/Bookify.png";
 import SLack from "../assets/projectImages/Slack.png";
 import Saving from "../assets/projectImages/Saving.png";
 import Url from "../assets/projectImages/url.png";
+import MetaBlog from "../assets/projectImages/MetaBlog.png";
 import { Fade, Slide } from "react-awesome-reveal";
 function ProjectsPage() {
   const { theme } = UseThemeContext();
@@ -95,6 +96,14 @@ function ProjectsPage() {
           </Fade>
         </div>
         <div className="projectRight lg:mt-10 grid grid-cols-1 gap-7 place-items-center h-full  overflow-y-scroll py-5  ">
+        <ProjectsCards
+            image={MetaBlog}
+            title="MetaBlog"
+            stack="React + Node.js + Express.js + MongoDB + Tailwind + MUI"
+            description="A blogging website where users can read existing blogs and upload their own content."
+            link="https://github.com/wallicestene/Blog"
+            live="https://the-metablog.netlify.app/"
+          />
           <ProjectsCards
             image={Bookify}
             title="Bookify"
