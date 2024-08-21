@@ -8,6 +8,7 @@ import ProjectsPage from "./ProjectsPage";
 import ContactPage from "./ContactPage";
 import { Fade, Slide } from "react-awesome-reveal";
 import Footer from "./components/Footer";
+import ExperiencePage from "./ExperiencePage";
 const Homepage = () => {
   const { theme } = UseThemeContext();
   const handleDownload = () => {
@@ -55,7 +56,13 @@ const Homepage = () => {
       smooth: "easeInOutQuart",
     });
   };
-
+  const scrollToExperience = () => {
+    scroller.scrollTo("experience", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+    });
+  };
   return (
     <>
       <Element
@@ -76,6 +83,7 @@ const Homepage = () => {
             scrollToProjects={scrollToProjects}
             scrollToSkills={scrollToSkills}
             scrollToContact={scrollToContact}
+            scrollToExperience={scrollToExperience}
           />
         </div>
         <div className=" grid lg:grid-cols-2 grid-cols-1 relative text-center lg:text-start mt-10 h-screen overflow-hidden w-11/12 mx-auto">
@@ -192,6 +200,7 @@ const Homepage = () => {
         </div>
       </Element>
       <Skills handleDownload={handleDownload} />
+      <ExperiencePage/>
       <ProjectsPage />
       <ContactPage />
       <Footer />

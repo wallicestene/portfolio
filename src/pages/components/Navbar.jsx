@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import NavbarMobile from "./NavbarMobile";
 import { Close, DarkMode, LightMode, Menu } from "@mui/icons-material";
 import { UseThemeContext } from "../../context/ThemeContext";
@@ -10,6 +10,7 @@ const Navbar = ({
   scrollToAbout,
   scrollToProjects,
   scrollToContact,
+  scrollToExperience,
 }) => {
   const [showNavbarMobile, setShowNavbarMobile] = useState(false);
   const { theme, toggleTheme } = UseThemeContext();
@@ -22,9 +23,9 @@ const Navbar = ({
             theme === "light" ? " text-primary" : "text-secondary "
           }`}
         >
-          <Link to="about" onAbort={scrollToAbout}>
-          Wallicestene
-            </Link>
+          <Link to="about" smooth={true} onClick={scrollToAbout}>
+            Wallicestene
+          </Link>
         </div>
         <ul
           className={`hidden lg:flex gap-10 font-SpaceGrotesk tracking-wide  ${
@@ -32,7 +33,7 @@ const Navbar = ({
           }`}
         >
           <li className=" cursor-pointer hover:opacity-70">
-            <Link to="about" onAbort={scrollToAbout}>
+            <Link to="about" smooth={true} onClick={scrollToAbout}>
               About
             </Link>
           </li>
@@ -40,6 +41,12 @@ const Navbar = ({
             <Link to="skills" smooth={true} onClick={scrollToSkills}>
               {" "}
               Skills
+            </Link>
+          </li>
+          <li className=" cursor-pointer hover:opacity-70">
+            <Link to="experience" smooth={true} onClick={scrollToExperience}>
+              {" "}
+              Experience
             </Link>
           </li>
           <li className=" cursor-pointer hover:opacity-70">
@@ -68,7 +75,10 @@ const Navbar = ({
       {/* Mobile menu */}
 
       {showNavbarMobile && (
-        <Slide direction="right" delay={100} duration={1200}
+        <Slide
+          direction="right"
+          delay={100}
+          duration={1200}
           className={` lg:hidden fixed z-40 h-screen w-1/2 bg-primary text top-0 right-0  delay-100 duration-500 transition ${
             theme === "light" ? " text-primary bg-white" : " text-secondary"
           }`}
@@ -84,7 +94,9 @@ const Navbar = ({
               scrollToSkills={scrollToSkills}
               scrollToAbout={scrollToAbout}
               scrollToProjects={scrollToProjects}
+              scrollToExperience={scrollToExperience}
               setShowNavbarMobile={setShowNavbarMobile}
+
             />
           </div>{" "}
         </Slide>
