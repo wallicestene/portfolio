@@ -1,9 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Element } from "react-scroll";
 import { UseThemeContext } from "../context/ThemeContext";
 import { Slide } from "react-awesome-reveal";
 
 const ExperiencePage = () => {
-  const { theme, toggleTheme } = UseThemeContext();
+  const { theme } = UseThemeContext();
   return (
     <Element
       name="experience"
@@ -14,7 +15,7 @@ const ExperiencePage = () => {
       }`}
     >
       <div className="h-screen  grid overflow-hidden lg:grid-cols-2 grid-cols-1  w-11/12 mx-auto">
-        <div className="exLeftflex flex-col justify-center text-center lg:text-start font-SpaceGrotesk">
+        <div className="exLeft flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk">
         <Slide duration={1200} direction="left" triggerOnce>
             <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
               My{" "}

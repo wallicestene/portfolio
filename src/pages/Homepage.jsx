@@ -10,7 +10,7 @@ import { Fade, Slide } from "react-awesome-reveal";
 import Footer from "./components/Footer";
 import ExperiencePage from "./ExperiencePage";
 const Homepage = () => {
-  const { theme } = UseThemeContext();
+  const { theme, textColorStyle } = UseThemeContext();
   const handleDownload = () => {
     const fileUrl = "/My Resume.pdf";
     fetch(fileUrl)
@@ -94,61 +94,21 @@ const Homepage = () => {
               </h1>
               <div className="">
                 <h2 className="text-2xl lg:text-5xl font-bold my-2 tracking-wide">
-                  I am{" "}
-                  <span
-                    className={`  delay-100 duration-500 transition  ${
-                      theme === "light" ? " text-primary" : "text-white"
-                    }`}
-                  >
-                    Wallicestene
-                  </span>
+                  I am {textColorStyle("Wallicestene")}
                 </h2>
               </div>
               <p>
-                I am a{" "}
-                <span
-                  className={` delay-100 duration-500 transition   ${
-                    theme === "light" ? " text-primary" : "text-white"
-                  }`}
-                >
-                  front-end/Full-Stack developer
-                </span>{" "}
-                with a strong background in crafting visually appealing and
-                user-friendly web experiences, along with expertise in
-                <span
-                  className={`  delay-100 duration-500 transition  ${
-                    theme === "light" ? " text-primary" : "text-white"
-                  }`}
-                >
-                  {" "}
-                  server-side and back-end logic.
-                </span>{" "}
-                I'm looking for a position where I can stretch myself while also{" "}
-                <span
-                  className={`  delay-100 duration-500 transition  ${
-                    theme === "light" ? " text-primary" : "text-white"
-                  }`}
-                >
-                  {" "}
-                  adding value to website visitors.
-                </span>{" "}
-                I am delighted to apply{" "}
-                <span
-                  className={` delay-100 duration-500 transition   ${
-                    theme === "light" ? " text-primary" : "text-white"
-                  }`}
-                >
-                  my skills and experience{" "}
-                </span>
-                to a team and contribute to the{" "}
-                <span
-                  className={` delay-100 duration-500 transition   ${
-                    theme === "light" ? " text-primary" : "text-white"
-                  }`}
-                >
-                  {" "}
-                  growth of a company.
-                </span>
+                I'm a{textColorStyle("front-end/Full-Stack developer")}
+                based in Nairobi, Kenya, with a strong focus on
+                {textColorStyle("front-end and back-end development.")}{" "}
+                Currently pursuing a Bachelor of Science in{" "}
+                {textColorStyle("Applied Computer Science")}
+                at KCA University, I’m passionate about building
+                {textColorStyle("user-friendly web applications")}and
+                continuously learning new{textColorStyle("technologies")} to
+                solve
+                {textColorStyle("real-world")}
+                problems.
               </p>
             </Slide>
             <Fade duration={1200} delay={200} cascade triggerOnce>
@@ -191,16 +151,13 @@ const Homepage = () => {
                 theme === "light" ? "border-primary" : "border-white "
               } `}
             >
-              <img
-                src={wallace}
-                className={`h-96 rounded-full object-cover`}
-              />
+              <img src={wallace} className={`h-96 rounded-full object-cover`} />
             </Fade>
           </div>
         </div>
       </Element>
       <Skills handleDownload={handleDownload} />
-      <ExperiencePage/>
+      <ExperiencePage />
       <ProjectsPage />
       <ContactPage />
       <Footer />

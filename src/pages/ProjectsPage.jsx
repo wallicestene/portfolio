@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Element } from "react-scroll";
 import { UseThemeContext } from "../context/ThemeContext";
 import ProjectsCards from "./ProjectsCards";
@@ -14,7 +15,7 @@ import Url from "../assets/projectImages/url.png";
 import MetaBlog from "../assets/projectImages/MetaBlog.png";
 import { Fade, Slide } from "react-awesome-reveal";
 function ProjectsPage() {
-  const { theme } = UseThemeContext();
+  const { theme, textColorStyle } = UseThemeContext();
   return (
     <Element
       name="projects"
@@ -28,42 +29,17 @@ function ProjectsPage() {
         <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
           <Slide duration={1200} direction="left" triggerOnce>
             <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
-              I enjoy working on fun{" "}
-              <span
-                className={` delay-100 duration-500 transition   ${
-                  theme === "light" ? " text-primary" : "text-white"
-                }`}
-              >
-                {" "}
-                projects.
-              </span>
+              I enjoy working on fun
+              {textColorStyle("projects")}
             </h2>
             <p>
-              During my free moments, I take pleasure in both{" "}
-              <span
-                className={` delay-100 duration-500 transition   ${
-                  theme === "light" ? " text-primary" : "text-white"
-                }`}
-              >
-                exploring and constructing{" "}
-              </span>{" "}
+              During my free moments, I take pleasure in both
+              {textColorStyle("exploring and constructing")}
               endeavors that personally captivate me or hold practical value.
               You can discover a selection of these undertakings on my{" "}
-              <span
-                className={` delay-100 duration-500 transition   ${
-                  theme === "light" ? " text-primary" : "text-white"
-                }`}
-              >
-                GitHub profile,
-              </span>{" "}
+              {textColorStyle("GitHub profile,")}
               alongside a variety of other miscellaneous creations that{" "}
-              <span
-                className={` delay-100 duration-500 transition   ${
-                  theme === "light" ? " text-primary" : "text-white"
-                }`}
-              >
-                I've dedicated my efforts to.
-              </span>
+              {textColorStyle("I've dedicated my efforts to.")}
             </p>
           </Slide>
           <Fade duration={1200} delay={200} cascade triggerOnce>
@@ -96,7 +72,7 @@ function ProjectsPage() {
           </Fade>
         </div>
         <div className="projectRight lg:mt-10 grid grid-cols-1 gap-7 place-items-center h-full  overflow-y-scroll py-5  ">
-        <ProjectsCards
+          <ProjectsCards
             image={MetaBlog}
             title="MetaBlog"
             stack="React + Node.js + Express.js + MongoDB + Tailwind + MUI"

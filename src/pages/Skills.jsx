@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Element } from "react-scroll";
 
 import reactIcon from "../assets/physics.png";
@@ -16,7 +17,7 @@ import { Fade, Slide } from "react-awesome-reveal";
 
 // eslint-disable-next-line react/prop-types
 function Skills({ handleDownload }) {
-  const { theme } = UseThemeContext();
+  const { theme, textColorStyle } = UseThemeContext();
   return (
     <Element
       name="skills"
@@ -30,43 +31,19 @@ function Skills({ handleDownload }) {
         <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk">
           <Slide duration={1200} direction="left" triggerOnce>
             <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
-              My Development{" "}
-              <span
-                className={`  delay-100 duration-500 transition  ${
-                  theme === "light" ? " text-primary" : "text-white"
-                }`}
-              >
-                Tech Stack
-              </span>
+              My Development
+              {textColorStyle("Tech Stack")}
             </h2>
             <p>
-              Throughout{" "}
-              <span
-                className={` delay-100 duration-500 transition   ${
-                  theme === "light" ? " text-primary" : "text-white"
-                }`}
-              >
-                {" "}
-                my journey
-              </span>
-              , I've engaged with a diverse array of{" "}
-              <span
-                className={` delay-100 duration-500 transition   ${
-                  theme === "light" ? " text-primary" : "text-white"
-                }`}
-              >
-                {" "}
-                tools and technologies
-              </span>
-              , both in personal and open-source projects. My journey has been
+              Throughout
+              {textColorStyle("my journey,")} I've engaged with a diverse array
+              of
+              {textColorStyle("tools and technologies,")}
+              both in personal and open-source projects. My journey has been
               enriched by cultivating a range of{" "}
-              <span
-                className={`  delay-100 duration-500 transition  ${
-                  theme === "light" ? " text-primary" : "text-white"
-                }`}
-              >
-                soft skills, complementing my professional growth.
-              </span>
+              {textColorStyle(
+                " soft skills, complementing my professional growth."
+              )}
             </p>
           </Slide>
           <Fade duration={1200} delay={200} cascade triggerOnce>
