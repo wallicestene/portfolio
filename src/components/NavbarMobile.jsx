@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { UseThemeContext } from "../../context/ThemeContext";
+import { UseThemeContext } from "../context/ThemeContext";
 import { DarkMode, LightMode } from "@mui/icons-material";
 import { Link } from "react-scroll";
 const NavbarMobile = ({

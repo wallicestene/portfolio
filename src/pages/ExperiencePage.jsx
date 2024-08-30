@@ -2,6 +2,7 @@
 import { Element } from "react-scroll";
 import { UseThemeContext } from "../context/ThemeContext";
 import { Slide } from "react-awesome-reveal";
+import ExperienceCard from "./ExperienceCard";
 
 const ExperiencePage = () => {
   const { theme } = UseThemeContext();
@@ -58,8 +59,8 @@ const ExperiencePage = () => {
             </p>
           </Slide>
         </div>
-        <div className="exRight">
-
+        <div className="exRight grid place-items-center">
+          <ExperienceCard/>
         </div>
       </div>
     </Element>

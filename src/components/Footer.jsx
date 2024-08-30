@@ -1,10 +1,9 @@
-import React from "react";
-import { UseThemeContext } from "../../context/ThemeContext";
-import { useEffect } from "react";
+
 import { Favorite } from "@mui/icons-material";
+import { UseThemeContext } from "../context/ThemeContext";
 
 function Footer() {
-  const { theme, toggleTheme } = UseThemeContext();
+  const { theme } = UseThemeContext();
   const date = new Date();
   return (
     <div

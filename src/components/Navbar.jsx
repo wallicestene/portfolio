@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import  { useState } from "react";
-import NavbarMobile from "./NavbarMobile";
 import { Close, DarkMode, LightMode, Menu } from "@mui/icons-material";
-import { UseThemeContext } from "../../context/ThemeContext";
+import { UseThemeContext } from "../context/ThemeContext";
 import { Link } from "react-scroll";
 import { Slide } from "react-awesome-reveal";
+import NavbarMobile from "./NavbarMobile";
 
 const Navbar = ({
   scrollToSkills,

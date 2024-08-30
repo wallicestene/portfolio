@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import Navbar from "./components/Navbar";
 import { UseThemeContext } from "../context/ThemeContext";
 import wallace from "../assets/wallicestene.png";
 import { Element, scroller } from "react-scroll";
@@ -7,8 +6,10 @@ import Skills from "./Skills";
 import ProjectsPage from "./ProjectsPage";
 import ContactPage from "./ContactPage";
 import { Fade, Slide } from "react-awesome-reveal";
-import Footer from "./components/Footer";
+
 import ExperiencePage from "./ExperiencePage";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 const Homepage = () => {
   const { theme, textColorStyle } = UseThemeContext();
   const handleDownload = () => {
@@ -35,14 +36,14 @@ const Homepage = () => {
     });
   };
   const scrollToProjects = () => {
-    scroller.scrollTo("about", {
+    scroller.scrollTo("projects", {
       duration: 800,
       delay: 0,
       smooth: "easeInOutQuart",
     });
   };
   const scrollToSkills = () => {
-    scroller.scrollTo("about", {
+    scroller.scrollTo("skills", {
       duration: 800,
       delay: 0,
       smooth: "easeInOutQuart",
