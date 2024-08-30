@@ -1,12 +1,13 @@
-
-import Homepage from './pages/Homepage'
+import Backgound from "./components/Backgound";
+import Homepage from "./pages/Homepage";
 
 function App() {
   return (
-    <>
-    <Homepage/>
-    </>
-  )
+    <div className=" relative h-full w-full">
+      <Backgound />
+      <Homepage />
+    </div>
+  );
 }
 
-export default App
+export default App;

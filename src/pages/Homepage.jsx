@@ -10,6 +10,7 @@ import { Fade, Slide } from "react-awesome-reveal";
 import ExperiencePage from "./ExperiencePage";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import TypingAnimation from "../components/magicui/typing-animation";
 const Homepage = () => {
   const { theme, textColorStyle } = UseThemeContext();
   const handleDownload = () => {
@@ -64,11 +65,13 @@ const Homepage = () => {
       smooth: "easeInOutQuart",
     });
   };
+  const lokl = textColorStyle("Wallicestene");
+  console.log("hello" + lokl);
   return (
     <>
       <Element
         name="about"
-        className={` lg:h-screen bg-primary delay-100 duration-500 transition ${
+        className={` z-10 lg:h-screen bg-primary delay-100 duration-500 transition ${
           theme === "light"
             ? " text-neutral-600 bg-secondary"
             : " text-neutral-400"
@@ -89,15 +92,19 @@ const Homepage = () => {
         </div>
         <div className=" grid lg:grid-cols-2 grid-cols-1 relative text-center lg:text-start mt-10 h-screen overflow-hidden w-11/12 mx-auto">
           <div className="left flex flex-col justify-center items-center lg:items-start bg-slate-10 font-SpaceGrotesk ">
+            {/* <TypingAnimation
+              className="text-2xl lg:text-5xl font-bold my-2 tracking-wide"
+              text={`Hello!`}
+            /> */}
+            <div className="">
+              {
+                <TypingAnimation
+                  className="text-2xl lg:text-5xl font-bold my-2 tracking-wide"
+                  text={`Hello!  I am Wallicestene`}
+                />
+              }
+            </div>
             <Slide duration={1200} direction="left" cascade triggerOnce>
-              <h1 className=" text-2xl lg:text-5xl font-bold my-2 tracking-wide">
-                Hello!
-              </h1>
-              <div className="">
-                <h2 className="text-2xl lg:text-5xl font-bold my-2 tracking-wide">
-                  I am {textColorStyle("Wallicestene")}
-                </h2>
-              </div>
               <p>
                 I'm a{textColorStyle("front-end/Full-Stack developer")}
                 based in Nairobi, Kenya, with a strong focus on

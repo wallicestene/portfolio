@@ -12,11 +12,11 @@ const ExperienceCard = () => {
       opts={{
         align: "start",
       }}
-      className="w-full max-w-sm"
+      className="w-full max-w-md"
     >
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+          <CarouselItem key={index} className="">
             <div className="p-1">
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center p-6">

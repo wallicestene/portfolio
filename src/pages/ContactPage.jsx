@@ -37,7 +37,7 @@ function ContactPage() {
   return (
     <Element
       name="contact"
-      className={`relative  bg-primary delay-100 duration-500 transition ${
+      className={` bg-primary delay-100 duration-500 transition ${
         theme === "light"
           ? " text-neutral-600 bg-secondary"
           : " text-neutral-400"
