@@ -16,6 +16,10 @@ export const theme = {
     },
   },
   extend: {
+    listStyleImage: {
+      checkmark: 'url("/src/assets/checkmark-primary.svg")',
+      checkmarkSecodary: 'url("/src/assets/checkmark-secondary.svg")'
+    },
     fontFamily: {
       SpaceGrotesk: "Space Grotesk",
     },
