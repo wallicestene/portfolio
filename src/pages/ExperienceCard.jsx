@@ -1,7 +1,6 @@
 import {
   Carousel,
   CarouselContent,
-  CarouselItem,
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
@@ -14,9 +13,9 @@ const ExperienceCard = () => {
       opts={{
         align: "start",
       }}
-      className="w-full max-w-md"
+      className="w-full max-w-md "
     >
-      <CarouselContent>
+      <CarouselContent >
         <SingleExperienceCard />
         <SingleExperienceCard />
       </CarouselContent>

@@ -65,8 +65,6 @@ const Homepage = () => {
       smooth: "easeInOutQuart",
     });
   };
-  const lokl = textColorStyle("Wallicestene");
-  console.log("hello" + lokl);
   return (
     <>
       <Element

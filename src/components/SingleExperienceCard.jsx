@@ -12,13 +12,13 @@ import { UseThemeContext } from "../context/ThemeContext";
 const SingleExperienceCard = () => {
   const { theme } = UseThemeContext();
   return (
-    <CarouselItem >
-      <div>
-        <Card  className={` shadow-lg overflow-hidden delay-100 duration-500 transition-colors font-SpaceGrotesk ${
-        theme === "light"
-          ? "  bg-white"
-          : "  bg-neutral-950"
-      }`}>
+    <CarouselItem>
+      <div
+        className={`overflow-hidden font-SpaceGrotesk delay-100 duration-500 transition ${
+          theme === "light" ? "  bg-white" : "  bg-neutral-950"
+        }`}
+      >
+        <Card>
           <CardHeader>
             <CardTitle>Information Technology Intern</CardTitle>
             <CardDescription>
@@ -27,7 +27,7 @@ const SingleExperienceCard = () => {
           </CardHeader>
           <CardContent>
             <ul
-              className={` ${ 
+              className={`${
                 theme === "light"
                   ? "list-image-checkmark"
                   : " list-image-checkmarkSecodary"
