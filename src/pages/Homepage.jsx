@@ -99,6 +99,7 @@ const Homepage = () => {
                 <TypingAnimation
                   className="text-2xl lg:text-5xl font-bold my-2 tracking-wide"
                   text={`Hello!  I am Wallicestene`}
+                  duration={100}
                 />
               }
             </div>

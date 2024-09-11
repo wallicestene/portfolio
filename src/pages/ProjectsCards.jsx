@@ -12,8 +12,8 @@ function ProjectsCards({ image, title, stack, description, link, live }) {
       <div
         className={` shadow-lg rounded-t overflow-hidden transform  duration-500 hover:scale-105 w-80 delay-100 transition font-SpaceGrotesk ${
           theme === "light"
-            ? " text-primary bg-white"
-            : " text-white bg-neutral-950"
+            ? " text-neutral-600 bg-white"
+            : " text-neutral-400 bg-neutral-950"
         }`}
       >
         <img

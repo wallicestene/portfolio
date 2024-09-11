@@ -15,9 +15,12 @@ const SingleExperienceCard = () => {
     <CarouselItem>
       <div
         className={`overflow-hidden font-SpaceGrotesk delay-100 duration-500 transition ${
-          theme === "light" ? "  bg-white" : "  bg-neutral-950"
+           theme === "light"
+            ? " text-neutral-600 bg-white"
+            : " text-neutral-400 bg-neutral-950"
         }`}
       >
+        
         <Card>
           <CardHeader>
             <CardTitle>Information Technology Intern</CardTitle>
