@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Element } from "react-scroll";
 import { UseThemeContext } from "../context/ThemeContext";
-import { Slide } from "react-awesome-reveal";
+import { Fade, Slide } from "react-awesome-reveal";
 import ExperienceCard from "./ExperienceCard";
 
 const ExperiencePage = () => {
@@ -43,8 +43,11 @@ const ExperiencePage = () => {
             </p>
           </Slide>
         </div>
+
         <div className="exRight grid place-items-center">
-          <ExperienceCard />
+          <Fade duration={1200} delay={200} cascade triggerOnce>
+            <ExperienceCard />
+          </Fade>
         </div>
       </div>
     </Element>
