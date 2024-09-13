@@ -10,7 +10,7 @@ import Autoplay from 'embla-carousel-autoplay'
 const ExperienceCard = () => {
   const experienceOne = [
     " Provided support by troubleshooting hardware and software issues, achieving a 95% resolution rate.",
-    " Maintained IT systems with 99% uptime, ensuring smooth and uninterrupted operations.",
+    " Maintained Software systems with 99% uptime, ensuring smooth and uninterrupted operations.",
     "Collaborated with external software developers to streamline issue resolution processes, reducing response times by 25%.",
     "Participated in professional development workshops, expanding knowledge in IT systems management.",
   ];
@@ -41,7 +41,7 @@ const ExperienceCard = () => {
       <CarouselContent>
         <SingleExperienceCard
           title={"Software Developer Intern"}
-          description={" Codesoft | March 2024 – April 2024"}
+          description={" Codesoft | February 2024 – April 2024"}
           content={experienceTwo}
         />
         <SingleExperienceCard

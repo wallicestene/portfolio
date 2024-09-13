@@ -21,12 +21,12 @@ const SingleExperienceCard = ({ title, description, content }) => {
             : " text-neutral-400 bg-neutral-950"
         }`}
       >
-        <Card className="h-full">
+        <Card className="h-full border-none">
           <CardHeader>
             <CardTitle>{title}</CardTitle>
             <CardDescription>{description}</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent> 
             <ul
               className={`${
                 theme === "light"

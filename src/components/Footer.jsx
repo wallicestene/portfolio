@@ -7,7 +7,7 @@ function Footer() {
   const date = new Date();
   return (
     <div
-      className={`overflow-hidden py-3 flex flex-col items-center justify-end text-sm bg-primary delay-100 duration-500 transition ${
+      className={`overflow-hidden font-SpaceGrotesk py-3 flex flex-col items-center justify-end text-sm bg-primary delay-100 duration-500 transition ${
         theme === "light"
           ? " text-neutral-600 bg-secondary"
           : " text-neutral-400"
