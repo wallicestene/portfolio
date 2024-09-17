@@ -76,7 +76,7 @@ function Skills({ handleDownload }) {
           </Fade>
         </div>
         <div className="right grid place-items-center">
-          <div className=" grid  grid-cols-2 gap-5">
+          <div className=" p-3 grid grid-cols-2 lg:grid-cols-3 gap-5">
             <SkillsCards title="React.js" icon={reactIcon} />
             <SkillsCards title="Javascript" icon={JavascriptIcon} />
             <SkillsCards title="Tailwind-CSS" icon={tailwindIcon} />
