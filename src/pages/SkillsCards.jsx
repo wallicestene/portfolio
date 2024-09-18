@@ -15,7 +15,7 @@ const SkillsCards = ({ title, icon }) => {
             : " text-neutral-400 bg-neutral-950"
         }`}
       >
-        <div className=" h-6 w-6 hover:animate-spin bg-black">
+        <div className=" h-6 w-6 hover:animate-spin">
           <img src={icon} alt="" className=" w-full h-full" />
         </div>
         <div>

@@ -11,6 +11,9 @@ import nodeIcon from "../assets/node-js.png";
 import expressIcon from "../assets/express.png";
 import mongoDBIcon from "../assets/mongodb.png";
 import firebaseIcon from "../assets/firebase.png";
+import SQLIcon from "../assets/sql.png";
+import awsIcon from "../assets/aws.png";
+import postre from "../assets/postgre.png";
 import { UseThemeContext } from "../context/ThemeContext";
 import SkillsCards from "./SkillsCards";
 import { Fade, Slide } from "react-awesome-reveal";
@@ -87,6 +90,9 @@ function Skills({ handleDownload }) {
             <SkillsCards title="Express.js" icon={expressIcon} />
             <SkillsCards title="MongoDB" icon={mongoDBIcon} />
             <SkillsCards title="Firebase" icon={firebaseIcon} />
+            <SkillsCards title="SQL" icon={SQLIcon} />
+            <SkillsCards title="PostgreSQL" icon={postre} />
+            <SkillsCards title="AWS" icon={awsIcon} />
           </div>
         </div>
       </div>
