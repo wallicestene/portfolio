@@ -14,6 +14,7 @@ import firebaseIcon from "../assets/firebase.png";
 import SQLIcon from "../assets/sql.png";
 import awsIcon from "../assets/aws.png";
 import postre from "../assets/postgre.png";
+import python from "../assets/python.png";
 import { UseThemeContext } from "../context/ThemeContext";
 import SkillsCards from "./SkillsCards";
 import { Fade, Slide } from "react-awesome-reveal";
@@ -82,11 +83,12 @@ function Skills({ handleDownload }) {
           <div className=" p-3 grid grid-cols-2 lg:grid-cols-3 gap-5">
             <SkillsCards title="React.js" icon={reactIcon} />
             <SkillsCards title="Javascript" icon={JavascriptIcon} />
+            <SkillsCards title="Node.js" icon={nodeIcon} />
+            <SkillsCards title="Python" icon={python} />
             <SkillsCards title="Tailwind-CSS" icon={tailwindIcon} />
             <SkillsCards title="HTML" icon={htmlIcon} />
             <SkillsCards title="CSS" icon={cssIcon} />
             <SkillsCards title="Git" icon={gitIcon} />
-            <SkillsCards title="Node.js" icon={nodeIcon} />
             <SkillsCards title="Express.js" icon={expressIcon} />
             <SkillsCards title="MongoDB" icon={mongoDBIcon} />
             <SkillsCards title="Firebase" icon={firebaseIcon} />
