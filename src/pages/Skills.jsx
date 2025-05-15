@@ -25,9 +25,9 @@ function Skills({ handleDownload }) {
   return (
     <Element
       name="skills"
-      className={` bg-primary delay-100 duration-500 transition ${
+      className={`  delay-100 duration-500 transition ${
         theme === "light"
-          ? " text-neutral-600 bg-secondary"
+          ? " text-neutral-600 "
           : " text-neutral-400"
       }`}
     >

@@ -37,10 +37,8 @@ function ContactPage() {
   return (
     <Element
       name="contact"
-      className={` bg-primary delay-100 duration-500 transition ${
-        theme === "light"
-          ? " text-neutral-600 bg-secondary"
-          : " text-neutral-400"
+      className={` delay-100 duration-500 transition ${
+        theme === "light" ? " text-neutral-600" : " text-neutral-400"
       }`}
     >
       <div className=" grid overflow-hidden lg:grid-cols-2 grid-cols-1 h-screen w-11/12 mx-auto">

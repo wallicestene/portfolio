@@ -5,6 +5,7 @@ import { UseThemeContext } from "../context/ThemeContext";
 import { Link } from "react-scroll";
 import { Slide } from "react-awesome-reveal";
 import NavbarMobile from "./NavbarMobile";
+import AnimatedBackground from "./AnimatedBackground";
 
 const Navbar = ({
   scrollToSkills,
@@ -84,11 +85,13 @@ const Navbar = ({
             theme === "light" ? " text-primary bg-white" : " text-secondary"
           }`}
         >
+          
           <div>
             <div
               onClick={() => setShowNavbarMobile(false)}
               className=" flex justify-end mr-4 my-1"
             >
+              <AnimatedBackground />
               <Close fontSize="large" />
             </div>
             <NavbarMobile

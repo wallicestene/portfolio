@@ -9,10 +9,8 @@ const ExperiencePage = () => {
   return (
     <Element
       name="experience"
-      className={` bg-primary delay-100 duration-500 transition ${
-        theme === "light"
-          ? " text-neutral-600 bg-secondary"
-          : " text-neutral-400"
+      className={`  delay-100 duration-500 transition ${
+        theme === "light" ? " text-neutral-600 " : " text-neutral-400"
       }`}
     >
       <div className="h-screen  grid overflow-hidden lg:grid-cols-2 grid-cols-1  w-11/12 mx-auto">

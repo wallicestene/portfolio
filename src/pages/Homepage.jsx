@@ -11,6 +11,7 @@ import ExperiencePage from "./ExperiencePage";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import TypingAnimation from "../components/magicui/typing-animation";
+import AnimatedBackground from "../components/AnimatedBackground";
 const Homepage = () => {
   const { theme, textColorStyle } = UseThemeContext();
   const handleDownload = () => {
@@ -69,17 +70,18 @@ const Homepage = () => {
     <>
       <Element
         name="about"
-        className={` z-10 lg:h-screen bg-primary delay-100 duration-500 transition ${
-          theme === "light"
-            ? " text-neutral-600 bg-secondary"
-            : " text-neutral-400"
+        className={` z-10 lg:h-screen delay-100 duration-500 transition ${
+          theme === "light" ? " text-neutral-600 y" : " text-neutral-400"
         }`}
       >
+        {/* animated background */}
+        {/* <AnimatedBackground theme={theme} /> */}
         <div
           className={`fixed top-0 w-full flex z-40 items-center h-12 delay-100 duration-500 transition ${
-            theme === "light" ? " bg-secondary" : " bg-primary "
+            theme === "light" ? "" : "  "
           }`}
         >
+          <AnimatedBackground />
           <Navbar
             scrollToAbout={scrollToAbout}
             scrollToProjects={scrollToProjects}
