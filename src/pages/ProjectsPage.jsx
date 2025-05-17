@@ -71,14 +71,6 @@ function ProjectsPage() {
         </div>
         <div className="projectRight lg:mt-10 grid grid-cols-1 gap-7 place-items-center h-full  overflow-y-scroll py-5  ">
           <ProjectsCards
-            image={MetaBlog}
-            title="MetaBlog"
-            stack="React + Node.js + Express.js + MongoDB + Tailwind + MUI"
-            description="A blogging website where users can read existing blogs and upload their own content."
-            link="https://github.com/wallicestene/Blog"
-            live="https://the-metablog.netlify.app/"
-          />
-          <ProjectsCards
             image={Bookify}
             title="Bookify"
             stack="React + Node.js + Express.js + MongoDB + Tailwind"
@@ -87,6 +79,15 @@ function ProjectsPage() {
             link="https://github.com/wallicestene/Restaurant-system.git"
             live="https://appbookify.netlify.app/"
           />
+          <ProjectsCards
+            image={MetaBlog}
+            title="MetaBlog"
+            stack="React + Node.js + Express.js + MongoDB + Tailwind + MUI"
+            description="A blogging website where users can read existing blogs and upload their own content."
+            link="https://github.com/wallicestene/Blog"
+            live="https://the-metablog.netlify.app/"
+          />
+
           <ProjectsCards
             image={EShop}
             title="E-shop"
