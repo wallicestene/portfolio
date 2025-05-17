@@ -5,6 +5,7 @@ import { UseThemeContext } from "../context/ThemeContext";
 function AnimatedBackground() {
   const { theme } = UseThemeContext();
   // Keep your existing color palette
+  // eslint-disable-next-line no-unused-vars
   const [colorPalette, setColorPalette] = useState({
     // Base colors
     primary: "#1A1A1A",

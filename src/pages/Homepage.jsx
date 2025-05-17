@@ -11,8 +11,8 @@ import { TypeAnimation } from "react-type-animation";
 import ExperiencePage from "./ExperiencePage";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import TypingAnimation from "../components/magicui/typing-animation";
 import AnimatedBackground from "../components/AnimatedBackground";
+import FadingQuote from "../components/FadingQuote";
 const Homepage = () => {
   const { theme, textColorStyle } = UseThemeContext();
   const handleDownload = () => {
@@ -77,12 +77,14 @@ const Homepage = () => {
       >
         {/* animated background */}
         {/* <AnimatedBackground theme={theme} /> */}
+
         <div
           className={`fixed top-0 w-full flex z-40 items-center h-12 delay-100 duration-500 transition ${
             theme === "light" ? "" : "  "
           }`}
         >
           <AnimatedBackground />
+
           <Navbar
             scrollToAbout={scrollToAbout}
             scrollToProjects={scrollToProjects}
@@ -140,6 +142,7 @@ const Homepage = () => {
                 problems.
               </p>
             </Slide>
+
             <Fade duration={1200} delay={200} cascade triggerOnce>
               <div className="mt-4  grid place-items-center lg:flex lg:justify-start">
                 <button
@@ -169,7 +172,7 @@ const Homepage = () => {
               </div>
             </Fade>
           </div>
-
+          <FadingQuote />
           <div className="right bg-slate-10 grid place-items-center">
             <Fade
               duration={1200}
