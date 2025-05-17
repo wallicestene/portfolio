@@ -6,6 +6,7 @@ import Skills from "./Skills";
 import ProjectsPage from "./ProjectsPage";
 import ContactPage from "./ContactPage";
 import { Fade, Slide } from "react-awesome-reveal";
+import { TypeAnimation } from "react-type-animation";
 
 import ExperiencePage from "./ExperiencePage";
 import Footer from "../components/Footer";
@@ -97,13 +98,32 @@ const Homepage = () => {
               text={`Hello!`}
             /> */}
             <div className="">
-              {
-                <TypingAnimation
-                  className="text-2xl lg:text-5xl font-bold my-2 tracking-wide"
-                  text={`Hello!  I am Wallicestene`}
-                  duration={100}
-                />
-              }
+              <h2
+                className={`text-2xl lg:text-5xl font-bold my-2 tracking-wide `}
+              >
+                <span>I'm </span>
+                <span>
+                  {textColorStyle(
+                    <TypeAnimation
+                      sequence={[
+                        "Wallicestene",
+                        5000,
+                        "a Front-End Developer",
+                        2000,
+                        "a Full-Stack Developer",
+                        2000,
+                        "a Software Engineer",
+                        2000,
+                        "a Web Developer",
+                        2000,
+                      ]}
+                      wrapper="span"
+                      speed={50}
+                      repeat={Infinity}
+                    />
+                  )}
+                </span>
+              </h2>
             </div>
             <Slide duration={1200} direction="left" cascade triggerOnce>
               <p>
