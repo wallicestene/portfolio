@@ -69,6 +69,35 @@ const Homepage = () => {
   };
   return (
     <>
+      <style>{`
+        .typing-text {
+          position: relative;
+        }
+        .typing-text::after {
+          content: "";
+          position: absolute;
+          right: -4px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 3px;
+          height: 70%;
+          background-color: ${
+            theme === "light"
+              ? "var(--primary-color)"
+              : "var(--secondary-color)"
+          };
+          animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+        }
+      `}</style>
       <Element
         name="about"
         className={` z-10 lg:h-screen delay-100 duration-500 transition ${
@@ -107,7 +136,7 @@ const Homepage = () => {
 
               <h2 className={`text-2xl lg:text-5xl font-bold tracking-tight`}>
                 <span>I'm </span>
-                <span>
+                <span className="typing-text">
                   {textColorStyle(
                     <TypeAnimation
                       sequence={[

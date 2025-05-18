@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Element } from "react-scroll";
-
+import { motion } from "framer-motion";
 import reactIcon from "../assets/physics.png";
 import htmlIcon from "../assets/html-5.png";
 import JavascriptIcon from "../assets/js.png";
@@ -25,24 +25,33 @@ function Skills({ handleDownload }) {
   return (
     <Element
       name="skills"
-      className={`  delay-100 duration-500 transition ${
+      className={`delay-100 duration-500 transition ${
         theme === "light"
-          ? " text-neutral-600 "
-          : " text-neutral-400"
+          ? "text-neutral-600"
+          : "text-neutral-400"
       }`}
     >
-      <div className="h-screen  grid overflow-hidden lg:grid-cols-2 grid-cols-1  w-11/12 mx-auto">
+      <div className="h-screen grid overflow-hidden lg:grid-cols-2 grid-cols-1 w-11/12 mx-auto">
         <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk">
           <Slide duration={1200} direction="left" triggerOnce>
-            <h2 className=" text-2xl lg:text-5xl font-bold my-5 tracking-wide">
+            <h2 className="text-2xl lg:text-5xl font-bold my-5 tracking-wide">
               My Development
-              {textColorStyle("Tech Stack")}
+              <span className="relative ml-2">
+                {textColorStyle("Tech Stack")}
+                <motion.span 
+                  className={`absolute -bottom-1 left-0 h-1 ${theme === "light" ? "bg-primary" : "bg-secondary"}`}
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "100%" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                />
+              </span>
             </h2>
-            <p>
+            <p className="text-lg leading-relaxed">
               Throughout
-              {textColorStyle("my journey,")} I've engaged with a diverse array
+              {textColorStyle(" my journey, ")} I've engaged with a diverse array
               of
-              {textColorStyle("tools and technologies,")}
+              {textColorStyle(" tools and technologies, ")}
               both in personal and open-source projects. My journey has been
               enriched by cultivating a range of{" "}
               {textColorStyle(
@@ -50,51 +59,55 @@ function Skills({ handleDownload }) {
               )}
             </p>
           </Slide>
-          <Fade duration={1200} delay={200} cascade triggerOnce>
-            <div className="mt-4  grid place-items-center lg:flex lg:justify-start">
+          
+          <Fade duration={1200} delay={200} triggerOnce>
+            <div className="mt-8 grid place-items-center lg:flex lg:justify-start">
               <button
                 onClick={handleDownload}
-                className={`relative px-7 py-2 group w-fit delay-100 duration-100 transition`}
+                className={`relative overflow-hidden px-7 py-3 font-medium rounded-lg group transition-all duration-300 ${
+                  theme === "light"
+                    ? "bg-primary text-white hover:bg-primary/90"
+                    : "bg-secondary text-primary hover:bg-secondary/90"
+                }`}
               >
-                <span
-                  className={`absolute inset-0 w-full h-full bg-transparent border-2 transition duration-200 ease-out transform translate-x-1 translate-y-1 group-hover:-translate-x-0 group-hover:-translate-y-0  ${
-                    theme === "light" ? " border-primary" : "border-secondary"
-                  }`}
-                ></span>
-                <span
-                  className={`absolute inset-0 w-full h-full bg-primary delay-100 duration-500 transition  ${
-                    theme === "light"
-                      ? " text-secondary bg-primary"
-                      : " text-primary bg-secondary"
-                  }`}
-                ></span>
-                <span
-                  className={`relative delay-100 duration-500 transition  ${
-                    theme === "light" ? " text-secondary" : " text-primary"
-                  }`}
-                >
+                <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40"></span>
+                <span className="flex items-center gap-2">
                   View Resumé
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M7 17l9.2-9.2M17 17V7H7"></path>
+                  </svg>
                 </span>
               </button>
             </div>
           </Fade>
         </div>
+        
         <div className="right grid place-items-center">
-          <div className=" p-3 grid grid-cols-2 lg:grid-cols-3 gap-5">
-            <SkillsCards title="React.js" icon={reactIcon} />
-            <SkillsCards title="Javascript" icon={JavascriptIcon} />
-            <SkillsCards title="Node.js" icon={nodeIcon} />
-            <SkillsCards title="Python" icon={python} />
-            <SkillsCards title="Tailwind-CSS" icon={tailwindIcon} />
-            <SkillsCards title="HTML" icon={htmlIcon} />
-            <SkillsCards title="CSS" icon={cssIcon} />
-            <SkillsCards title="Git" icon={gitIcon} />
-            <SkillsCards title="Express.js" icon={expressIcon} />
-            <SkillsCards title="MongoDB" icon={mongoDBIcon} />
-            <SkillsCards title="Firebase" icon={firebaseIcon} />
-            <SkillsCards title="SQL" icon={SQLIcon} />
-            <SkillsCards title="PostgreSQL" icon={postre} />
-            <SkillsCards title="AWS" icon={awsIcon} />
+          <div className="p-3 grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <SkillsCards title="React.js" icon={reactIcon} proficiency={90} />
+            <SkillsCards title="Javascript" icon={JavascriptIcon} proficiency={85} />
+            <SkillsCards title="Node.js" icon={nodeIcon} proficiency={80} />
+            <SkillsCards title="Python" icon={python} proficiency={75} />
+            <SkillsCards title="Tailwind-CSS" icon={tailwindIcon} proficiency={90} />
+            <SkillsCards title="HTML" icon={htmlIcon} proficiency={90} />
+            <SkillsCards title="CSS" icon={cssIcon} proficiency={85} />
+            <SkillsCards title="Git" icon={gitIcon} proficiency={85} />
+            <SkillsCards title="Express.js" icon={expressIcon} proficiency={80} />
+            <SkillsCards title="MongoDB" icon={mongoDBIcon} proficiency={80} />
+            <SkillsCards title="Firebase" icon={firebaseIcon} proficiency={75} />
+            <SkillsCards title="SQL" icon={SQLIcon} proficiency={75} />
+            <SkillsCards title="PostgreSQL" icon={postre} proficiency={70} />
+            <SkillsCards title="AWS" icon={awsIcon} proficiency={65} />
           </div>
         </div>
       </div>
