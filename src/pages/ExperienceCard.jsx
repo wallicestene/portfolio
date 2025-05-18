@@ -5,19 +5,20 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import SingleExperienceCard from "../components/SingleExperienceCard";
-import Autoplay from 'embla-carousel-autoplay'
+import Autoplay from "embla-carousel-autoplay";
 
 const ExperienceCard = () => {
   const experienceOne = [
-    " Provided support by troubleshooting hardware and software issues, achieving a 95% resolution rate.",
-    " Maintained Software systems with 99% uptime, ensuring smooth and uninterrupted operations.",
-    "Collaborated with external software developers to streamline issue resolution processes, reducing response times by 25%.",
-    "Participated in professional development workshops, expanding knowledge in IT systems management.",
+    " Collaborated on internal web tools, assisting with frontend development using React and backend debugging in Node.js.",
+    "Improved UI responsiveness and resolved frontend bugs, resulting in smoother user experiences.",
+    "Supported automation of internal workflows and enhanced documentation of system processes.",
+    "Conducted system testing and recommended improvements, contributing to a 10% increase in efficiency",
   ];
   const experienceTwo = [
-    "Enhanced user engagement by improving UI/UX designs and developing new features for a booking application.",
-    "Implemented advanced search functionalities, increasing user activity and platform efficiency.",
-    "Strengthened platform security by introducing authentication and authorization measures, reducing security incidents.",
+    "Developed REST APIs using Node.js and Express, ensuring scalability and performance.",
+    " Implemented secure user authentication using JWT protocols.",
+    "Wrote modular and testable backend code integrated with MongoDB, improving maintainability.",
+    "Worked in an agile team to ship new features and fix bugs on client-facing",
   ];
   const experienceThree = [
     "Strengthen my expertise in front-end and back-end technologies.",
