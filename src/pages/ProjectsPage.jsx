@@ -74,7 +74,7 @@ function ProjectsPage() {
             image={Bookify}
             title="Bookify"
             stack="React + Node.js + Express.js + MongoDB + Tailwind"
-            description="This is a MERN stack booking app where users can browse and book accommodations. Features include search, book
+            description="This is a MERN stack booking app where users can browse and book accommodations. Features include Advanced search, Recommendation system, book
             accommodations, and list places for booking"
             link="https://github.com/wallicestene/Restaurant-system.git"
             live="https://appbookify.netlify.app/"
