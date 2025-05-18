@@ -11,7 +11,7 @@ const FadingQuote = () => {
   return (
     <motion.div
       style={{ opacity, y }}
-      className="absolute bottom-16 z-10 inset-x-0 flex justify-center pointer-events-none"
+      className="absolute bottom-16 z-20 inset-x-0 flex justify-center pointer-events-none"
     >
       <div
         className={`max-w-md p-4  rounded-lg backdrop-blur-sm ${
@@ -21,8 +21,8 @@ const FadingQuote = () => {
         }`}
       >
         <p className="text-center italic">
-          &ldquo;Dedicated to building scalable digital solutions that combine
-          technical excellence with exceptional user experiences.&rdquo;
+          &ldquo;I believe in crafting elegant solutions to complex problems, creating
+          experiences that are both beautiful and functional.&ldquo;
         </p>
       </div>
     </motion.div>
