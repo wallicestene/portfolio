@@ -28,7 +28,7 @@ const ExperiencePage = () => {
                 Professional Growth
               </span>
 
-              <h2 className="text-2xl lg:text-5xl font-bold tracking-wide">
+              <h2 className="text-2xl lg:text-5xl font-bold tracking-tight">
                 My{" "}
                 <span className="relative">
                   {textColorStyle("Experience")}
@@ -45,7 +45,7 @@ const ExperiencePage = () => {
               </h2>
             </div>
 
-            <p className="text-lg leading-relaxed">
+            <p className="text-lg text-balance max-w-xl leading-relaxed">
               Throughout
               {textColorStyle(" my career, ")}
               I've had the opportunity to work in

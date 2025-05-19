@@ -145,7 +145,7 @@ function ProjectsPage() {
                 What I've Built
               </span>
 
-              <h2 className="text-2xl lg:text-5xl font-bold tracking-wide">
+              <h2 className="text-2xl lg:text-5xl font-bold tracking-tight">
                 My{" "}
                 <span className="relative">
                   {textColorStyle("Projects")}
@@ -162,7 +162,7 @@ function ProjectsPage() {
               </h2>
             </div>
 
-            <p className="text-lg leading-relaxed">
+            <p className="text-lg text-balance max-w-xl leading-relaxed">
               During my free moments, I take pleasure in both
               {textColorStyle(" exploring and constructing ")}
               endeavors that personally captivate me or hold practical value.
