@@ -4,70 +4,102 @@ import { GitHub, Visibility } from "@mui/icons-material";
 import React from "react";
 import { UseThemeContext } from "../context/ThemeContext";
 import { Fade } from "react-awesome-reveal";
+import { motion } from "framer-motion";
 
 function ProjectsCards({ image, title, stack, description, link, live }) {
-  const { theme, toggleTheme } = UseThemeContext();
+  const { theme } = UseThemeContext();
+
   return (
-    <Fade triggerOnce cascade duration={1200} direction="top" delay={200}>
-      <div
-        className={` shadow-lg rounded-t overflow-hidden transform  duration-500 hover:scale-105 w-80 delay-100 transition font-SpaceGrotesk ${
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      whileHover={{
+        y: -5,
+        boxShadow:
           theme === "light"
-            ? " text-neutral-600 bg-white"
-            : " text-neutral-400 bg-neutral-950"
-        }`}
-      >
+            ? "0 10px 25px -5px rgba(0, 0, 0, 0.1)"
+            : "0 10px 25px -5px rgba(0, 0, 0, 0.3)",
+      }}
+      className={`rounded-lg overflow-hidden w-80 sm:w-96 font-SpaceGrotesk ${
+        theme === "light"
+          ? "bg-white text-neutral-600 border border-gray-100"
+          : "bg-neutral-900 text-neutral-300 border border-neutral-800"
+      }`}
+    >
+      <div className="relative overflow-hidden h-52">
         <img
           src={image}
-          alt=""
-          className="h-52 w-full object-center object-cover" loading="lazy"
+          alt={title}
+          className="h-full w-full object-cover transition-transform duration-700 hover:scale-110"
+          loading="lazy"
         />
-        <div className="px-2 pt-5">
-          <h2 className="  text-lg font-semibold tracking-wide">{title}</h2>
-          <p
-            className={`text-sm transition duration-500 delay-100 ${
-              theme === "light"
-                ? " text-gray-500 bg-white"
-                : " text-gray-400 bg-neutral-950"
-            }`}
-          >
-            {description}
-          </p>
-          <p className=" my-1">{stack}</p>
+        <div
+          className={`absolute top-3 right-3 px-2 py-1 text-xs font-medium rounded-full ${
+            theme === "light"
+              ? "bg-primary/90 text-white"
+              : "bg-secondary/90 text-neutral-900"
+          }`}
+        >
+          {stack.includes("Node.js") ? "Full Stack" : "Frontend"}
         </div>
-        <div className=" flex items-center gap-5 py-3 px-2">
+      </div>
+
+      <div className="p-5">
+        <h2 className="text-xl font-bold mb-2">{title}</h2>
+        <p
+          className={`text-sm mb-3 ${
+            theme === "light" ? "text-gray-600" : "text-gray-400"
+          }`}
+        >
+          {description}
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {stack.split("+").map((tech, index) => (
+            <span
+              key={index}
+              className={`text-xs px-2 py-1 rounded-md ${
+                theme === "light"
+                  ? "bg-gray-100 text-gray-700"
+                  : "bg-gray-800 text-gray-300"
+              }`}
+            >
+              {tech.trim()}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-4">
           <a
             href={link}
-            className={`flex items-center gap-1 text-xs delay-100 transition transform duration-500 hover:scale-110`}
+            target="_blank"
+            rel="noreferrer"
+            className={`flex items-center gap-1.5 text-sm py-2 px-3 rounded-lg transition-colors ${
+              theme === "light"
+                ? "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+            }`}
           >
-            <GitHub fontSize="small" />{" "}
-            <span
-              className={`delay-100 transition duration-500 ${
-                theme === "light"
-                  ? " text-gray-500 bg-white"
-                  : " text-gray-400 bg-neutral-950"
-              }`}
-            >
-              Code
-            </span>
+            <GitHub fontSize="small" /> Code
           </a>
+
           <a
             href={live}
-            className="flex items-center gap-1 text-xs delay-100 transition transform duration-500 hover:scale-110"
+            target="_blank"
+            rel="noreferrer"
+            className={`flex items-center gap-1.5 text-sm py-2 px-3 rounded-lg ${
+              theme === "light"
+                ? "bg-primary/10 text-primary hover:bg-primary/20"
+                : "bg-secondary/10 text-secondary hover:bg-secondary/20"
+            }`}
           >
-            <Visibility fontSize="small" />{" "}
-            <span
-              className={`delay-100 transition duration-500 ${
-                theme === "light"
-                  ? " text-gray-500 bg-white"
-                  : " text-gray-400 bg-neutral-950"
-              }`}
-            >
-              View Site
-            </span>
+            <Visibility fontSize="small" /> Live Demo
           </a>
         </div>
       </div>
-    </Fade>
+    </motion.div>
   );
 }
 
