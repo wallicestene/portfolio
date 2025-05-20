@@ -26,20 +26,29 @@ function Skills({ handleDownload }) {
     <Element
       name="skills"
       className={`delay-100 duration-500 transition ${
-        theme === "light"
-          ? "text-neutral-600"
-          : "text-neutral-400"
+        theme === "light" ? "text-neutral-600" : "text-neutral-400"
       }`}
     >
       <div className="h-screen grid overflow-hidden lg:grid-cols-2 grid-cols-1 w-11/12 mx-auto">
         <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk">
           <Slide duration={1200} direction="left" triggerOnce>
+            <span
+              className={`inline-block py-1 px-3 rounded-full text-sm font-medium mb-3 ${
+                theme === "light"
+                  ? "bg-primary/10 text-primary"
+                  : "bg-secondary/10 text-secondary"
+              }`}
+            >
+              My Skills
+            </span>
             <h2 className="text-2xl lg:text-5xl font-bold tracking-tight">
               My Development
               <span className="relative ml-2">
                 {textColorStyle("Tech Stack")}
-                <motion.span 
-                  className={`absolute -bottom-1 left-0 h-1 ${theme === "light" ? "bg-primary" : "bg-secondary"}`}
+                <motion.span
+                  className={`absolute -bottom-1 left-0 h-1 ${
+                    theme === "light" ? "bg-primary" : "bg-secondary"
+                  }`}
                   initial={{ width: 0 }}
                   whileInView={{ width: "100%" }}
                   viewport={{ once: true }}
@@ -49,8 +58,8 @@ function Skills({ handleDownload }) {
             </h2>
             <p className="text-lg text-balance max-w-xl leading-relaxed">
               Throughout
-              {textColorStyle(" my journey, ")} I've engaged with a diverse array
-              of
+              {textColorStyle(" my journey, ")} I've engaged with a diverse
+              array of
               {textColorStyle(" tools and technologies, ")}
               both in personal and open-source projects. My journey has been
               enriched by cultivating a range of{" "}
@@ -59,7 +68,7 @@ function Skills({ handleDownload }) {
               )}
             </p>
           </Slide>
-          
+
           <Fade duration={1200} delay={200} triggerOnce>
             <div className="mt-8 grid place-items-center lg:flex lg:justify-start">
               <button
@@ -91,20 +100,36 @@ function Skills({ handleDownload }) {
             </div>
           </Fade>
         </div>
-        
+
         <div className="right grid place-items-center">
           <div className="p-3 grid grid-cols-2 sm:grid-cols-3 gap-3">
             <SkillsCards title="React.js" icon={reactIcon} proficiency={90} />
-            <SkillsCards title="Javascript" icon={JavascriptIcon} proficiency={85} />
+            <SkillsCards
+              title="Javascript"
+              icon={JavascriptIcon}
+              proficiency={85}
+            />
             <SkillsCards title="Node.js" icon={nodeIcon} proficiency={80} />
             <SkillsCards title="Python" icon={python} proficiency={75} />
-            <SkillsCards title="Tailwind-CSS" icon={tailwindIcon} proficiency={90} />
+            <SkillsCards
+              title="Tailwind-CSS"
+              icon={tailwindIcon}
+              proficiency={90}
+            />
             <SkillsCards title="HTML" icon={htmlIcon} proficiency={90} />
             <SkillsCards title="CSS" icon={cssIcon} proficiency={85} />
             <SkillsCards title="Git" icon={gitIcon} proficiency={85} />
-            <SkillsCards title="Express.js" icon={expressIcon} proficiency={80} />
+            <SkillsCards
+              title="Express.js"
+              icon={expressIcon}
+              proficiency={80}
+            />
             <SkillsCards title="MongoDB" icon={mongoDBIcon} proficiency={80} />
-            <SkillsCards title="Firebase" icon={firebaseIcon} proficiency={75} />
+            <SkillsCards
+              title="Firebase"
+              icon={firebaseIcon}
+              proficiency={75}
+            />
             <SkillsCards title="SQL" icon={SQLIcon} proficiency={75} />
             <SkillsCards title="PostgreSQL" icon={postre} proficiency={70} />
             <SkillsCards title="AWS" icon={awsIcon} proficiency={65} />

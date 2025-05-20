@@ -31,11 +31,7 @@ const ExperienceCard = () => {
   ];
 
   return (
-    <div
-      className={`p-4 rounded-2xl ${
-        theme === "light" ? "bg-white shadow-sm" : "bg-neutral-900"
-      }`}
-    >
+    <div>
       <Carousel
         opts={{
           align: "start",
