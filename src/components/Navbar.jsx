@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import  { useState } from "react";
+import { useState } from "react";
 import { Close, DarkMode, LightMode, Menu } from "@mui/icons-material";
 import { UseThemeContext } from "../context/ThemeContext";
 import { Link } from "react-scroll";
@@ -85,7 +85,6 @@ const Navbar = ({
             theme === "light" ? " text-primary bg-white" : " text-secondary"
           }`}
         >
-          
           <div>
             <div
               onClick={() => setShowNavbarMobile(false)}
@@ -100,7 +99,6 @@ const Navbar = ({
               scrollToProjects={scrollToProjects}
               scrollToExperience={scrollToExperience}
               setShowNavbarMobile={setShowNavbarMobile}
-
             />
           </div>{" "}
         </Slide>

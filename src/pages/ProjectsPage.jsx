@@ -9,6 +9,7 @@ import Space from "../assets/projectImages/Space.png";
 import Password from "../assets/projectImages/Password.png";
 import Countries from "../assets/projectImages/Countries.png";
 import Bookify from "../assets/projectImages/Bookify.png";
+import Mkononi from "../assets/projectImages/Mkononi.png";
 import SLack from "../assets/projectImages/Slack.png";
 import Saving from "../assets/projectImages/Saving.png";
 import Url from "../assets/projectImages/url.png";
@@ -22,6 +23,16 @@ function ProjectsPage() {
 
   // Project categories
   const projects = [
+    {
+      image: Mkononi,
+      title: "Mkononi Connect",
+      stack: "NextJS + Django + PostgreSQL + Python  + Tailwind",
+      description:
+        "A platform designed to connect blue-collar workers with employers, facilitating job opportunities and skill development.",
+      link: "https://github.com/Deuce01/mkononi.git",
+      live: "#",
+      category: "In Development",
+    },
     {
       image: Bookify,
       title: "Bookify",
@@ -187,6 +198,20 @@ function ProjectsPage() {
                   }`}
                 >
                   All Projects
+                </button>
+                <button
+                  onClick={() => setFilter("In Development")}
+                  className={`px-4 py-1.5 text-sm rounded-full transition-colors ${
+                    filter === "In Development"
+                      ? theme === "light"
+                        ? "bg-primary text-white"
+                        : "bg-secondary text-primary"
+                      : theme === "light"
+                      ? "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                      : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                  }`}
+                >
+                  In Development
                 </button>
                 <button
                   onClick={() => setFilter("fullstack")}
