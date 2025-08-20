@@ -39,7 +39,7 @@ function ProjectsPage() {
       stack: "React + Node.js + Express.js + MongoDB + Tailwind",
       description:
         "This is a MERN stack booking app where users can browse and book accommodations. Features include Advanced search, Recommendation system, book accommodations, and list places for booking",
-      link: "https://github.com/wallicestene/Restaurant-system.git",
+      link: "https://github.com/wallicestene/Bookify.git",
       live: "https://appbookify.netlify.app/",
       category: "fullstack",
     },
