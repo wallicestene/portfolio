@@ -54,7 +54,7 @@ const ExperienceCard = () => {
         <CarouselContent className="py-2">
           <SingleExperienceCard
             title={"KRA BSTEM/ICT Intern"}
-            description={"Kenya Revenue Authority | July 2025 – September 2025"}
+            description={"Kenya Revenue Authority | June 2025 – September 2025"}
             content={experienceOne}
           />
           <SingleExperienceCard
