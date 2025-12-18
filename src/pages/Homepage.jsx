@@ -244,19 +244,6 @@ const Homepage = () => {
                     alt="Wallicestene Waweru"
                   />
                 </div>
-
-                <div
-                  className={`
-          absolute -bottom-4 -right-4 px-5 py-2 rounded-full 
-          ${
-            theme === "light"
-              ? "bg-primary text-white"
-              : "bg-secondary text-primary"
-          }
-        `}
-                >
-                  <span className="font-medium">4+ Years Experience</span>
-                </div>
               </Fade>
             </div>
           </div>

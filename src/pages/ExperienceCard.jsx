@@ -7,10 +7,6 @@ import {
 import SingleExperienceCard from "../components/SingleExperienceCard";
 import Autoplay from "embla-carousel-autoplay";
 import { UseThemeContext } from "../context/ThemeContext";
-<<<<<<< HEAD
-=======
-
->>>>>>> 0f73686cc53d86f1d7a13cc7adbfdaaa11f1e9e4
 
 const ExperienceCard = () => {
   const { theme } = UseThemeContext();
