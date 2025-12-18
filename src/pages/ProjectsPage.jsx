@@ -9,7 +9,7 @@ import Space from "../assets/projectImages/Space.png";
 import Password from "../assets/projectImages/Password.png";
 import Countries from "../assets/projectImages/Countries.png";
 import Bookify from "../assets/projectImages/Bookify.png";
-import Mkononi from "../assets/projectImages/Mkononi.png";
+import Vesper from "../assets/projectImages/Vesper.png";
 import SLack from "../assets/projectImages/Slack.png";
 import Saving from "../assets/projectImages/Saving.png";
 import Url from "../assets/projectImages/url.png";
@@ -24,12 +24,12 @@ function ProjectsPage() {
   // Project categories
   const projects = [
     {
-      image: Mkononi,
-      title: "Mkononi Connect",
-      stack: "NextJS + Django + PostgreSQL + Python  + Tailwind",
+      image: Vesper,
+      title: "Vesper",
+      stack: "Next.js + Node.js + PostreSQL + Tailwind + Prisma",
       description:
-        "A platform designed to connect blue-collar workers with employers, facilitating job opportunities and skill development.",
-      link: "https://github.com/Deuce01/mkononi.git",
+        "A social media management tool that allows users to schedule posts, and manage content from one workspace. Built for individuals to streamline their social media workflows",
+      link: "https://github.com/wallicestene/vesper.git",
       live: "#",
       category: "In Development",
     },
@@ -174,7 +174,7 @@ function ProjectsPage() {
             </div>
 
             <p className="text-lg text-balance max-w-xl leading-relaxed">
-              During my free moments, I take pleasure in both
+             I take pleasure in both
               {textColorStyle(" exploring and constructing ")}
               endeavors that personally captivate me or hold practical value.
               You can discover a selection of these undertakings on my{" "}
