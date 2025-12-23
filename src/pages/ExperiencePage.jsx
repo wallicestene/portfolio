@@ -110,7 +110,7 @@ const ExperiencePage = () => {
             </p>
 
             <a
-              href="https://www.linkedin.com/in/wallicestene-waweru-a26744249" // Updated link from your ContactPage
+              href="https://www.linkedin.com/in/wallicestene-waweru-a26744249"
               target="_blank"
               rel="noreferrer"
               className={`hidden lg:inline-flex items-center gap-2 text-sm font-semibold border-b-2 pb-0.5 transition-colors ${
@@ -124,9 +124,8 @@ const ExperiencePage = () => {
           </motion.div>
         </div>
 
-        {/* RIGHT COLUMN: Timeline */}
+        {/* RIGHT */}
         <div className="lg:col-span-8 relative">
-          {/* Vertical Line for Timeline Effect */}
           <div
             className={`
             absolute left-0 top-2 bottom-0 w-[1px] hidden md:block

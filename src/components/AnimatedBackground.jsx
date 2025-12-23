@@ -1,157 +1,112 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { UseThemeContext } from "../context/ThemeContext";
 
 function AnimatedBackground() {
   const { theme } = UseThemeContext();
-  // Keep your existing color palette
-  // eslint-disable-next-line no-unused-vars
-  const [colorPalette, setColorPalette] = useState({
-    // Base colors
-    primary: "#1A1A1A",
-    secondary: "#F2F2F2",
-    // Gradient colors for light mode
-    lightGradient1:
-      "linear-gradient(135deg, #F2F2F2 0%, #E6E6E6 50%, #d4e6ff 100%)",
-    lightGradient2:
-      "linear-gradient(225deg, #e6f2ff 0%, #F2F2F2 50%, #e0e0ff 100%)",
-    lightGradient3:
-      "linear-gradient(315deg, #f0f8ff 0%, #ede9ff 50%, #F2F2F2 100%)",
-    lightGradient4:
-      "linear-gradient(45deg, #F2F2F2 0%, #f0f0ff 50%, #e8f4ff 100%)",
-    // Gradient colors for dark mode
-    darkGradient1:
-      "linear-gradient(135deg, #1A1A1A 0%, #252525 50%, #1c2433 100%)",
-    darkGradient2:
-      "linear-gradient(225deg, #20242e 0%, #1A1A1A 50%, #1e1e30 100%)",
-    darkGradient3:
-      "linear-gradient(315deg, #151c2c 0%, #1e1c24 50%, #1A1A1A 100%)",
-    darkGradient4:
-      "linear-gradient(45deg, #1A1A1A 0%, #1c1c2e 50%, #1a232e 100%)",
-  });
 
-  // Keep your existing accent colors but make them slightly more vibrant
-  const [accentColors, setAccentColors] = useState({
-    accent1:
-      theme === "light" ? "rgba(173, 216, 230, 0.5)" : "rgba(70, 90, 120, 0.5)", // light blue : navy blue
-    accent2:
-      theme === "light" ? "rgba(216, 191, 216, 0.5)" : "rgba(90, 70, 120, 0.5)", // lavender : purple
-    accent3:
-      theme === "light" ? "rgba(173, 230, 216, 0.5)" : "rgba(70, 120, 90, 0.5)", // mint : teal
-  });
-
-  // Update colors when theme changes
-  useEffect(() => {
-    if (theme === "light") {
-      setAccentColors({
-        accent1: "rgba(173, 216, 230, 0.5)", // light blue
-        accent2: "rgba(216, 191, 216, 0.5)", // lavender
-        accent3: "rgba(173, 230, 216, 0.5)", // mint
-      });
-    } else {
-      setAccentColors({
-        accent1: "rgba(70, 90, 120, 0.5)", // navy blue
-        accent2: "rgba(90, 70, 120, 0.5)", // purple
-        accent3: "rgba(70, 120, 90, 0.5)", // teal
-      });
-    }
-  }, [theme]);
+  // Color Palette Logic
+  const colors =
+    theme === "light"
+      ? {
+          bg: "#ffffff",
+          // Light Mode: Soft watercolors (Blue, Purple, Mint)
+          blob1: "#E0E7FF",
+          blob2: "#F3E8FF",
+          blob3: "#DCFCE7",
+          opacity: 0.8,
+          blend: "mix-blend-multiply", // Watercolor effect
+        }
+      : {
+          bg: "#0a0a0a", // Deep Neutral Black (Matches your theme)
+          // Dark Mode: Deep, subtle shifts (Charcoal, Deep Slate, Midnight)
+          // No bright colors here, just "texture"
+          blob1: "#171717", // Neutral-900
+          blob2: "#1e1e1e", // Slightly lighter grey
+          blob3: "#111827", // Gray-900 (Cool tone)
+          opacity: 0.6,
+          blend: "normal", // No screen blending = No neon glow
+        };
 
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden">
-      {/* Base layer with gradient color shifts - ENHANCED SPEED */}
-      <motion.div
-        className="absolute inset-0"
-        animate={{
-          background:
-            theme === "light"
-              ? [
-                  colorPalette.lightGradient1,
-                  colorPalette.lightGradient2,
-                  colorPalette.lightGradient3,
-                  colorPalette.lightGradient4,
-                  colorPalette.lightGradient1,
-                ]
-              : [
-                  colorPalette.darkGradient1,
-                  colorPalette.darkGradient2,
-                  colorPalette.darkGradient3,
-                  colorPalette.darkGradient4,
-                  colorPalette.darkGradient1,
-                ],
-        }}
-        transition={{
-          duration: 10, // Faster animation (was 20)
-          repeat: Infinity,
-          repeatType: "loop",
-          ease: "linear",
-        }}
-        style={{ backgroundSize: "300% 300%" }} // Smaller background size for more visible movement
+    <div className="fixed inset-0 -z-50 overflow-hidden">
+      {/* 1. Base Layer */}
+      <div
+        className="absolute inset-0 transition-colors duration-700 ease-in-out"
+        style={{ backgroundColor: colors.bg }}
       />
 
-      {/* Keep your existing blob animations but enhance them */}
-      <motion.div
-        className="absolute rounded-full opacity-40 blur-2xl"
+      {/* 2. Noise Texture (3% Opacity for subtle film grain) */}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
-          background: accentColors.accent1,
-          width: "45vw",
-          height: "45vw",
-          top: "-10%",
-          left: "25%",
-        }}
-        animate={{
-          x: ["-15%", "15%", "-10%", "20%", "-15%"],
-          y: ["10%", "-10%", "20%", "0%", "10%"],
-        }}
-        transition={{
-          duration: 12, // Faster animation (was 20)
-          repeat: Infinity,
-          repeatType: "loop",
-          ease: "easeInOut",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
         }}
       />
 
-      <motion.div
-        className="absolute rounded-full opacity-30 blur-2xl"
-        style={{
-          background: accentColors.accent2,
-          width: "40vw",
-          height: "40vw",
-          bottom: "5%",
-          right: "0%",
-        }}
-        animate={{
-          x: ["15%", "-10%", "20%", "-15%", "15%"],
-          y: ["-10%", "15%", "0%", "10%", "-10%"],
-        }}
-        transition={{
-          duration: 10, // Faster animation (was 18)
-          repeat: Infinity,
-          repeatType: "loop",
-          ease: "easeInOut",
-        }}
-      />
+      {/* 3. Moving Blobs */}
+      <div className="absolute inset-0 blur-[60px] md:blur-[100px]">
+        {/* Blob 1: Top Left - Breathing & Drifting */}
+        <motion.div
+          className={`absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] rounded-full transition-all duration-700 ${colors.blend}`}
+          style={{
+            backgroundColor: colors.blob1,
+            opacity: colors.opacity,
+          }}
+          animate={{
+            x: [0, 40, -20, 0],
+            y: [0, 50, 10, 0],
+            scale: [1, 1.1, 0.95, 1],
+            rotate: [0, 10, -5, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+        />
 
-      <motion.div
-        className="absolute rounded-full opacity-30 blur-xl"
-        style={{
-          background: accentColors.accent3,
-          width: "25vw",
-          height: "25vw",
-          top: "40%",
-          right: "20%",
-        }}
-        animate={{
-          x: ["-20%", "20%", "-5%", "15%", "-20%"],
-          y: ["15%", "-15%", "5%", "-20%", "15%"],
-        }}
-        transition={{
-          duration: 8, // Faster animation (was 15)
-          repeat: Infinity,
-          repeatType: "loop",
-          ease: "easeInOut",
-        }}
-      />
+        {/* Blob 2: Right Center - Counter Movement */}
+        <motion.div
+          className={`absolute top-[20%] -right-[10%] w-[45vw] h-[45vw] rounded-full transition-all duration-700 ${colors.blend}`}
+          style={{
+            backgroundColor: colors.blob2,
+            opacity: colors.opacity,
+          }}
+          animate={{
+            x: [0, -50, 30, 0],
+            y: [0, -40, 20, 0],
+            scale: [1, 1.2, 1, 1],
+            rotate: [0, -15, 5, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+        />
+
+        {/* Blob 3: Bottom Left - Grounding */}
+        <motion.div
+          className={`absolute -bottom-[20%] left-[10%] w-[60vw] h-[50vw] rounded-full transition-all duration-700 ${colors.blend}`}
+          style={{
+            backgroundColor: colors.blob3,
+            opacity: colors.opacity,
+          }}
+          animate={{
+            x: [0, 60, -40, 0],
+            y: [0, -50, 30, 0],
+            scale: [0.9, 1.1, 1, 0.9],
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+        />
+      </div>
     </div>
   );
 }

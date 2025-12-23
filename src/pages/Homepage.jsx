@@ -9,7 +9,6 @@ import { motion } from "framer-motion";
 import ExperiencePage from "./ExperiencePage";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-// REMOVED: AnimatedBackground import (It is already in App.jsx)
 
 const Homepage = () => {
   const { theme } = UseThemeContext();
@@ -63,6 +62,7 @@ const Homepage = () => {
           theme === "light" ? "text-neutral-800" : "text-neutral-200"
         }`}
       >
+         
         <Navbar
           scrollToAbout={() => scrollToSection("about")}
           scrollToProjects={() => scrollToSection("projects")}
