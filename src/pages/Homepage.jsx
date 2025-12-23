@@ -5,16 +5,15 @@ import { Element, scroller } from "react-scroll";
 import Skills from "./Skills";
 import ProjectsPage from "./ProjectsPage";
 import ContactPage from "./ContactPage";
-import { Fade, Slide } from "react-awesome-reveal";
-import { TypeAnimation } from "react-type-animation";
-
+import { motion } from "framer-motion";
 import ExperiencePage from "./ExperiencePage";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import AnimatedBackground from "../components/AnimatedBackground";
-import FadingQuote from "../components/FadingQuote";
+// REMOVED: AnimatedBackground import (It is already in App.jsx)
+
 const Homepage = () => {
-  const { theme, textColorStyle } = UseThemeContext();
+  const { theme } = UseThemeContext();
+
   const handleDownload = () => {
     const fileUrl = "/My Resume.pdf";
     fetch(fileUrl)
@@ -27,172 +26,127 @@ const Homepage = () => {
         a.click();
         URL.revokeObjectURL(url);
       })
-      .catch((error) => {
-        console.error("Error downloading the file:", error);
-      });
+      .catch((error) => console.error("Error:", error));
   };
-  const scrollToAbout = () => {
-    scroller.scrollTo("about", {
-      duration: 800,
-      delay: 0,
-      smooth: "easeInOutQuart",
-    });
-  };
-  const scrollToProjects = () => {
-    scroller.scrollTo("projects", {
-      duration: 800,
-      delay: 0,
-      smooth: "easeInOutQuart",
-    });
-  };
-  const scrollToSkills = () => {
-    scroller.scrollTo("skills", {
+
+  const scrollToSection = (section) => {
+    scroller.scrollTo(section, {
       duration: 800,
       delay: 0,
       smooth: "easeInOutQuart",
     });
   };
 
-  const scrollToContact = () => {
-    scroller.scrollTo("contact", {
-      duration: 800,
-      delay: 0,
-      smooth: "easeInOutQuart",
-    });
+  // Animation Variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
-  const scrollToExperience = () => {
-    scroller.scrollTo("experience", {
-      duration: 800,
-      delay: 0,
-      smooth: "easeInOutQuart",
-    });
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+    },
   };
+
   return (
     <>
-      <style>{`
-        .typing-text {
-          position: relative;
-        }
-        .typing-text::after {
-          content: "";
-          position: absolute;
-          right: -4px;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 3px;
-          height: 70%;
-          background-color: ${
-            theme === "light"
-              ? "var(--primary-color)"
-              : "var(--secondary-color)"
-          };
-          animation: blink 0.7s infinite;
-        }
-        @keyframes blink {
-          0%,
-          100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0;
-          }
-        }
-      `}</style>
       <Element
         name="about"
-        className={` z-10 lg:h-screen delay-100 duration-500 transition ${
-          theme === "light" ? " text-neutral-600 y" : " text-neutral-400"
+        // Removed overflow-hidden to ensure background from App.jsx isn't clipped
+        className={`relative min-h-screen flex flex-col justify-center transition-colors duration-500 ${
+          theme === "light" ? "text-neutral-800" : "text-neutral-200"
         }`}
       >
-        <div
-          className={`fixed top-0 w-full flex z-40 items-center h-12 delay-100 duration-500 transition ${
-            theme === "light" ? "" : "  "
-          }`}
-        >
-          <AnimatedBackground />
+        {/* NAVBAR: Floating pill navbar */}
+        <Navbar
+          scrollToAbout={() => scrollToSection("about")}
+          scrollToProjects={() => scrollToSection("projects")}
+          scrollToSkills={() => scrollToSection("skills")}
+          scrollToContact={() => scrollToSection("contact")}
+          scrollToExperience={() => scrollToSection("experience")}
+        />
 
-          <Navbar
-            scrollToAbout={scrollToAbout}
-            scrollToProjects={scrollToProjects}
-            scrollToSkills={scrollToSkills}
-            scrollToContact={scrollToContact}
-            scrollToExperience={scrollToExperience}
-          />
-        </div>
-        <div className="grid lg:grid-cols-2 grid-cols-1 relative text-center lg:text-start mt-10 h-screen overflow-hidden w-11/12 mx-auto">
-          <div className="left flex flex-col justify-center items-center lg:items-start font-SpaceGrotesk space-y-6 z-10">
-            <div className="space-y-2">
-              <Fade duration={800} triggerOnce>
+        {/* HERO SECTION */}
+        <div className="flex-grow flex items-center justify-center w-11/12 max-w-7xl mx-auto pt-24 lg:pt-0">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full">
+            {/* LEFT: Content */}
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-col items-center lg:items-start text-center lg:text-left font-SpaceGrotesk z-10"
+            >
+              {/* STATUS BADGE */}
+              <motion.div
+                variants={fadeInUp}
+                className={`
+                inline-flex items-center px-3 py-1 mb-6 rounded-full text-xs font-bold tracking-widest uppercase border backdrop-blur-sm
+                ${
+                  theme === "light"
+                    ? "bg-white/40 border-neutral-200 text-neutral-600"
+                    : "bg-black/20 border-white/10 text-neutral-300"
+                }
+              `}
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+                Software Engineer
+              </motion.div>
+
+              {/* HEADLINE */}
+              <motion.h1
+                variants={fadeInUp}
+                className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
+              >
+                Building <br />
                 <span
-                  className={`inline-block py-1 px-3 rounded-full text-sm font-medium ${
-                    theme === "light"
-                      ? "bg-primary/10 text-primary"
-                      : "bg-secondary/10 text-secondary"
+                  className={`${
+                    theme === "light" ? "text-neutral-500" : "text-neutral-500"
                   }`}
                 >
-                  Software Engineer
+                  Digital Reality.
                 </span>
-              </Fade>
+              </motion.h1>
 
-              <h2 className={`text-2xl lg:text-5xl font-bold tracking-tight`}>
-                <span>I'm </span>
-                <span className="typing-text">
-                  {textColorStyle(
-                    <TypeAnimation
-                      sequence={[
-                        "Wallicestene",
-                        5000,
-                        "a Front-End Developer",
-                        2000,
-                        "a Full-Stack Developer",
-                        2000,
-                        "a Software Engineer",
-                        2000,
-                        "a Web Developer",
-                        2000,
-                      ]}
-                      wrapper="span"
-                      speed={50}
-                      repeat={Infinity}
-                    />
-                  )}
-                </span>
-              </h2>
-            </div>
+              {/* BIO */}
+              <motion.p
+                variants={fadeInUp}
+                className="text-lg md:text-xl text-balance max-w-lg leading-relaxed opacity-90 mb-8"
+              >
+                I'm <strong>Wallicestene</strong>. A Full-Stack Developer based
+                in Nairobi. I combine technical expertise with creative
+                problem-solving to build scalable applications that solve
+                real-world problems.
+              </motion.p>
 
-            <Slide duration={1200} direction="left" cascade triggerOnce>
-              <p className="text-lg text-balance max-w-xl leading-relaxed">
-                I'm a{textColorStyle("front-end/Full-Stack developer")}
-                based in Nairobi, Kenya, with a strong focus on
-                {textColorStyle("front-end and back-end development.")}{" "}
-                Currently pursuing a Bachelor of Science in{" "}
-                {textColorStyle("Applied Computer Science")}
-                at KCA University, I’m passionate about building
-                {textColorStyle("user-friendly web applications")}and
-                continuously learning new{textColorStyle("technologies")} to
-                solve
-                {textColorStyle("real-world")}
-                problems.
-              </p>
-            </Slide>
-
-            <div className="flex flex-wrap items-center gap-4 mt-8">
-              <Fade duration={800} triggerOnce>
+              {/* BUTTONS */}
+              <motion.div
+                variants={fadeInUp}
+                className="flex flex-wrap gap-4 justify-center lg:justify-start"
+              >
                 <button
                   onClick={handleDownload}
-                  className={`relative overflow-hidden px-7 py-3 font-medium rounded-lg group transition-all duration-300 ${
-                    theme === "light"
-                      ? "bg-primary text-white hover:bg-primary/90"
-                      : "bg-secondary text-primary hover:bg-secondary/90"
-                  }`}
+                  className={`
+                    relative overflow-hidden px-8 py-4 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-lg
+                    ${
+                      theme === "light"
+                        ? "bg-neutral-900 text-white hover:bg-black hover:shadow-xl"
+                        : "bg-white text-black hover:bg-neutral-200 hover:shadow-white/10"
+                    }
+                  `}
                 >
-                  <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40"></span>
                   <span className="flex items-center gap-2">
-                    View Resumé
+                    View Resume
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -200,55 +154,79 @@ const Homepage = () => {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     >
-                      <path d="M7 17l9.2-9.2M17 17V7H7"></path>
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" x2="12" y1="15" y2="3" />
                     </svg>
                   </span>
                 </button>
-              </Fade>
 
-              <Fade duration={800} delay={200} triggerOnce>
                 <button
-                  onClick={scrollToContact}
-                  className={`px-7 py-3 rounded-lg font-medium border transition-all duration-300 ${
-                    theme === "light"
-                      ? "border-primary/50 hover:border-primary text-primary"
-                      : "border-secondary/50 hover:border-secondary text-secondary"
-                  }`}
+                  onClick={() => scrollToSection("contact")}
+                  className={`
+                    px-8 py-4 rounded-full font-medium border transition-all duration-300 backdrop-blur-sm
+                    ${
+                      theme === "light"
+                        ? "border-neutral-400 text-neutral-800 hover:border-black hover:bg-white/50"
+                        : "border-neutral-600 text-neutral-200 hover:border-white hover:bg-white/10"
+                    }
+                  `}
                 >
                   Contact Me
                 </button>
-              </Fade>
-            </div>
-          </div>
-          <FadingQuote />
-          {/* Right column  */}
-          <div className="right grid place-items-center z-10">
-            <div className="relative">
-              <Fade duration={1200} triggerOnce>
-                <div
-                  className={`absolute inset-0 rounded-full blur-md -z-10 ${
-                    theme === "light" ? "bg-primary/30" : "bg-secondary/30"
-                  }`}
-                  style={{ transform: "translate(8px, 8px)" }}
-                ></div>
+              </motion.div>
+            </motion.div>
 
+            {/* RIGHT: Modern Squircle Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, rotate: 3 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.3,
+                type: "spring",
+                bounce: 0.4,
+              }}
+              className="relative flex justify-center lg:justify-end z-10 mt-10 lg:mt-0"
+            >
+              <div className="relative group cursor-pointer">
+                {/* Main Image Container */}
                 <div
                   className={`
-          relative rounded-full overflow-hidden border-4 w-72 h-72 lg:w-96 lg:h-96
-          ${theme === "light" ? "border-primary" : "border-secondary"}
-        `}
+                  relative w-72 h-72 md:w-96 md:h-96 rounded-[2.5rem] overflow-hidden
+                  transition-transform duration-500 ease-in-out group-hover:scale-[1.02]
+                  ${
+                    theme === "light"
+                      ? "bg-white shadow-2xl shadow-neutral-400/20"
+                      : "bg-neutral-800 shadow-2xl shadow-black/50"
+                  }
+                `}
                 >
                   <img
                     src={wallace}
-                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-110"
                     alt="Wallicestene Waweru"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                   />
                 </div>
-              </Fade>
-            </div>
+
+                {/* Decorative Frame Behind */}
+                <div
+                  className={`
+                  absolute inset-0 w-full h-full rounded-[2.5rem] -z-10 
+                  rotate-6 opacity-40 transition-transform duration-500 group-hover:rotate-3
+                  ${
+                    theme === "light"
+                      ? "bg-white border-2 border-neutral-200"
+                      : "bg-neutral-800 border border-neutral-700"
+                  }
+                `}
+                ></div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </Element>
+
       <Skills handleDownload={handleDownload} />
       <ExperiencePage />
       <ProjectsPage />

@@ -11,30 +11,44 @@ import { UseThemeContext } from "../context/ThemeContext";
 const ExperienceCard = () => {
   const { theme } = UseThemeContext();
 
-  const experienceOne = [
-    "Assisted in the development of internal web applications, focusing on frontend features using React.",
-    "Collaborated with the team to enhance user interfaces and improve overall user experience.",
-    "Participated in debugging and testing processes, ensuring high-quality code delivery.",
-    "Gained hands-on experience in web development best practices and agile methodologies.",
-    "Contributed to team meetings and code reviews, enhancing my understanding of collaborative software development.",
-    "Learned to work with version control systems and project management tools.",
-  ];
-  const experienceTwo = [
-    "Collaborated on internal web tools, assisting with frontend development using React and backend debugging in Node.js.",
-    "Improved UI responsiveness and resolved frontend bugs, resulting in smoother user experiences.",
-    "Supported automation of internal workflows and enhanced documentation of system processes.",
-    "Conducted system testing and recommended improvements, contributing to a 10% increase in efficiency.",
-  ];
-  const experienceThree = [
-    "Developed REST APIs using Node.js and Express, ensuring scalability and performance.",
-    "Implemented secure user authentication using JWT protocols.Wrote modular and testable backend code integrated with MongoDB, improving maintainability.",
-    "Worked in an agile team to ship new features and fix bugs on client-facing products.",
-  ];
-  const experienceFour = [
-    "Strengthen my expertise in front-end and back-end technologies.",
-    "Design and build user-friendly interfaces with a focus on accessibility and seamless user experiences.",
-    "Implement secure authentication systems, improving data privacy and user protection.",
-    "Integrate APIs and manage databases to handle dynamic user-generated content.",
+  const experiences = [
+    {
+      title: "Freelance Software Engineer",
+      company: "Upwork (International)",
+      date: "Oct 2025 – Present",
+      description:
+        "Building advanced web scraping and automation tools for clients like Responsibly (Denmark) and Go10 (UK).",
+      content: [
+        "Developed scraping pipelines using Playwright, Cheerio, and Crawlee to collect structured data.",
+        "Delivered browser automation and API-driven scrapers tailored to client business needs.",
+        "Provided full-stack services using Next.js, Node.js, and PostgreSQL.",
+        "Ensured reliable deployments and documentation for all delivered solutions.",
+      ],
+    },
+    {
+      title: "ICT Intern",
+      company: "Kenya Revenue Authority (KRA)",
+      date: "June 2025 – Sept 2025",
+      description:
+        "Collaborated with cross-functional teams to integrate pension management modules.",
+      content: [
+        "Enhanced platform security by implementing MFA, CAPTCHA, and secure registration.",
+        "Supported deployment of pension calculators and contribution filters.",
+        "Participated in testing and documentation to ensure smooth rollouts.",
+      ],
+    },
+    {
+      title: "IT Intern",
+      company: "Unity Homes",
+      date: "June 2024 – Aug 2024",
+      description:
+        "Built responsive React interfaces and integrated Node.js APIs for enterprise web tools.",
+      content: [
+        "Debugged and optimized backend services, improving reliability and performance.",
+        "Automated workflows with scripts, reducing downtime.",
+        "Contributed in Agile sprints through code reviews, testing, and deployments.",
+      ],
+    },
   ];
 
   return (
@@ -51,30 +65,14 @@ const ExperienceCard = () => {
         className="w-full max-w-md"
       >
         <CarouselContent className="py-2">
-          <SingleExperienceCard
-            title={"KRA BSTEM/ICT Intern"}
-            description={"Kenya Revenue Authority | June 2025 – September 2025"}
-            content={experienceOne}
-          />
-          <SingleExperienceCard
-            title={"Software Developer Intern"}
-            description={" Codesoft | February 2024 – April 2024"}
-            content={experienceTwo}
-          />
-          <SingleExperienceCard
-            title={"Information Technology Intern"}
-            description={
-              " Unity Homes - OCF Internship Program | June 2024 – August 2024"
-            }
-            content={experienceThree}
-          />
-          <SingleExperienceCard
-            title={"Personal Projects"}
-            description={
-              "In addition to my internships, I've worked on several personal projects that have given me practical experience in full-stack web development. Through these projects, I've:"
-            }
-            content={experienceFour}
-          />
+          {experiences.map((experience, index) => (
+            <SingleExperienceCard
+              key={index}
+              title={experience.title}
+              description={`${experience.company} | ${experience.date}`}
+              content={experience.content}
+            />
+          ))}
         </CarouselContent>
 
         <div className="flex justify-end gap-2">

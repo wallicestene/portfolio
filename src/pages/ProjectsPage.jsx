@@ -26,9 +26,9 @@ function ProjectsPage() {
     {
       image: Vesper,
       title: "Vesper",
-      stack: "Next.js + Node.js + PostreSQL + Tailwind + Prisma",
+      stack: "Next.js + TypeScript + PostgreSQL + Prisma + Cron Jobs",
       description:
-        "A social media management tool that allows users to schedule posts, and manage content from one workspace. Built for individuals to streamline their social media workflows",
+        "A social media scheduling platform. Implemented backend scheduling, simulated publishing, and engagement analytics using cron jobs. Features secure authentication via BetterAuth.",
       link: "https://github.com/wallicestene/vesper.git",
       live: "#",
       category: "In Development",
@@ -38,7 +38,7 @@ function ProjectsPage() {
       title: "Bookify",
       stack: "React + Node.js + Express.js + MongoDB + Tailwind",
       description:
-        "This is a MERN stack booking app where users can browse and book accommodations. Features include Advanced search, Recommendation system, book accommodations, and list places for booking",
+        "Full-stack booking platform with advanced search filters and dashboards. Optimized backend queries and UI responsiveness, improving user engagement by ~20%.",
       link: "https://github.com/wallicestene/Bookify.git",
       live: "https://appbookify.netlify.app/",
       category: "fullstack",
@@ -46,9 +46,9 @@ function ProjectsPage() {
     {
       image: MetaBlog,
       title: "MetaBlog",
-      stack: "React + Node.js + Express.js + MongoDB + Tailwind + MUI",
+      stack: "React + Node.js + Express.js + MongoDB + Tailwind",
       description:
-        "A blogging website where users can read existing blogs and upload their own content.",
+        "Blogging platform featuring Role-Based Access Control (RBAC) for secure content management and safe input handling.",
       link: "https://github.com/wallicestene/Blog",
       live: "https://the-metablog.netlify.app/",
       category: "fullstack",
@@ -174,7 +174,7 @@ function ProjectsPage() {
             </div>
 
             <p className="text-lg text-balance max-w-xl leading-relaxed">
-             I take pleasure in both
+              I take pleasure in both
               {textColorStyle(" exploring and constructing ")}
               endeavors that personally captivate me or hold practical value.
               You can discover a selection of these undertakings on my{" "}
