@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { UseThemeContext } from "../context/ThemeContext";
 import { Element } from "react-scroll";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   Close,
   GitHub,
@@ -13,6 +13,8 @@ import {
 import { Fade, Slide } from "react-awesome-reveal";
 import { motion } from "framer-motion";
 
+import emailjs from "@emailjs/browser";
+import { useToast } from "../components/hooks/use-toast";
 function ContactPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,6 +22,8 @@ function ContactPage() {
   const [showSocials, setShowSocials] = useState(false);
   const [formSubmitting, setFormSubmitting] = useState(false);
   const { theme, textColorStyle } = UseThemeContext();
+
+  const form = useRef();
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -33,17 +37,38 @@ function ContactPage() {
     setMessage(event.target.value);
   };
 
+  const { toast } = useToast();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setFormSubmitting(true);
-
-    setTimeout(() => {
-      const emailBody = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
-      const mailtoLink = `mailto:wallicestenewaweru@gmail.com?subject=Connect With Me&body=${emailBody}`;
-
-      window.location.href = mailtoLink;
-      setFormSubmitting(false);
-    }, 800);
+    emailjs
+      .sendForm(
+        "service_rzhj7rc",
+        "template_m6e49t4",
+        form.current,
+        "Kkba41CdBFerg9fk7"
+      )
+      .then(
+        () => {
+          return toast({
+            variant: "default",
+            description: "Email sent successfully!",
+          });
+        },
+        () => {
+          return toast({
+            variant: "destructive",
+            description: `Failed to send email.`,
+          });
+        }
+      )
+      .finally(() => {
+        setFormSubmitting(false);
+        setName("");
+        setEmail("");
+        setMessage("");
+      });
   };
 
   return (
@@ -203,8 +228,9 @@ function ContactPage() {
               }`}
             >
               <form
+                ref={form}
                 onSubmit={handleSubmit}
-                className="flex flex-col w-full font-SpaceGrotesk"
+                className="contact_form flex flex-col w-full font-SpaceGrotesk"
               >
                 <div className="mb-4">
                   <label
@@ -220,6 +246,7 @@ function ContactPage() {
                     id="name"
                     type="text"
                     value={name}
+                    name="from_name"
                     onChange={handleNameChange}
                     required
                     className={`bg-transparent outline-none border py-2.5 px-4 rounded-md w-full transition-colors duration-200 ${
@@ -244,6 +271,7 @@ function ContactPage() {
                     id="email"
                     type="email"
                     value={email}
+                    name="reply_to"
                     onChange={handleEmailChange}
                     required
                     className={`bg-transparent outline-none border py-2.5 px-4 rounded-md w-full transition-colors duration-200 ${
@@ -268,6 +296,7 @@ function ContactPage() {
                     id="message"
                     value={message}
                     required
+                    name="message"
                     onChange={handleMessageChange}
                     rows={4}
                     className={`bg-transparent outline-none border py-2.5 px-4 rounded-md w-full transition-colors duration-200 ${
