@@ -1,8 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
+import { useState } from "react";
 import { Element } from "react-scroll";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { UseThemeContext } from "../context/ThemeContext";
 import ProjectsCards from "./ProjectsCards";
+import { FiGithub, FiArrowRight } from "react-icons/fi";
+
+// Images
 import EShop from "../assets/projectImages/E-shop.png";
 import Recipe from "../assets/projectImages/Recipe.png";
 import Space from "../assets/projectImages/Space.png";
@@ -14,14 +18,11 @@ import SLack from "../assets/projectImages/Slack.png";
 import Saving from "../assets/projectImages/Saving.png";
 import Url from "../assets/projectImages/url.png";
 import MetaBlog from "../assets/projectImages/MetaBlog.png";
-import { Fade, Slide } from "react-awesome-reveal";
-import { useState } from "react";
 
 function ProjectsPage() {
   const { theme, textColorStyle } = UseThemeContext();
   const [filter, setFilter] = useState("all");
 
-  // Project categories
   const projects = [
     {
       image: Vesper,
@@ -129,176 +130,127 @@ function ProjectsPage() {
     },
   ];
 
-  // Filter projects based on selected category
   const filteredProjects =
     filter === "all"
       ? projects
       : projects.filter((project) => project.category === filter);
 
+  const filters = [
+    { id: "all", label: "All Projects" },
+    { id: "In Development", label: "In Dev" },
+    { id: "fullstack", label: "Full Stack" },
+    { id: "frontend", label: "Frontend" },
+  ];
+
   return (
     <Element
       name="projects"
-      className={`delay-100 duration-500 transition ${
-        theme === "light" ? "text-neutral-600" : "text-neutral-400"
+      className={`min-h-screen flex items-center py-20 transition-colors duration-500 relative ${
+        theme === "light" ? "text-neutral-800" : "text-neutral-200"
       }`}
     >
-      <div className="h-screen grid overflow-hidden lg:grid-cols-2 grid-cols-1 w-11/12 mx-auto">
-        <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
-          <Slide duration={1200} direction="left" triggerOnce>
-            <div className="mb-3">
+      <div className="w-11/12 max-w-7xl mx-auto grid lg:grid-cols-12 gap-12">
+        {/* LEFT COLUMN */}
+        <div className="lg:col-span-4 lg:sticky lg:top-32 h-fit text-center lg:text-left">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="font-SpaceGrotesk"
+          >
+            <span
+              className={`
+              inline-block py-1 px-3 rounded-full text-xs font-bold tracking-widest uppercase mb-4 border backdrop-blur-sm
+              ${
+                theme === "light"
+                  ? "bg-primary/5 border-primary/10 text-primary"
+                  : "bg-secondary/5 border-secondary/10 text-secondary"
+              }
+            `}
+            >
+              Selected Work
+            </span>
+
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+              What I've <br />
               <span
-                className={`inline-block py-1 px-3 rounded-full text-sm font-medium mb-3 ${
-                  theme === "light"
-                    ? "bg-primary/10 text-primary"
-                    : "bg-secondary/10 text-secondary"
-                }`}
+                className={
+                  theme === "light" ? "text-neutral-400" : "text-neutral-500"
+                }
               >
-                What I've Built
+                Built.
               </span>
+            </h2>
 
-              <h2 className="text-2xl lg:text-5xl font-bold tracking-tight">
-                My{" "}
-                <span className="relative">
-                  {textColorStyle("Projects")}
-                  <motion.span
-                    className={`absolute -bottom-1 left-0 h-1 ${
-                      theme === "light" ? "bg-primary" : "bg-secondary"
-                    }`}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "100%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                  />
-                </span>
-              </h2>
-            </div>
-
-            <p className="text-lg text-balance max-w-xl leading-relaxed">
-              I take pleasure in both
-              {textColorStyle(" exploring and constructing ")}
-              endeavors that personally captivate me or hold practical value.
-              You can discover a selection of these undertakings on my{" "}
-              {textColorStyle(" GitHub profile, ")}
-              alongside a variety of other miscellaneous creations that{" "}
-              {textColorStyle(" I've dedicated my efforts to.")}
+            <p className="text-lg leading-relaxed opacity-80 mb-8">
+              A collection of projects exploring
+              {textColorStyle(" modern web technologies ")}. From complex
+              full-stack applications to experimental frontend interfaces.
             </p>
 
-            <div className="mt-6 mb-4">
-              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-8">
+              {filters.map((f) => (
                 <button
-                  onClick={() => setFilter("all")}
-                  className={`px-4 py-1.5 text-sm rounded-full transition-colors ${
-                    filter === "all"
-                      ? theme === "light"
-                        ? "bg-primary text-white"
-                        : "bg-secondary text-primary"
-                      : theme === "light"
-                      ? "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                      : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                  }`}
+                  key={f.id}
+                  onClick={() => setFilter(f.id)}
+                  className={`
+                    px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-full transition-all duration-300 border
+                    ${
+                      filter === f.id
+                        ? theme === "light"
+                          ? "bg-neutral-900 text-white border-neutral-900"
+                          : "bg-white text-black border-white"
+                        : theme === "light"
+                        ? "bg-transparent text-neutral-500 border-neutral-200 hover:border-neutral-400 hover:text-black"
+                        : "bg-transparent text-neutral-400 border-neutral-800 hover:border-neutral-600 hover:text-white"
+                    }
+                  `}
                 >
-                  All Projects
+                  {f.label}
                 </button>
-                <button
-                  onClick={() => setFilter("In Development")}
-                  className={`px-4 py-1.5 text-sm rounded-full transition-colors ${
-                    filter === "In Development"
-                      ? theme === "light"
-                        ? "bg-primary text-white"
-                        : "bg-secondary text-primary"
-                      : theme === "light"
-                      ? "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                      : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                  }`}
-                >
-                  In Development
-                </button>
-                <button
-                  onClick={() => setFilter("fullstack")}
-                  className={`px-4 py-1.5 text-sm rounded-full transition-colors ${
-                    filter === "fullstack"
-                      ? theme === "light"
-                        ? "bg-primary text-white"
-                        : "bg-secondary text-primary"
-                      : theme === "light"
-                      ? "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                      : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                  }`}
-                >
-                  Full-Stack
-                </button>
-                <button
-                  onClick={() => setFilter("frontend")}
-                  className={`px-4 py-1.5 text-sm rounded-full transition-colors ${
-                    filter === "frontend"
-                      ? theme === "light"
-                        ? "bg-primary text-white"
-                        : "bg-secondary text-primary"
-                      : theme === "light"
-                      ? "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                      : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                  }`}
-                >
-                  Frontend
-                </button>
-              </div>
+              ))}
             </div>
-          </Slide>
 
-          <Fade duration={1200} delay={200} cascade triggerOnce>
-            <div className="my-4 grid place-items-center lg:flex lg:justify-start">
-              <a
-                href="https://github.com/wallicestene"
-                className={`relative overflow-hidden px-7 py-3 font-medium rounded-lg group transition-all duration-300 ${
-                  theme === "light"
-                    ? "bg-primary text-white hover:bg-primary/90"
-                    : "bg-secondary text-primary hover:bg-secondary/90"
-                }`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40"></span>
-                <span className="flex items-center gap-2">
-                  View GitHub Profile
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M7 17l9.2-9.2M17 17V7H7"></path>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </Fade>
+            <a
+              href="https://github.com/wallicestene"
+              target="_blank"
+              rel="noreferrer"
+              className={`hidden lg:inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 group ${
+                theme === "light"
+                  ? "bg-white border border-neutral-200 text-neutral-800 hover:border-neutral-900 shadow-sm"
+                  : "bg-neutral-800 border border-neutral-700 text-white hover:bg-neutral-700 shadow-sm"
+              }`}
+            >
+              <FiGithub className="text-lg" />
+              <span>Visit GitHub</span>
+              <FiArrowRight className="transition-transform group-hover:translate-x-1" />
+            </a>
+          </motion.div>
         </div>
 
-        <div className="projectRight lg:mt-4 grid place-items-center h-full overflow-y-scroll py-5 scrollbar-hide">
-          <div className="grid grid-cols-1 gap-6 pb-8">
-            {filteredProjects.length === 0 ? (
-              <div className="text-center py-10">
-                <p>No projects found in this category.</p>
-              </div>
-            ) : (
-              filteredProjects.map((project, index) => (
-                <ProjectsCards
-                  key={index}
-                  image={project.image}
-                  title={project.title}
-                  stack={project.stack}
-                  description={project.description}
-                  link={project.link}
-                  live={project.live}
-                />
-              ))
-            )}
-          </div>
+        {/* RIGHT COLUMN */}
+        <div className="lg:col-span-8">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={filter} 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-1 gap-8"
+            >
+              {filteredProjects.length === 0 ? (
+                <div className="text-center py-10 opacity-50">
+                  No projects found in this category.
+                </div>
+              ) : (
+                filteredProjects.map((project, index) => (
+                  <ProjectsCards key={index} {...project} />
+                ))
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </Element>

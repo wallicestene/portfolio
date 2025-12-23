@@ -1,47 +1,32 @@
 /* eslint-disable react/no-unescaped-entities */
-import { UseThemeContext } from "../context/ThemeContext";
-import { Element } from "react-scroll";
 import { useRef, useState } from "react";
-import {
-  Close,
-  GitHub,
-  LinkedIn,
-  Share,
-  Twitter,
-  Send,
-} from "@mui/icons-material";
-import { Fade, Slide } from "react-awesome-reveal";
+import { Element } from "react-scroll";
 import { motion } from "framer-motion";
-
 import emailjs from "@emailjs/browser";
+import { UseThemeContext } from "../context/ThemeContext";
 import { useToast } from "../components/hooks/use-toast";
+
+// Icons - Switching to React Icons for consistency
+import { FiMail, FiMapPin, FiPhone, FiSend, FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
+
 function ContactPage() {
+  const { theme, textColorStyle } = UseThemeContext();
+  const { toast } = useToast();
+  const form = useRef();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [showSocials, setShowSocials] = useState(false);
   const [formSubmitting, setFormSubmitting] = useState(false);
-  const { theme, textColorStyle } = UseThemeContext();
 
-  const form = useRef();
+  const handleNameChange = (e) => setName(e.target.value);
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handleMessageChange = (e) => setMessage(e.target.value);
 
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handleMessageChange = (event) => {
-    setMessage(event.target.value);
-  };
-
-  const { toast } = useToast();
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setFormSubmitting(true);
+    
     emailjs
       .sendForm(
         "service_rzhj7rc",
@@ -51,353 +36,221 @@ function ContactPage() {
       )
       .then(
         () => {
-          return toast({
+          toast({
             variant: "default",
-            description: "Email sent successfully!",
+            description: "Message sent! I'll get back to you soon.",
           });
+          setName("");
+          setEmail("");
+          setMessage("");
         },
         () => {
-          return toast({
+          toast({
             variant: "destructive",
-            description: `Failed to send email.`,
+            description: "Failed to send message. Please try again.",
           });
         }
       )
       .finally(() => {
         setFormSubmitting(false);
-        setName("");
-        setEmail("");
-        setMessage("");
       });
   };
+
+  const contactInfo = [
+    { icon: FiMail, label: "wallicestenewaweru@gmail.com", href: "mailto:wallicestenewaweru@gmail.com" },
+    { icon: FiPhone, label: "+254 794 848 717", href: "tel:+254794848717" },
+    { icon: FiMapPin, label: "Nairobi, Kenya", href: null },
+  ];
+
+  const socialLinks = [
+    { icon: FiGithub, href: "http://github.com/wallicestene" },
+    { icon: FiLinkedin, href: "https://www.linkedin.com/in/wallicestene-waweru-a26744249" },
+    { icon: FiTwitter, href: "https://twitter.com/wallicestene" },
+  ];
 
   return (
     <Element
       name="contact"
-      className={`delay-100 duration-500 transition ${
-        theme === "light" ? "text-neutral-600" : "text-neutral-400"
+      className={`min-h-screen flex items-center py-20 transition-colors duration-500 relative ${
+        theme === "light" ? "text-neutral-800" : "text-neutral-200"
       }`}
     >
-      <div className="h-screen grid overflow-hidden lg:grid-cols-2 grid-cols-1 w-11/12 mx-auto">
-        <div className="left flex flex-col justify-center text-center lg:text-start font-SpaceGrotesk px-2">
-          <Slide duration={1200} direction="left" triggerOnce>
-            <div className="mb-4">
-              <span
-                className={`inline-block py-1 px-3 rounded-full text-sm font-medium mb-3 ${
-                  theme === "light"
-                    ? "bg-primary/10 text-primary"
-                    : "bg-secondary/10 text-secondary"
-                }`}
-              >
-                Get in Touch
+      <div className="w-11/12 max-w-7xl mx-auto grid lg:grid-cols-12 gap-12">
+        
+        {/* LEFT COLUMN: Sticky Header & Info */}
+        <div className="lg:col-span-4 lg:sticky lg:top-32 h-fit text-center lg:text-left">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="font-SpaceGrotesk"
+          >
+            <span className={`
+              inline-block py-1 px-3 rounded-full text-xs font-bold tracking-widest uppercase mb-4 border backdrop-blur-sm
+              ${theme === "light" 
+                ? "bg-primary/5 border-primary/10 text-primary" 
+                : "bg-secondary/5 border-secondary/10 text-secondary"}
+            `}>
+              Get in Touch
+            </span>
+
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+              Let's work <br />
+              <span className={theme === "light" ? "text-neutral-400" : "text-neutral-500"}>
+                together.
               </span>
+            </h2>
 
-              <h2 className="text-2xl lg:text-5xl font-bold tracking-tight">
-                Want to work with me?{" "}
-                <span className="relative">
-                  {textColorStyle("Let's Connect")}
-                  <motion.span
-                    className={`absolute -bottom-1 left-0 h-1 ${
-                      theme === "light" ? "bg-primary" : "bg-secondary"
-                    }`}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "100%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                  />
-                </span>
-              </h2>
-            </div>
-
-            <p className="text-lg text-balance max-w-xl leading-relaxed">
-              I am open to
-              {textColorStyle(" part-time, full-time, and remote ")}
-              positions.
-              {textColorStyle(" Fill out the form ")}
-              if you have anything you think I'd be{" "}
-              {textColorStyle(" interested ")} in.
+            <p className="text-lg leading-relaxed opacity-80 mb-8">
+              I am open to {textColorStyle("freelance, full-time, and remote")} opportunities. 
+              Whether you have a question or just want to say hi, I'll try my best to get back to you!
             </p>
 
-            <div className="mt-8 hidden lg:block">
-              <div
-                className={`p-4 rounded-lg ${
-                  theme === "light" ? "bg-gray-50/80" : "bg-gray-900/50"
-                }`}
-              >
-                <h4 className="font-medium mb-3">Contact Details:</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-3">
-                    <span
-                      className={`inline-flex items-center justify-center w-8 h-8 rounded-full ${
-                        theme === "light" ? "bg-primary/10" : "bg-secondary/10"
-                      }`}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className={
-                          theme === "light" ? "text-primary" : "text-secondary"
-                        }
-                      >
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                      </svg>
-                    </span>
-                    <span className="text-sm sm:text-base">
-                      +254 7948 487 17
-                    </span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span
-                      className={`inline-flex items-center justify-center w-8 h-8 rounded-full ${
-                        theme === "light" ? "bg-primary/10" : "bg-secondary/10"
-                      }`}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className={
-                          theme === "light" ? "text-primary" : "text-secondary"
-                        }
-                      >
-                        <rect width="20" height="16" x="2" y="4" rx="2" />
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                      </svg>
-                    </span>
-                    <span className="text-sm sm:text-base">
-                      wallicestenewaweru@gmail.com
-                    </span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span
-                      className={`inline-flex items-center justify-center w-8 h-8 rounded-full ${
-                        theme === "light" ? "bg-primary/10" : "bg-secondary/10"
-                      }`}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className={
-                          theme === "light" ? "text-primary" : "text-secondary"
-                        }
-                      >
-                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                        <circle cx="12" cy="10" r="3" />
-                      </svg>
-                    </span>
-                    <span className="text-sm sm:text-base">Nairobi, Kenya</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </Slide>
-        </div>
-
-        <div className="right grid place-items-center">
-          <Slide
-            duration={1200}
-            direction="right"
-            triggerOnce
-            className="w-full"
-          >
-            <div
-              className={`w-full ${
-                theme === "light" ? "bg-white/50" : "bg-neutral-900/50"
-              } backdrop-blur-sm rounded-lg p-6 shadow-sm border ${
-                theme === "light" ? "border-gray-100" : "border-neutral-800"
-              }`}
-            >
-              <form
-                ref={form}
-                onSubmit={handleSubmit}
-                className="contact_form flex flex-col w-full font-SpaceGrotesk"
-              >
-                <div className="mb-4">
-                  <label
-                    htmlFor="name"
-                    className={`block text-sm font-medium mb-1 ${
-                      theme === "light" ? "text-gray-600" : "text-gray-300"
-                    }`}
-                  >
-                    Your Name
-                  </label>
-                  <input
-                    placeholder="Enter Your Name"
-                    id="name"
-                    type="text"
-                    value={name}
-                    name="from_name"
-                    onChange={handleNameChange}
-                    required
-                    className={`bg-transparent outline-none border py-2.5 px-4 rounded-md w-full transition-colors duration-200 ${
-                      theme === "light"
-                        ? "border-gray-300 focus:border-primary text-neutral-700 placeholder:text-gray-400"
-                        : "border-gray-700 focus:border-secondary text-neutral-300 placeholder:text-gray-600"
-                    }`}
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label
-                    htmlFor="email"
-                    className={`block text-sm font-medium mb-1 ${
-                      theme === "light" ? "text-gray-600" : "text-gray-300"
-                    }`}
-                  >
-                    Your Email
-                  </label>
-                  <input
-                    placeholder="Enter Your Email"
-                    id="email"
-                    type="email"
-                    value={email}
-                    name="reply_to"
-                    onChange={handleEmailChange}
-                    required
-                    className={`bg-transparent outline-none border py-2.5 px-4 rounded-md w-full transition-colors duration-200 ${
-                      theme === "light"
-                        ? "border-gray-300 focus:border-primary text-neutral-700 placeholder:text-gray-400"
-                        : "border-gray-700 focus:border-secondary text-neutral-300 placeholder:text-gray-600"
-                    }`}
-                  />
-                </div>
-
-                <div className="mb-6">
-                  <label
-                    htmlFor="message"
-                    className={`block text-sm font-medium mb-1 ${
-                      theme === "light" ? "text-gray-600" : "text-gray-300"
-                    }`}
-                  >
-                    Your Message
-                  </label>
-                  <textarea
-                    placeholder="Enter Your Message"
-                    id="message"
-                    value={message}
-                    required
-                    name="message"
-                    onChange={handleMessageChange}
-                    rows={4}
-                    className={`bg-transparent outline-none border py-2.5 px-4 rounded-md w-full transition-colors duration-200 ${
-                      theme === "light"
-                        ? "border-gray-300 focus:border-primary text-neutral-700 placeholder:text-gray-400"
-                        : "border-gray-700 focus:border-secondary text-neutral-300 placeholder:text-gray-600"
-                    }`}
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={formSubmitting}
-                  className={`relative overflow-hidden px-7 py-3 font-medium rounded-lg group transition-all duration-300 disabled:opacity-70 ${
-                    theme === "light"
-                      ? "bg-primary text-white hover:bg-primary/90"
-                      : "bg-secondary text-primary hover:bg-secondary/90"
-                  }`}
+            {/* Contact Details List */}
+            <div className="flex flex-col gap-6 mb-8">
+              {contactInfo.map((item, index) => (
+                <a 
+                  key={index} 
+                  href={item.href}
+                  className={`flex items-center gap-4 group ${!item.href && "cursor-default"}`}
                 >
-                  <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40"></span>
-                  <span className="flex items-center justify-center gap-2">
-                    {formSubmitting ? (
-                      <>
-                        Sending<span className="animate-pulse">...</span>
-                      </>
-                    ) : (
-                      <>
-                        Send Message
-                        <Send fontSize="small" />
-                      </>
-                    )}
+                  <div className={`
+                    w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300
+                    ${theme === "light" 
+                      ? "bg-neutral-100 text-neutral-600 group-hover:bg-primary group-hover:text-white" 
+                      : "bg-neutral-800 text-neutral-400 group-hover:bg-white group-hover:text-black"}
+                  `}>
+                    <item.icon size={20} />
+                  </div>
+                  <span className={`text-sm font-medium transition-colors ${
+                    theme === "light" ? "text-neutral-600 group-hover:text-black" : "text-neutral-400 group-hover:text-white"
+                  }`}>
+                    {item.label}
                   </span>
-                </button>
-              </form>
+                </a>
+              ))}
             </div>
-          </Slide>
-        </div>
 
-        {/* Social Media Float */}
-        <div className="fixed z-10 bottom-10 right-10">
-          {showSocials && (
-            <Fade
-              direction="left"
-              duration={500}
-              cascade
-              className="flex flex-col gap-3 mb-3"
-            >
-              <motion.a
-                href="https://www.linkedin.com/in/wallicestene-waweru-a26744249"
-                target="_blank"
-                rel="noreferrer"
-                whileHover={{ y: -5 }}
-                className={`grid place-items-center h-10 w-10 hover:cursor-pointer shadow-lg rounded-full ${
-                  theme === "light"
-                    ? "bg-primary text-white"
-                    : "bg-white text-primary"
-                }`}
-              >
-                <LinkedIn fontSize="small" />
-              </motion.a>
-              <motion.a
-                href="http://github.com/wallicestene"
-                target="_blank"
-                rel="noreferrer"
-                whileHover={{ y: -5 }}
-                className={`grid place-items-center h-10 w-10 hover:cursor-pointer shadow-lg rounded-full ${
-                  theme === "light"
-                    ? "bg-primary text-white"
-                    : "bg-white text-primary"
-                }`}
-              >
-                <GitHub fontSize="small" />
-              </motion.a>
-              <motion.a
-                href="https://twitter.com/wallicestene?t=_BQ3dIazwHV481hk8EFILg&s=09"
-                target="_blank"
-                rel="noreferrer"
-                whileHover={{ y: -5 }}
-                className={`grid place-items-center h-10 w-10 hover:cursor-pointer shadow-lg rounded-full ${
-                  theme === "light"
-                    ? "bg-primary text-white"
-                    : "bg-white text-primary"
-                }`}
-              >
-                <Twitter fontSize="small" />
-              </motion.a>
-            </Fade>
-          )}
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className={`grid place-items-center h-10 w-10 hover:cursor-pointer shadow-lg rounded-full ${
-              theme === "light"
-                ? "bg-primary text-white"
-                : "bg-white text-primary"
-            }`}
-            onClick={() => setShowSocials(!showSocials)}
-          >
-            {!showSocials ? <Share /> : <Close />}
+            {/* Social Links Row */}
+            <div className="flex justify-center lg:justify-start gap-4">
+              {socialLinks.map((social, idx) => (
+                <a
+                  key={idx}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`
+                    w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 hover:-translate-y-1
+                    ${theme === "light"
+                      ? "border-neutral-200 text-neutral-600 hover:border-black hover:bg-black hover:text-white"
+                      : "border-neutral-800 text-neutral-400 hover:border-white hover:bg-white hover:text-black"}
+                  `}
+                >
+                  <social.icon size={18} />
+                </a>
+              ))}
+            </div>
           </motion.div>
         </div>
+
+        {/* RIGHT COLUMN: The Form */}
+        <div className="lg:col-span-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className={`
+              p-8 md:p-10 rounded-3xl border transition-all duration-300
+              ${theme === "light" 
+                ? "bg-white border-neutral-100 shadow-xl shadow-neutral-200/50" 
+                : "bg-neutral-900 border-neutral-800 shadow-xl shadow-black/50"}
+            `}
+          >
+            <form ref={form} onSubmit={handleSubmit} className="flex flex-col gap-6 font-SpaceGrotesk">
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider opacity-70">Name</label>
+                  <input
+                    id="name"
+                    name="from_name"
+                    type="text"
+                    required
+                    value={name}
+                    onChange={handleNameChange}
+                    placeholder="John Doe"
+                    className={`
+                      w-full p-4 rounded-xl border bg-transparent outline-none transition-all duration-300
+                      ${theme === "light"
+                        ? "border-neutral-200 focus:border-black focus:ring-1 focus:ring-black/5 placeholder:text-neutral-400"
+                        : "border-neutral-800 focus:border-white focus:ring-1 focus:ring-white/10 placeholder:text-neutral-600 text-neutral-200"}
+                    `}
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider opacity-70">Email</label>
+                  <input
+                    id="email"
+                    name="reply_to"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={handleEmailChange}
+                    placeholder="john@example.com"
+                    className={`
+                      w-full p-4 rounded-xl border bg-transparent outline-none transition-all duration-300
+                      ${theme === "light"
+                        ? "border-neutral-200 focus:border-black focus:ring-1 focus:ring-black/5 placeholder:text-neutral-400"
+                        : "border-neutral-800 focus:border-white focus:ring-1 focus:ring-white/10 placeholder:text-neutral-600 text-neutral-200"}
+                    `}
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider opacity-70">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows={6}
+                  value={message}
+                  onChange={handleMessageChange}
+                  placeholder="Tell me about your project..."
+                  className={`
+                    w-full p-4 rounded-xl border bg-transparent outline-none transition-all duration-300 resize-none
+                    ${theme === "light"
+                      ? "border-neutral-200 focus:border-black focus:ring-1 focus:ring-black/5 placeholder:text-neutral-400"
+                      : "border-neutral-800 focus:border-white focus:ring-1 focus:ring-white/10 placeholder:text-neutral-600 text-neutral-200"}
+                  `}
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={formSubmitting}
+                className={`
+                  self-start mt-2 px-8 py-4 rounded-full font-bold tracking-wide transition-all duration-300 flex items-center gap-2
+                  ${theme === "light"
+                    ? "bg-neutral-900 text-white hover:bg-black hover:shadow-lg disabled:opacity-70"
+                    : "bg-white text-black hover:bg-neutral-200 hover:shadow-lg disabled:opacity-70"}
+                `}
+              >
+                {formSubmitting ? (
+                  <>Sending...</>
+                ) : (
+                  <>
+                    Send Message <FiSend />
+                  </>
+                )}
+              </button>
+
+            </form>
+          </motion.div>
+        </div>
+
       </div>
     </Element>
   );

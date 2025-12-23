@@ -24,10 +24,10 @@ const Navbar = ({
   }, []);
 
   const navLinks = [
-    { name: "About", to: "about", action: scrollToAbout },
+    { name: "About", to: "about", action: scrollToAbout }, 
+    { name: "Skills", to: "skills", action: scrollToSkills },
     { name: "Experience", to: "experience", action: scrollToExperience },
     { name: "Projects", to: "projects", action: scrollToProjects },
-    { name: "Skills", to: "skills", action: scrollToSkills },
     { name: "Contact", to: "contact", action: scrollToContact },
   ];
 
@@ -59,7 +59,7 @@ const Navbar = ({
             </Link>
           </div>
 
-          {/* Desktop Links */}
+          {/* Links */}
           <ul className="hidden md:flex gap-8 text-sm font-medium font-SpaceGrotesk">
             {navLinks.map((link) => (
               <li key={link.name}>

@@ -59,12 +59,10 @@ const Homepage = () => {
     <>
       <Element
         name="about"
-        // Removed overflow-hidden to ensure background from App.jsx isn't clipped
         className={`relative min-h-screen flex flex-col justify-center transition-colors duration-500 ${
           theme === "light" ? "text-neutral-800" : "text-neutral-200"
         }`}
       >
-        {/* NAVBAR: Floating pill navbar */}
         <Navbar
           scrollToAbout={() => scrollToSection("about")}
           scrollToProjects={() => scrollToSection("projects")}
@@ -76,14 +74,13 @@ const Homepage = () => {
         {/* HERO SECTION */}
         <div className="flex-grow flex items-center justify-center w-11/12 max-w-7xl mx-auto pt-24 lg:pt-0">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full">
-            {/* LEFT: Content */}
+            {/* LEFT */}
             <motion.div
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
               className="flex flex-col items-center lg:items-start text-center lg:text-left font-SpaceGrotesk z-10"
             >
-              {/* STATUS BADGE */}
               <motion.div
                 variants={fadeInUp}
                 className={`
@@ -177,7 +174,7 @@ const Homepage = () => {
               </motion.div>
             </motion.div>
 
-            {/* RIGHT: Modern Squircle Image */}
+            {/* RIGHT */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9, rotate: 3 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -190,7 +187,7 @@ const Homepage = () => {
               className="relative flex justify-center lg:justify-end z-10 mt-10 lg:mt-0"
             >
               <div className="relative group cursor-pointer">
-                {/* Main Image Container */}
+                {/* Main Image */}
                 <div
                   className={`
                   relative w-72 h-72 md:w-96 md:h-96 rounded-[2.5rem] overflow-hidden
