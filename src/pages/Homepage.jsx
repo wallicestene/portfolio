@@ -21,7 +21,7 @@ const Homepage = () => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = "My Resume.pdf";
+        a.download = "Wallicestene_Waweru_Developer_Resume.pdf";
         a.click();
         URL.revokeObjectURL(url);
       })
