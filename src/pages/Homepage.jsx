@@ -14,7 +14,7 @@ const Homepage = () => {
   const { theme } = UseThemeContext();
 
   const handleDownload = () => {
-    const fileUrl = "/My Resume.pdf";
+    const fileUrl = "/Wallicestene_Waweru_Developer_Resume.pdf";
     fetch(fileUrl)
       .then((res) => res.blob())
       .then((blob) => {
