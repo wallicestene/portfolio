@@ -9,9 +9,10 @@ const clock = new Intl.DateTimeFormat("en-GB", { timeZone: person.timeZone, hour
 const elsewhere = [
   { label: "GitHub", href: person.links.github },
   { label: "LinkedIn", href: person.links.linkedin },
+  { label: "Upwork", href: person.links.upwork },
   { label: "X", href: person.links.x },
   { label: "Apify", href: person.links.apify },
-];
+].filter((l) => l.href);
 
 export function Footer() {
   const [now, setNow] = useState(() => clock.format(new Date()));

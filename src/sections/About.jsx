@@ -25,6 +25,7 @@ const STATEMENT = [
 const LINKS = [
   ["GitHub", person.links.github],
   ["LinkedIn", person.links.linkedin],
+  ["Upwork", person.links.upwork],
   ["X", person.links.x],
   ["Apify", person.links.apify],
 ];
