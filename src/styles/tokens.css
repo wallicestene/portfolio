@@ -1,0 +1,57 @@
+/* Design tokens. Greens are accents only: active, focus, progress and live states. */
+:root {
+  color-scheme: dark;
+
+  --bg: #0a0a0a;
+  --well: #0d0d0d; /* window bars, terminal, image backdrops */
+  --surface: #111111; /* cards and tiles */
+  --raised: #171717; /* pressed and raised controls */
+  --border: rgb(255 255 255 / 0.08);
+  --border-strong: rgb(255 255 255 / 0.14);
+  --line-strong: #2a2a2a; /* window dots, switch track, scrollbar */
+  --ink: #ededed;
+  --muted: #a1a1a1;
+  --faint: #8a8a8a;
+  --name-rest: #5e5e5e; /* 3:1 on --bg */
+  --shadow: #000000;
+
+  --accent: oklch(0.9 0.05 165); /* mint */
+  --accent-strong: oklch(0.36 0.055 168); /* pine */
+  --accent-deep: oklch(0.27 0.045 170); /* deep pine */
+  --accent-ink: #0a0a0a;
+  --accent-ring: oklch(0.9 0.05 165 / 0.24);
+  --amber: oklch(0.78 0.15 78); /* rating star only */
+
+  --primary: #ededed;
+  --primary-hover: #ffffff;
+  --primary-ink: #0a0a0a;
+
+  /* Space Grotesk for display and UI, Libre Franklin for body text */
+  --font-display: "Space Grotesk Variable", "Helvetica Neue", Arial, sans-serif;
+  --font-text: "Libre Franklin Variable", "Helvetica Neue", Arial, sans-serif;
+
+  --step-small: 0.8125rem;
+  --step-body: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+  --step-lead: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --step-head: clamp(1.875rem, 1.4rem + 1.4vw, 2.75rem);
+  --step-display: clamp(2.25rem, 1.5rem + 2.6vw, 4rem);
+
+  --margin: clamp(1.25rem, 3vw, 2.5rem);
+  --content: 75rem;
+  /* hero frame */
+  --frame-pad: clamp(1rem, 2.8vw, 2.5rem);
+  --frame-top: 10px;
+  --bite-w: 9.25rem;
+  --bite-h: 5rem;
+  --section: clamp(6rem, 12vw, 10rem);
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 18px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --t-press: 140ms;
+  --t-hover: 180ms;
+  --t-ui: 240ms;
+}

@@ -1,0 +1,293 @@
+/* Nav: a capsule on scroll below desktop; on desktop it sits in the hero's carved shelf. */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+.nav__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: 4rem;
+  margin-top: 0;
+  border: 1px solid transparent;
+  border-radius: 0;
+  transition:
+    max-width 600ms var(--ease-expo),
+    margin-top 600ms var(--ease-expo),
+    height 600ms var(--ease-expo),
+    padding 600ms var(--ease-expo),
+    border-radius 600ms var(--ease-expo),
+    background-color 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+@media (max-width: 63.99em) {
+  .nav.is-scrolled .nav__inner {
+    max-width: 62rem;
+    height: 3.5rem;
+    margin-top: 0.75rem;
+    padding-inline: 1rem 0.5rem;
+    border-color: var(--border-strong);
+    border-radius: 16px;
+    background: rgb(14 14 14 / 0.72);
+    -webkit-backdrop-filter: saturate(160%) blur(16px);
+    backdrop-filter: saturate(160%) blur(16px);
+    box-shadow: 0 12px 40px -12px rgb(0 0 0 / 0.7);
+  }
+}
+@media (max-width: 47.99em) {
+  .nav.is-scrolled .nav__inner {
+    margin-top: 0.5rem;
+    width: calc(100% - 1rem);
+    padding-inline: 0.85rem 0.25rem;
+  }
+}
+
+/* brand */
+.nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.wmark {
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1 1;
+  overflow: visible;
+}
+.wmark__second {
+  stroke-opacity: 0.5;
+  transition:
+    stroke 450ms var(--ease-out),
+    stroke-opacity 450ms var(--ease-out);
+}
+.wmark.is-lit .wmark__second {
+  stroke: var(--accent);
+  stroke-opacity: 1;
+}
+
+.nav__links {
+  display: none;
+}
+.nav__pill {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 2.4rem;
+  margin-top: -1.2rem;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.07);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 420ms var(--ease-expo),
+    width 420ms var(--ease-expo),
+    opacity 200ms ease;
+}
+.nav__pill.is-visible {
+  opacity: 1;
+}
+.nav__link {
+  position: relative;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: rgb(237 237 237 / 0.72);
+  transition: color var(--t-hover) ease;
+}
+.nav__link:hover,
+.nav__link:focus-visible {
+  color: var(--ink);
+}
+.nav__link.is-active {
+  color: var(--accent);
+}
+.nav__resume-icon {
+  display: none;
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav__resume {
+  display: none;
+}
+.nav__menu {
+  min-height: 2.75rem;
+  padding: 0 0.25rem 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  color: var(--ink);
+}
+@media (min-width: 48em) {
+  .nav__resume {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 64em) {
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 0;
+  }
+  .nav__inner {
+    position: absolute;
+    top: calc(var(--frame-top) + 0.75rem);
+    left: var(--frame-pad);
+    justify-content: flex-start;
+    gap: 0.75rem;
+    height: 3.25rem;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .nav__brand {
+    height: 100%;
+    padding: 0 1.1rem 0 0.35rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    transition:
+      padding 500ms var(--ease-expo),
+      background-color 300ms ease,
+      border-color 300ms ease;
+  }
+  .nav.is-scrolled .nav__brand {
+    padding-left: 0.9rem;
+    border-color: var(--border-strong);
+    background: rgb(14 14 14 / 0.82);
+    -webkit-backdrop-filter: saturate(160%) blur(16px);
+    backdrop-filter: saturate(160%) blur(16px);
+  }
+  .nav__links {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 0.3rem 0 0.35rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.03);
+    transition:
+      background-color 300ms ease,
+      box-shadow 300ms ease;
+  }
+  .nav.is-scrolled .nav__links {
+    background: rgb(14 14 14 / 0.82);
+    -webkit-backdrop-filter: saturate(160%) blur(16px);
+    backdrop-filter: saturate(160%) blur(16px);
+    box-shadow: 0 10px 30px -14px rgb(0 0 0 / 0.6);
+  }
+  .nav__actions,
+  .nav__menu {
+    display: none;
+  }
+  .nav__resume-icon {
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    margin-left: 0.35rem;
+    border: 1px solid rgb(255 255 255 / 0.22);
+    border-radius: 50%;
+    color: var(--ink);
+    transition:
+      background-color var(--t-hover) ease,
+      color var(--t-hover) ease;
+  }
+  .nav__resume-icon:hover {
+    background: var(--primary);
+    color: var(--primary-ink);
+  }
+
+  /* pages without the hero clear the floating nav */
+  #main > :first-child:not(.frame) {
+    margin-top: 5.5rem;
+  }
+}
+
+/* phone menu */
+.nav__sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--bg);
+  animation: sheet-in 260ms ease both;
+}
+.nav__sheet-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+}
+.nav__sheet-links {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 10svh;
+  list-style: none;
+}
+.nav__sheet-links li {
+  animation: sheet-link 520ms var(--ease-expo) both;
+  animation-delay: calc(80ms + var(--i) * 55ms);
+}
+.nav__sheet-links a {
+  display: block;
+  padding: 0.5rem 0;
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.nav__sheet-links a.is-active {
+  color: var(--accent);
+}
+@keyframes sheet-in {
+  from { opacity: 0; }
+}
+@keyframes sheet-link {
+  from { opacity: 0; transform: translateY(18px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav__inner,
+  .nav__pill,
+  .nav__brand {
+    transition: none;
+  }
+  .nav__sheet,
+  .nav__sheet-links li {
+    animation: none;
+  }
+  .wmark path {
+    stroke-dasharray: none;
+  }
+}
+
+/* smallest phones: mark only */
+@media (max-width: 23.74em) {
+  .nav__brand > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

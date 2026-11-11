@@ -1,16 +1,30 @@
-import AnimatedBackground from "./components/AnimatedBackground";
-import Backgound from "./components/Backgound";
-import { Toaster } from "./components/ui/toaster";
-import Homepage from "./pages/Homepage";
-function App() {
+import { Route, Routes } from "react-router-dom";
+import { SmoothScroll } from "@/lib/SmoothScroll";
+import { Nav } from "@/components/Nav";
+import { Footer } from "@/components/Footer";
+import { ScrollManager } from "@/components/ScrollManager";
+import { PointerLight } from "@/components/PointerLight";
+import Home from "@/pages/Home";
+import CaseStudy from "@/pages/CaseStudy";
+import NotFound from "@/pages/NotFound";
+
+export default function App() {
   return (
-    <div className=" relative h-full w-full">
-      <AnimatedBackground />
-      <Backgound />
-      <Homepage />
-      <Toaster />
-    </div>
+    <SmoothScroll>
+      <ScrollManager />
+      <PointerLight />
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-bg focus:p-3 font-display">
+        Skip to content
+      </a>
+      <Nav />
+      <main id="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/work/:slug" element={<CaseStudy />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+      <Footer />
+    </SmoothScroll>
   );
 }
-
-export default App;

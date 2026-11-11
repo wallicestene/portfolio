@@ -1,0 +1,196 @@
+/* Shared components */
+.container {
+  width: 100%;
+  max-width: calc(var(--content) + var(--margin) * 2);
+  margin-inline: auto;
+  padding-inline: var(--margin);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  height: 2.75rem;
+  padding: 0 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--t-hover) ease,
+    border-color var(--t-hover) ease,
+    color var(--t-hover) ease,
+    transform var(--t-press) var(--ease-out);
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-sm {
+  height: 2.25rem;
+  padding: 0 0.95rem;
+  font-size: 0.875rem;
+}
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-ink);
+}
+.btn-secondary {
+  background: rgb(255 255 255 / 0.04);
+  border-color: var(--border-strong);
+  color: var(--ink);
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover {
+    background: var(--primary-hover);
+  }
+  .btn-secondary:hover {
+    background: rgb(255 255 255 / 0.09);
+    border-color: rgb(255 255 255 / 0.22);
+  }
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink);
+  transition: color var(--t-hover) ease;
+}
+.link-arrow svg {
+  transition: transform var(--t-hover) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .link-arrow:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+/* Cursor light: a glow inside the card and along its nearest border */
+[data-spot] {
+  --mx: 50%;
+  --my: 50%;
+  position: relative;
+  isolation: isolate;
+}
+[data-spot]::before,
+[data-spot]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 320ms ease;
+}
+[data-spot]::before {
+  z-index: -1;
+  background: radial-gradient(520px circle at var(--mx) var(--my), oklch(0.9 0.05 165 / 0.06), transparent 42%);
+}
+[data-spot]::after {
+  z-index: 2;
+  padding: 1px;
+  background: radial-gradient(260px circle at var(--mx) var(--my), oklch(0.9 0.05 165 / 0.6), transparent 70%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+}
+@media (hover: hover) and (pointer: fine) {
+  [data-spot]:hover::before,
+  [data-spot]:hover::after {
+    opacity: 1;
+  }
+}
+
+/* round icon button */
+.round-btn {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--primary-ink);
+  transition:
+    transform 400ms var(--ease-out),
+    background-color var(--t-hover) ease;
+}
+.round-btn svg {
+  transition: transform 400ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .round-btn:hover {
+    transform: scale(1.06);
+    background: var(--primary-hover);
+  }
+  .round-btn:hover svg {
+    transform: translateY(2px);
+  }
+  .deck__go:hover svg {
+    transform: translate(2px, -2px);
+  }
+}
+.round-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* odometer */
+.odo {
+  display: inline-flex;
+  font-variant-numeric: tabular-nums;
+}
+.odo__col {
+  display: inline-block;
+  height: 1.2em;
+  margin-block: -0.1em;
+  overflow: hidden;
+  /* fade digits at the reel edges */
+  -webkit-mask-image: linear-gradient(transparent, #000 22%, #000 78%, transparent);
+  mask-image: linear-gradient(transparent, #000 22%, #000 78%, transparent);
+}
+.odo__reel {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(calc((var(--d) + 10) * -1.2em));
+  animation: odo-roll 900ms var(--ease-expo) calc(var(--i) * 50ms) both;
+}
+.odo__reel > span {
+  display: block;
+  height: 1.2em;
+  line-height: 1.2;
+}
+.odo__sym {
+  display: inline-block;
+  animation: odo-sym-in 700ms var(--ease-expo) calc(var(--i) * 60ms) both;
+}
+@keyframes odo-roll {
+  from {
+    transform: translateY(calc(var(--d) * -1.2em));
+  }
+}
+@keyframes odo-sym-in {
+  from {
+    opacity: 0;
+    transform: translateY(30%);
+    filter: blur(5px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .odo__reel,
+  .odo__sym {
+    animation: none;
+  }
+}
