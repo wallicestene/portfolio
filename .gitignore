@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# local tooling (not part of the site)
+.taste-skill/
+.impeccable/
+PRODUCT.md
+tests/
+playwright.config.js
+test-results/
+playwright-report/
