@@ -18,6 +18,7 @@ export const person = {
     linkedin: "https://www.linkedin.com/in/wallicestene",
     x: "https://twitter.com/wallicestene",
     apify: "https://apify.com/tangerine_loom",
+    upwork: "https://www.upwork.com/freelancers/wallicestene",
   },
 };
 
@@ -118,6 +119,45 @@ export const stack = [
   { group: "Cloud and tooling", items: ["AWS S3", "Docker", "Git", "CI/CD", "pnpm", "GitLab"] },
 ];
 
+// Public Upwork reviews, quoted word for word. On Upwork he is "Wallace W.".
+export const upwork = {
+  jobSuccess: "100%",
+  badge: "Top Rated",
+  endorsements: ["Reliable", "Collaborative", "Solution Oriented", "Clear Communicator", "Accountable for Outcomes"],
+  reviews: [
+    {
+      name: "Eva Kuentz",
+      company: "Responsibly",
+      country: "Denmark",
+      job: "Typescript Scraper Development using Crawlee",
+      date: "Oct 2026",
+      rating: 5,
+      quote:
+        "Wallace is very meticulous and always provides insightful comments. The work is always of high quality. It is a pleasure to work with him !",
+    },
+    {
+      name: "Jefferson Yong",
+      company: "GO10 Limited",
+      country: "UK",
+      job: "Boots Scraper Update",
+      date: "Mar 2026",
+      rating: 5,
+      quote:
+        "Wallace is swift with responses and gets the job done in the quickest straight-line. Will work with him again.",
+    },
+    {
+      name: "Eva Kuentz",
+      company: "Responsibly",
+      country: "Denmark",
+      job: "Typescript Scraper Development using Crawlee",
+      date: "Apr 2026",
+      rating: 5,
+      quote:
+        "I have a great experience working with Wallace. The quality of the work was excellent, and everything was delivered accurately and efficiently. Wallace is very helpful throughout the process, always responsive, and quick to address any questions or adjustments. Communication was smooth, and he consistently worked fast without compromising on quality.\n\nI would definitely recommend him and would be happy to work together again.",
+    },
+    { name: "Aksel Birkoe", rating: 5, quote: null },
+  ],
+};
 // Public Apify actors; `snapshot` is the fallback when the API is unreachable.
 export const actors = [
   {

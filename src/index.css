@@ -9,6 +9,7 @@
 @import "./styles/layers.css";
 @import "./styles/experience.css";
 @import "./styles/skills.css";
+@import "./styles/reviews.css";
 @import "./styles/case.css";
 
 @tailwind base;
